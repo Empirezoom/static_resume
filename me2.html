@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+  <title>Anthony Matthew | Hyper-Mobile Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;600;900&family=Syne:wght@800&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"/>
+  <style>
+    :root {
+      --black: #050505;
+      --white: #ffffff;
+      --accent: #ff3e00; /* Neon Racing Orange */
+      --glass: rgba(255, 255, 255, 0.05);
+      --border: rgba(255, 255, 255, 0.1);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+      background-color: var(--black);
+      color: var(--white);
+      font-family: 'Outfit', sans-serif;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* --- LIQUID BACKGROUND --- */
+    .bg-glow {
+      position: fixed;
+      width: 100vw;
+      height: 100vh;
+      background: radial-gradient(circle at 80% 20%, #1e1b4b 0%, transparent 40%),
+                  radial-gradient(circle at 10% 80%, #4c1d95 0%, transparent 40%);
+      z-index: -1;
+      filter: blur(100px);
+    }
+
+    /* --- MOBILE OPTIMIZED NAV --- */
+    nav {
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 90%;
+      max-width: 400px;
+      background: rgba(10, 10, 10, 0.8);
+      backdrop-filter: blur(25px);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      display: flex;
+      justify-content: space-around;
+      padding: 12px;
+      z-index: 9999;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.8);
+    }
+
+    nav a {
+      color: var(--white);
+      text-decoration: none;
+      font-size: 1.2rem;
+      opacity: 0.4;
+      transition: 0.3s;
+      width: 45px;
+      height: 45px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 12px;
+    }
+
+    nav a.active {
+      opacity: 1;
+      background: var(--accent);
+      box-shadow: 0 0 20px rgba(255, 62, 0, 0.4);
+    }
+
+    /* --- HERO --- */
+    .hero {
+      padding: 120px 20px 60px;
+      min-height: 80vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .hero h1 {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(3rem, 15vw, 8rem);
+      line-height: 0.9;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+      letter-spacing: -2px;
+    }
+
+    .hero h1 span {
+      display: block;
+      color: var(--accent);
+    }
+
+    .hero-sub {
+      font-size: 1.1rem;
+      max-width: 500px;
+      opacity: 0.7;
+      border-left: 2px solid var(--accent);
+      padding-left: 20px;
+    }
+
+    /* --- BENTO SECTIONS --- */
+    .section-title {
+      font-family: 'Syne', sans-serif;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 4px;
+      color: var(--accent);
+      margin-bottom: 20px;
+      display: block;
+    }
+
+    .bento-container {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 15px;
+      padding: 0 20px 100px;
+    }
+
+    .box {
+      background: var(--glass);
+      border: 1px solid var(--border);
+      padding: 25px;
+      border-radius: 30px;
+      transition: 0.4s;
+    }
+
+    .box:hover {
+      border-color: var(--accent);
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    /* Grid Logic */
+    .large { grid-column: span 4; }
+    .medium { grid-column: span 2; }
+
+    @media (max-width: 768px) {
+      .medium { grid-column: span 4; }
+      .hero { padding-top: 80px; }
+    }
+
+    /* --- SPECIFIC BOX STYLES --- */
+    .skill-pill {
+      display: inline-block;
+      padding: 6px 14px;
+      background: var(--white);
+      color: var(--black);
+      border-radius: 50px;
+      font-size: 0.8rem;
+      font-weight: 800;
+      margin: 4px;
+      text-transform: uppercase;
+    }
+
+    .stat {
+      font-size: 2.5rem;
+      font-weight: 900;
+      display: block;
+      color: var(--accent);
+    }
+
+    .project-link {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      text-decoration: none;
+      color: var(--white);
+      margin-top: 20px;
+    }
+
+    .arrow-icon {
+      width: 40px;
+      height: 40px;
+      border: 1px solid var(--white);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: 0.3s;
+    }
+
+    .box:hover .arrow-icon {
+      background: var(--white);
+      color: var(--black);
+      transform: rotate(-45deg);
+    }
+
+    .contact-big {
+      font-family: 'Syne', sans-serif;
+      font-size: 2rem;
+      text-decoration: none;
+      color: var(--white);
+      display: block;
+      margin-top: 10px;
+      word-break: break-all;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="bg-glow"></div>
+
+  <nav id="navbar">
+    <a href="#home" class="active"><i class="fas fa-home"></i></a>
+    <a href="#work"><i class="fas fa-code-branch"></i></a>
+    <a href="#about"><i class="fas fa-user-astronaut"></i></a>
+    <a href="#contact"><i class="fas fa-comment-dots"></i></a>
+  </nav>
+
+  <section class="hero" id="home">
+    <span class="section-title">Full Stack Developer</span>
+    <h1>ANTHONY<span>MATTHEW</span></h1>
+    <div class="hero-sub">
+      Specializing in robust Django backends and high-performance frontend architectures. Currently innovating at Somolu LG Council.
+    </div>
+  </section>
+
+  <div class="bento-container">
+    
+    <div class="box large" id="about">
+      <span class="section-title">Technical Arsenal</span>
+      <div style="margin-top:15px;">
+        <span class="skill-pill">Django</span>
+        <span class="skill-pill">Python</span>
+        <span class="skill-pill">JavaScript</span>
+        <span class="skill-pill">PostgreSQL</span>
+        <span class="skill-pill">AWS</span>
+        <span class="skill-pill">REST APIs</span>
+        <span class="skill-pill">React</span>
+        <span class="skill-pill">Bootstrap</span>
+        <span class="skill-pill">Git</span>
+      </div>
+    </div>
+
+    <div class="box medium" id="work">
+      <span class="section-title">Latest Role</span>
+      <p style="font-weight: 600; font-size: 1.2rem;">Somolu LG Council</p>
+      <p style="opacity: 0.6; font-size: 0.9rem;">Procurement & Digital Logistics</p>
+      <span class="stat" style="font-size: 1.2rem; margin-top: 15px;">2024 - Present</span>
+    </div>
+
+    <div class="box medium">
+      <span class="section-title">Foundation</span>
+      <p style="font-weight: 600;">B.Tech Mathematics</p>
+      <p style="opacity: 0.6; font-size: 0.9rem;">OAUSTECH</p>
+      <span class="stat">3.41</span>
+      <p style="font-size: 0.7rem; letter-spacing: 1px;">CUMULATIVE GPA</p>
+    </div>
+
+    <a href="https://brokagehub.com/" target="_blank" class="box large" style="text-decoration:none;">
+      <span class="section-title">Featured Project</span>
+      <div class="project-link">
+        <div>
+          <h2 style="font-size: 1.8rem;">Brokage Hub</h2>
+          <p style="opacity: 0.6;">High-traffic Interactive Platform</p>
+        </div>
+        <div class="arrow-icon">
+          <i class="fas fa-arrow-right"></i>
+        </div>
+      </div>
+    </a>
+
+    <div class="box large" id="contact">
+      <span class="section-title">Get in touch</span>
+      <a href="mailto:matthew123224@gmail.com" class="contact-big">SEND AN EMAIL →</a>
+      <div style="margin-top: 30px; display: flex; gap: 20px;">
+        <a href="https://wa.me/2348135362561" style="color:var(--accent); font-size: 1.5rem;"><i class="fab fa-whatsapp"></i></a>
+        <a href="https://linkedin.com/in/anthony-oluwaseun-3b9a71332/" style="color:var(--white); font-size: 1.5rem;"><i class="fab fa-linkedin"></i></a>
+        <a href="https://github.com/Empirezoom" style="color:var(--white); font-size: 1.5rem;"><i class="fab fa-github"></i></a>
+      </div>
+    </div>
+
+  </div>
+
+  <footer style="padding: 40px 20px 120px; text-align: center; font-size: 0.7rem; opacity: 0.3; letter-spacing: 2px;">
+    LAGOS, NG • 2026 EDITION • ARCHITECTED BY ANTHONY
+  </footer>
+
+  <script>
+    // Handle Navigation Active State and Smooth Scroll
+    const navLinks = document.querySelectorAll('nav a');
+    const sections = document.querySelectorAll('section, div[id]');
+
+    window.addEventListener('scroll', () => {
+      let current = '';
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.clientHeight;
+        if (pageYOffset >= (sectionTop - 200)) {
+          current = section.getAttribute('id');
+        }
+      });
+
+      navLinks.forEach(a => {
+        a.classList.remove('active');
+        if (a.getAttribute('href') === `#${current}`) {
+          a.classList.add('active');
+        }
+      });
+    });
+
+    // Vibration feedback for mobile touch (haptic feel)
+    navLinks.forEach(link => {
+      link.addEventListener('touchstart', () => {
+        if (window.navigator.vibrate) window.navigator.vibrate(10);
+      });
+    });
+  </script>
+</body>
+</html>

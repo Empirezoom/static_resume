@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <title>Anthony Matthew | The Dark Architect</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Inter:wght@300;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        :root {
+            --void: #020202;
+            --blade: #111111;
+            --gold: #d4af37;
+            --malefic-green: #3dff8b;
+            --text: #e5e5e5;
+            --shadow: 0 0 30px rgba(0, 0, 0, 0.9);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            cursor: crosshair;
+        }
+
+        body {
+            background-color: var(--void);
+            color: var(--text);
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* --- THE ABYSS BACKGROUND --- */
+        .abyss {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: 
+                radial-gradient(circle at 10% 10%, rgba(61, 255, 139, 0.05) 0%, transparent 40%),
+                radial-gradient(circle at 90% 90%, rgba(212, 175, 55, 0.05) 0%, transparent 40%);
+            z-index: -1;
+        }
+
+        /* --- THE MALEFICENT HERO --- */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .hero h1 {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(2.5rem, 12vw, 6rem);
+            letter-spacing: 10px;
+            text-transform: uppercase;
+            color: var(--text);
+            text-shadow: 0 0 20px rgba(255,255,255,0.1);
+            margin-bottom: 10px;
+        }
+
+        .hero .subtitle {
+            font-size: 0.8rem;
+            letter-spacing: 5px;
+            color: var(--gold);
+            text-transform: uppercase;
+            font-weight: 800;
+        }
+
+        /* --- BENTO OF SHADOWS --- */
+        .grid-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .cell {
+            background: var(--blade);
+            border: 1px solid #222;
+            padding: 40px;
+            position: relative;
+            transition: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            clip-path: polygon(5% 0, 100% 0, 100% 95%, 95% 100%, 0 100%, 0 5%);
+        }
+
+        .cell:hover {
+            border-color: var(--malefic-green);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 40px rgba(61, 255, 139, 0.1);
+        }
+
+        .cell-label {
+            font-family: 'Cinzel', serif;
+            color: var(--gold);
+            font-size: 0.7rem;
+            letter-spacing: 3px;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .cell h2 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            font-weight: 300;
+        }
+
+        /* --- THE SKILLS WEB --- */
+        .skill-list {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .skill-item {
+            font-size: 0.7rem;
+            border: 1px solid #333;
+            padding: 5px 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* --- MOBILE STACKING --- */
+        @media (max-width: 768px) {
+            .grid-container { grid-template-columns: 1fr; }
+            .hero h1 { letter-spacing: 4px; }
+            .cell { padding: 30px; }
+        }
+
+        /* --- FLOATING VOID CONTACT --- */
+        .void-nav {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 15px;
+            background: rgba(0,0,0,0.8);
+            padding: 15px 30px;
+            border-radius: 2px;
+            border-top: 2px solid var(--gold);
+            z-index: 100;
+        }
+
+        .void-nav a {
+            color: var(--text);
+            font-size: 1.2rem;
+            transition: 0.3s;
+        }
+
+        .void-nav a:hover {
+            color: var(--malefic-green);
+            text-shadow: 0 0 10px var(--malefic-green);
+        }
+
+        /* --- SCROLL ANIMATION --- */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="abyss"></div>
+
+    <section class="hero">
+        <div class="reveal">
+            <span class="subtitle">Architect of the Digital Void</span>
+            <h1>ANTHONY MATTHEW</h1>
+            <p style="opacity: 0.5; max-width: 400px; margin: 0 auto;">Mastering Django backends and full-stack dominance with mathematical precision.</p>
+        </div>
+    </section>
+
+    <div class="grid-container">
+        
+        <div class="cell reveal">
+            <span class="cell-label">The Journey</span>
+            <h2>Lead Backend & Instructor</h2>
+            <p style="color: #888; font-size: 0.9rem;">AnchorSoft Academy | 2022 - 2024</p>
+            <p style="margin-top: 15px; font-size: 0.85rem;">Forging the next generation of developers through Pythonic mastery and API architecture.</p>
+        </div>
+
+        <div class="cell reveal">
+            <span class="cell-label">The Core</span>
+            <h2>B.Tech Mathematics</h2>
+            <p style="color: var(--gold); font-size: 1.5rem; font-weight: 900;">3.41 GPA</p>
+            <p style="color: #555; font-size: 0.7rem; letter-spacing: 2px;">OAUSTECH FOUNDATION</p>
+        </div>
+
+        <div class="cell reveal" style="grid-column: span 1;">
+            <span class="cell-label">The Arsenal</span>
+            <ul class="skill-list">
+                <li class="skill-item">Django</li>
+                <li class="skill-item">Python</li>
+                <li class="skill-item">AWS</li>
+                <li class="skill-item">Postgres</li>
+                <li class="skill-item">Rest API</li>
+                <li class="skill-item">JavaScript</li>
+            </ul>
+        </div>
+
+        <div class="cell reveal">
+            <span class="cell-label">Current Status</span>
+            <h2>Digital Procurement</h2>
+            <p style="color: #888; font-size: 0.85rem;">Somolu LG Council • Lagos, Nigeria</p>
+            <div style="margin-top: 10px; height: 2px; width: 30px; background: var(--malefic-green);"></div>
+        </div>
+
+        <a href="https://brokagehub.com/" target="_blank" style="text-decoration: none; color: inherit; grid-column: 1 / -1;">
+            <div class="cell reveal">
+                <span class="cell-label">Masterpiece</span>
+                <h2 style="color: var(--malefic-green);">Brokage Hub →</h2>
+                <p style="opacity: 0.6;">A full-stack interactive ecosystem designed for scalability and performance.</p>
+            </div>
+        </a>
+
+    </div>
+
+    <div class="void-nav">
+        <a href="https://wa.me/2348135362561"><i class="fab fa-whatsapp"></i></a>
+        <a href="mailto:matthew123224@gmail.com"><i class="fas fa-envelope"></i></a>
+        <a href="https://linkedin.com/in/anthony-oluwaseun-3b9a71332/"><i class="fab fa-linkedin"></i></a>
+        <a href="https://github.com/Empirezoom"><i class="fab fa-github"></i></a>
+    </div>
+
+    <footer style="padding: 100px 20px; text-align: center; opacity: 0.2; font-size: 0.6rem; letter-spacing: 5px;">
+        © 2026 ANTHONY OLUWASEUN MATTHEW | ALL RIGHTS RESERVED
+    </footer>
+
+    <script>
+        // Scroll Reveal Logic
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        // Subtle parallax on Abyss
+        window.addEventListener('scroll', () => {
+            const abyss = document.querySelector('.abyss');
+            abyss.style.transform = `translateY(${window.scrollY * 0.2}px)`;
+        });
+    </script>
+</body>
+</html>

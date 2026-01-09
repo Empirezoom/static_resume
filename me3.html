@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Anthony Matthew | Full-Stack Architect</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bento+Sans&family=Inter:wght@300;500;800&family=Lexend:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        :root {
+            --bg: #000000;
+            --surface: #111111;
+            --accent: #3dff8b; /* Matrix Green */
+            --secondary: #22d3ee;
+            --text-main: #ffffff;
+            --text-dim: #a1a1aa;
+            --glass: rgba(255, 255, 255, 0.03);
+            --border: rgba(255, 255, 255, 0.08);
+            --safe-top: env(safe-area-inset-top);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text-main);
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+            padding-top: var(--safe-top);
+        }
+
+        /* --- THE DYNAMIC HEADER --- */
+        header {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 90%;
+            max-width: 500px;
+            background: rgba(15, 15, 15, 0.7);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--border);
+            border-radius: 40px;
+            padding: 8px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        header.scrolled {
+            width: 140px;
+            padding: 8px 12px;
+            background: var(--accent);
+        }
+
+        header .logo {
+            font-family: 'Lexend', sans-serif;
+            font-weight: 700;
+            font-size: 0.9rem;
+            color: var(--text-main);
+        }
+
+        header.scrolled .logo { color: var(--bg); }
+        header.scrolled nav { display: none; }
+
+        nav a {
+            color: var(--text-dim);
+            text-decoration: none;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-left: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* --- HERO FLOW --- */
+        .hero {
+            padding: 140px 24px 60px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .hero span {
+            color: var(--accent);
+            font-size: 0.8rem;
+            font-weight: 800;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        .hero h1 {
+            font-family: 'Lexend', sans-serif;
+            font-size: clamp(2.5rem, 10vw, 4rem);
+            line-height: 1.1;
+            margin: 10px 0 20px;
+        }
+
+        .hero p {
+            color: var(--text-dim);
+            font-size: 1.1rem;
+            line-height: 1.5;
+        }
+
+        /* --- MOBILE BENTO STACK --- */
+        .content-stack {
+            padding: 0 16px 120px;
+            max-width: 600px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .tile {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 28px;
+            padding: 24px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .tile-label {
+            font-size: 0.7rem;
+            color: var(--text-dim);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            display: block;
+            margin-bottom: 12px;
+        }
+
+        /* --- SKILLS GRID --- */
+        .skills-pills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .pill {
+            background: var(--glass);
+            border: 1px solid var(--border);
+            padding: 6px 12px;
+            border-radius: 12px;
+            font-size: 0.85rem;
+            color: var(--accent);
+        }
+
+        /* --- WORK TILES --- */
+        .work-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .work-item:last-child { border: none; }
+
+        .work-info h4 { font-size: 1rem; margin-bottom: 2px; }
+        .work-info p { font-size: 0.8rem; color: var(--text-dim); }
+
+        .external-btn {
+            width: 44px;
+            height: 44px;
+            background: var(--accent);
+            color: var(--bg);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+        }
+
+        /* --- ACTION BAR --- */
+        .action-bar {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 90%;
+            max-width: 400px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            z-index: 1000;
+        }
+
+        .btn-main {
+            background: var(--text-main);
+            color: var(--bg);
+            text-align: center;
+            padding: 18px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.9rem;
+            box-shadow: 0 10px 30px rgba(255,255,255,0.1);
+        }
+
+        .btn-sub {
+            background: #1a1a1a;
+            color: var(--text-main);
+            text-align: center;
+            padding: 18px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.9rem;
+            border: 1px solid var(--border);
+        }
+
+        /* --- ANIMATIONS --- */
+        @keyframes reveal {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .tile { animation: reveal 0.6s ease forwards; }
+    </style>
+</head>
+<body>
+
+    <header id="header">
+        <div class="logo">AM.DEV</div>
+        <nav>
+            <a href="#work">Work</a>
+            <a href="#skills">Skills</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <span>Full-Stack Engineer</span>
+        <h1>Building the future of the web.</h1>
+        <p>I am Anthony Matthew. Specialized in Django, high-performance backends, and seamless user experiences.</p>
+    </section>
+
+    <div class="content-stack">
+        <div class="tile" id="skills">
+            <span class="tile-label">Stack</span>
+            <div class="skills-pills">
+                <span class="pill">Python</span>
+                <span class="pill">Django</span>
+                <span class="pill">AWS</span>
+                <span class="pill">PostgreSQL</span>
+                <span class="pill">JavaScript</span>
+                <span class="pill">REST APIs</span>
+                <span class="pill">Git</span>
+            </div>
+        </div>
+
+        <div class="tile" id="work">
+            <span class="tile-label">Experience</span>
+            <div class="work-item">
+                <div class="work-info">
+                    <h4>Somolu LG Council</h4>
+                    <p>Procurement & Digital Logistics</p>
+                </div>
+                <div style="font-size: 0.7rem; color: var(--accent);">PRESENT</div>
+            </div>
+            <div class="work-item">
+                <div class="work-info">
+                    <h4>AnchorSoft Academy</h4>
+                    <p>Backend Lead & Instructor</p>
+                </div>
+                <div style="font-size: 0.7rem; opacity: 0.5;">2022-2024</div>
+            </div>
+        </div>
+
+        <div class="tile">
+            <span class="tile-label">Featured Release</span>
+            <h3 style="margin-bottom: 5px;">Brokage Hub</h3>
+            <p style="font-size: 0.9rem; color: var(--text-dim); margin-bottom: 20px;">A high-performance interactive platform built with Django.</p>
+            <a href="https://brokagehub.com/" target="_blank" class="external-btn">
+                <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+
+        <div class="tile">
+            <span class="tile-label">Education</span>
+            <div style="display: flex; justify-content: space-between; align-items: flex-end;">
+                <div>
+                    <h4 style="font-size: 1.1rem;">B.Tech Mathematics</h4>
+                    <p style="font-size: 0.8rem; opacity: 0.6;">OAUSTECH</p>
+                </div>
+                <div style="text-align: right;">
+                    <span style="font-size: 1.5rem; font-weight: 800; color: var(--accent);">3.41</span>
+                    <p style="font-size: 0.5rem; letter-spacing: 1px;">GPA</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="action-bar">
+        <a href="https://wa.me/2348135362561" class="btn-main">WHATSAPP</a>
+        <a href="mailto:matthew123224@gmail.com" class="btn-sub">EMAIL</a>
+    </div>
+
+    <script>
+        // Dynamic Header Effect
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Haptic Vibration for Mobile Buttons
+        const buttons = document.querySelectorAll('.btn-main, .btn-sub, .external-btn');
+        buttons.forEach(btn => {
+            btn.addEventListener('touchstart', () => {
+                if ('vibrate' in navigator) navigator.vibrate(15);
+            });
+        });
+
+        // Smooth Section Anchors
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>

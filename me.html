@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Anthony Oluwaseun Matthew | Extraordinary Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700&family=Syncopate:wght@700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"/>
+  <style>
+    :root {
+      --bg: #030712;
+      --primary: #6366f1;
+      --secondary: #a855f7;
+      --accent: #22d3ee;
+      --text: #f8fafc;
+      --glass: rgba(255, 255, 255, 0.03);
+      --border: rgba(255, 255, 255, 0.1);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: 'Space Grotesk', sans-serif;
+      overflow-x: hidden;
+    }
+
+    /* --- EXTREME BACKGROUND --- */
+    .mesh-bg {
+      position: fixed;
+      top: 0; left: 0; width: 100%; height: 100%;
+      z-index: -1;
+      background: 
+        radial-gradient(circle at 0% 0%, rgba(99, 102, 241, 0.15) 0%, transparent 50%),
+        radial-gradient(circle at 100% 100%, rgba(168, 85, 247, 0.15) 0%, transparent 50%),
+        radial-gradient(circle at 50% 50%, rgba(34, 211, 238, 0.05) 0%, transparent 50%);
+      filter: blur(80px);
+    }
+
+    .cursor-glow {
+      position: fixed;
+      width: 400px; height: 400px;
+      background: radial-gradient(circle, rgba(99, 102, 241, 0.1) 0%, transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: -1;
+      transform: translate(-50%, -50%);
+    }
+
+    /* --- NAVIGATION --- */
+    nav {
+      position: fixed;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(15, 23, 42, 0.8);
+      backdrop-filter: blur(20px);
+      padding: 0.8rem 1.5rem;
+      border-radius: 50px;
+      border: 1px solid var(--border);
+      display: flex;
+      gap: 1.5rem;
+      z-index: 1000;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+    }
+
+    nav a {
+      color: var(--text);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      opacity: 0.6;
+      transition: 0.3s;
+    }
+
+    nav a:hover, nav a.active {
+      opacity: 1;
+      color: var(--accent);
+      text-shadow: 0 0 10px var(--accent);
+    }
+
+    /* --- HERO SECTION --- */
+    .hero {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 0 1rem;
+    }
+
+    .hero-pre {
+      font-family: 'Syncopate', sans-serif;
+      font-size: 0.9rem;
+      letter-spacing: 5px;
+      color: var(--accent);
+      margin-bottom: 1rem;
+      text-transform: uppercase;
+    }
+
+    .hero-title {
+      font-family: 'Syncopate', sans-serif;
+      font-size: clamp(2.5rem, 8vw, 6rem);
+      line-height: 1;
+      background: linear-gradient(to bottom, #fff 30%, rgba(255,255,255,0.2));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 2rem;
+    }
+
+    .hero-role {
+      font-size: 1.2rem;
+      max-width: 600px;
+      line-height: 1.6;
+      color: #94a3b8;
+    }
+
+    /* --- BENTO GRID SYSTEM --- */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 5rem 2rem;
+    }
+
+    .section-header {
+      font-family: 'Syncopate', sans-serif;
+      font-size: 2.5rem;
+      margin-bottom: 3rem;
+      -webkit-text-stroke: 1px var(--border);
+      color: transparent;
+      transition: 0.5s;
+    }
+
+    .section-header:hover {
+      color: var(--text);
+      -webkit-text-stroke: 1px var(--text);
+    }
+
+    .bento-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+
+    .bento-card {
+      background: var(--glass);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 2rem;
+      transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .bento-card:hover {
+      background: rgba(255,255,255,0.06);
+      transform: translateY(-10px) scale(1.02);
+      border-color: var(--primary);
+    }
+
+    .bento-card::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: radial-gradient(circle at top right, rgba(99, 102, 241, 0.1), transparent);
+      opacity: 0; transition: 0.5s;
+    }
+
+    .bento-card:hover::before { opacity: 1; }
+
+    /* Custom sizing */
+    .span-2 { grid-column: span 2; }
+    .span-3 { grid-column: span 3; }
+
+    /* --- SKILLS PILLS --- */
+    .skills-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+    }
+
+    .skill-tag {
+      padding: 0.5rem 1.2rem;
+      background: rgba(99, 102, 241, 0.1);
+      border: 1px solid rgba(99, 102, 241, 0.2);
+      border-radius: 12px;
+      font-size: 0.9rem;
+      color: var(--accent);
+      transition: 0.3s;
+    }
+
+    .skill-tag:hover {
+      background: var(--primary);
+      color: white;
+      box-shadow: 0 0 20px rgba(99, 102, 241, 0.4);
+    }
+
+    /* --- PROJECT CARDS --- */
+    .project-card {
+      height: 300px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      background-size: cover;
+      background-position: center;
+      position: relative;
+    }
+
+    .project-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    /* --- CONTACT BUTTONS --- */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+    }
+
+    .contact-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 1.5rem;
+      background: var(--glass);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      text-decoration: none;
+      color: var(--text);
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .contact-btn:hover {
+      background: white;
+      color: black;
+    }
+
+    /* Mobile adjustments */
+    @media (max-width: 768px) {
+      .bento-grid { grid-template-columns: 1fr; }
+      .span-2, .span-3 { grid-column: span 1; }
+      nav { width: 90%; gap: 0.5rem; bottom: 1rem; padding: 0.5rem;}
+      nav a { font-size: 0.7rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="mesh-bg"></div>
+  <div class="cursor-glow" id="glow"></div>
+
+  <nav>
+    <a href="#home" class="active">HOME</a>
+    <a href="#about">ABOUT</a>
+    <a href="#experience">EXP</a>
+    <a href="#projects">WORK</a>
+    <a href="#contact">CONNECT</a>
+  </nav>
+
+  <section class="hero" id="home">
+    <div class="hero-pre">Full-Stack Architect</div>
+    <h1 class="hero-title">ANTHONY<br>MATTHEW.</h1>
+    <p class="hero-role">Crafting high-performance digital ecosystems with Django & modern Web technologies. From Lagos to the global stage.</p>
+    
+    <div style="margin-top: 3rem; display: flex; gap: 2rem; font-size: 1.5rem;">
+        <a href="https://github.com/Empirezoom" style="color: inherit;"><i class="fab fa-github"></i></a>
+        <a href="https://linkedin.com/in/anthony-oluwaseun-3b9a71332/" style="color: inherit;"><i class="fab fa-linkedin"></i></a>
+        <a href="mailto:matthew123224@gmail.com" style="color: inherit;"><i class="fas fa-envelope"></i></a>
+    </div>
+  </section>
+
+  <div class="container">
+    
+    <section id="about">
+      <h2 class="section-header">STORY</h2>
+      <div class="bento-grid">
+        <div class="bento-card span-2">
+          <h3 style="color: var(--accent); margin-bottom: 1rem;">The Mission</h3>
+          <p style="opacity: 0.8; line-height: 1.8;">Highly motivated Full-Stack Developer specialized in the Django ecosystem. I build scalable, secure, and intuitive applications that solve real-world problems. My background in Mathematics drives my logic-first approach to complex debugging and architecture.</p>
+        </div>
+        <div class="bento-card">
+          <h3 style="color: var(--accent); margin-bottom: 1rem;">Education</h3>
+          <p><strong>B.Tech Mathematics</strong></p>
+          <p style="font-size: 0.9rem; opacity: 0.6;">OAUSTECH (2018-2024)</p>
+          <p style="color: var(--primary); font-weight: bold; margin-top: 10px;">GPA: 3.41</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills" style="margin-top: 5rem;">
+      <h2 class="section-header">ARSENAL</h2>
+      <div class="bento-grid">
+        <div class="bento-card span-3">
+          <div class="skills-container">
+            <span class="skill-tag">Django</span>
+            <span class="skill-tag">Python</span>
+            <span class="skill-tag">JavaScript</span>
+            <span class="skill-tag">React</span>
+            <span class="skill-tag">AWS EC2/RDS</span>
+            <span class="skill-tag">Django REST Framework</span>
+            <span class="skill-tag">PostgreSQL</span>
+            <span class="skill-tag">Docker</span>
+            <span class="skill-tag">Tailwind CSS</span>
+            <span class="skill-tag">Paystack API</span>
+            <span class="skill-tag">UI/UX Design</span>
+            <span class="skill-tag">Problem Solving</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience" style="margin-top: 5rem;">
+      <h2 class="section-header">JOURNEY</h2>
+      <div class="bento-grid">
+        <div class="bento-card span-2">
+          <span style="color: var(--muted); font-size: 0.8rem;">2022 — 2024</span>
+          <h3 style="margin: 0.5rem 0;">Backend Lead & Instructor</h3>
+          <p style="color: var(--primary); margin-bottom: 1rem;">AnchorSoft Academy</p>
+          <ul style="opacity: 0.7; font-size: 0.9rem; padding-left: 1rem;">
+            <li>Built scalable backend architectures using Django.</li>
+            <li>Mentored 50+ students in API design and full-stack flow.</li>
+          </ul>
+        </div>
+        <div class="bento-card">
+          <h3 style="margin-bottom: 1rem;">Procurement</h3>
+          <p style="font-size: 0.9rem; opacity: 0.7;">Somolu LG Council</p>
+          <p style="margin-top: 1rem; font-size: 0.8rem;">Managing digital records and vendor compliance since 2024.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" style="margin-top: 5rem;">
+      <h2 class="section-header">WORKS</h2>
+      <div class="bento-grid">
+        <div class="bento-card project-card" style="background-image: linear-gradient(to top, rgba(0,0,0,0.9), transparent), url('https://images.unsplash.com/photo-1512428559083-a4369e6697b0?auto=format&fit=crop&q=80&w=400');">
+          <div class="project-content">
+            <h3>Brokage Hub</h3>
+            <p style="font-size: 0.8rem; opacity: 0.7;">Live Interactive Platform</p>
+            <a href="https://brokagehub.com/" target="_blank" style="color: var(--accent); text-decoration: none; font-weight: bold;">VIEW CASE →</a>
+          </div>
+        </div>
+        <div class="bento-card project-card" style="background-image: linear-gradient(to top, rgba(0,0,0,0.9), transparent), url('https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?auto=format&fit=crop&q=80&w=400');">
+          <div class="project-content">
+            <h3>E-Commerce Engine</h3>
+            <p style="font-size: 0.8rem; opacity: 0.7;">Django + Paystack Integration</p>
+          </div>
+        </div>
+        <div class="bento-card project-card" style="background-image: linear-gradient(to top, rgba(0,0,0,0.9), transparent), url('https://images.unsplash.com/photo-1499750310107-5fef28a66643?auto=format&fit=crop&q=80&w=400');">
+          <div class="project-content">
+            <h3>Social Blog</h3>
+            <p style="font-size: 0.8rem; opacity: 0.7;">Full Notification System</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" style="margin-top: 5rem;">
+      <h2 class="section-header">SIGNAL</h2>
+      <div class="contact-grid">
+        <a href="https://wa.me/2348135362561" class="contact-btn"><i class="fab fa-whatsapp"></i> WHATSAPP</a>
+        <a href="mailto:matthew123224@gmail.com" class="contact-btn"><i class="fas fa-envelope"></i> EMAIL</a>
+        <a href="tel:+2348135362561" class="contact-btn"><i class="fas fa-phone"></i> CALL</a>
+      </div>
+    </section>
+
+  </div>
+
+  <footer style="text-align: center; padding: 4rem; opacity: 0.4; font-size: 0.8rem; border-top: 1px solid var(--border);">
+    &copy; 2026 ANTHONY OLUWASEUN MATTHEW. ALL RIGHTS RESERVED.
+  </footer>
+
+  <script>
+    // Cursor Glow Effect
+    const glow = document.getElementById('glow');
+    window.addEventListener('mousemove', (e) => {
+      glow.style.left = e.clientX + 'px';
+      glow.style.top = e.clientY + 'px';
+    });
+
+    // Intersection Observer for Active Nav
+    const observerOptions = { threshold: 0.5 };
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          document.querySelectorAll('nav a').forEach(a => {
+            a.classList.toggle('active', a.getAttribute('href') === '#' + entry.target.id);
+          });
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('section').forEach(section => observer.observe(section));
+
+    // Bento Card 3D Tilt Effect (Simple version)
+    document.querySelectorAll('.bento-card').forEach(card => {
+      card.addEventListener('mousemove', (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        card.style.setProperty('--x', `${x}px`);
+        card.style.setProperty('--y', `${y}px`);
+      });
+    });
+  </script>
+</body>
+</html>
