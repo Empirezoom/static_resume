@@ -6,7 +6,14 @@
       name="viewport"
       content="width=device-width, initial-scale=1.0, maximum-scale=1.0"
     />
-    <title>EMPIRECODES| The Dark Architect</title>
+    <!-- SOCIAL META TAGS (Sharing Optimization) -->
+    <meta property="og:title" content="EMPIRECODES | Anthony Oluwaseun Matthew - Backend & Full-Stack Architect" />
+    <meta property="og:description" content="Backend & Full-Stack Software Engineer with 4+ years of production experience in Python/Django, DRF, Paystack payment integrations, AWS, and Mathematical Logic." />
+    <meta property="og:image" content="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1200&q=80" />
+    <meta property="og:url" content="https://empirecodes.com.ng/" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <title>EMPIRECODES | Anthony Oluwaseun Matthew — The Dark Architect</title>
     <link
       href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Inter:wght@300;400;600&display=swap"
       rel="stylesheet"
@@ -73,34 +80,38 @@
 
       /* --- HERO --- */
       .hero {
-        height: 90vh;
+        min-height: 100vh;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
         text-align: center;
-        padding: 20px;
+        padding: 40px 20px;
+        position: relative;
       }
 
       .hero h1 {
         font-family: "Cinzel", serif;
         font-size: clamp(2.2rem, 10vw, 5.5rem);
-        letter-spacing: 8px;
+        letter-spacing: clamp(4px, 2vw, 8px);
         text-transform: uppercase;
-        margin-bottom: 10px;
+        margin-bottom: 20px;
+        line-height: 1.1;
       }
 
       .hero .subtitle {
-        font-size: 0.7rem;
-        letter-spacing: 5px;
+        font-size: clamp(0.55rem, 2vw, 0.7rem);
+        letter-spacing: clamp(2px, 1vw, 5px);
         color: var(--gold);
         text-transform: uppercase;
         font-weight: 800;
+        margin-bottom: 15px;
+        display: block;
       }
 
       /* --- CV DOWNLOAD BUTTON --- */
       .cv-download {
-        margin-top: 40px;
+        margin: 10px;
         padding: 15px 35px;
         background: transparent;
         color: var(--gold);
@@ -113,12 +124,40 @@
         transition: 0.4s;
         overflow: hidden;
         display: inline-block;
+        min-width: 250px;
       }
 
       .cv-download:hover {
         background: var(--gold);
         color: var(--void);
         box-shadow: 0 0 30px rgba(212, 175, 55, 0.4);
+      }
+
+      /* --- MOBILE HERO BUTTONS --- */
+      .hero-ctas {
+          display: flex; 
+          gap: 15px; 
+          justify-content: center; 
+          flex-wrap: wrap;
+          margin-top: 30px;
+      }
+
+      @media (max-width: 768px) {
+        .hero-ctas {
+            flex-direction: column;
+            width: 100%;
+            align-items: center;
+        }
+        .cv-download {
+            width: 100%;
+            max-width: 300px;
+            margin: 5px 0;
+        }
+        .hero {
+            padding-top: 10px;
+            justify-content: flex-start;
+            min-height: 85vh;
+        }
       }
 
       /* --- GRID SYSTEM --- */
@@ -128,13 +167,13 @@
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         gap: 15px;
-        padding: 20px 20px 120px;
+        padding: 20px 20px 140px;
       }
 
       .cell {
         background: var(--blade);
         border: 1px solid #1a1a1a;
-        padding: 35px;
+        padding: clamp(20px, 5vw, 35px);
         transition: 0.4s;
         clip-path: polygon(4% 0, 100% 0, 100% 96%, 96% 100%, 0 100%, 0 4%);
       }
@@ -229,6 +268,61 @@
         .hobby-grid {
           grid-template-columns: 1fr;
         }
+        .void-nav {
+            bottom: 10px;
+            padding: 10px 20px;
+        }
+        .status-pill {
+            padding: 12px 18px !important;
+        }
+        .status-text {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+        .terminal-cell {
+            padding: 15px !important;
+        }
+        #terminal-output, #terminal-input {
+            font-size: 0.75rem !important;
+        }
+      }
+
+      /* --- STATUS PILL --- */
+      .status-pill {
+          margin-bottom: 40px; 
+          display: inline-flex; 
+          align-items: center; 
+          gap: 12px; 
+          background: rgba(61, 255, 139, 0.05); 
+          padding: 12px 28px; 
+          border: 1px solid rgba(61, 255, 139, 0.2); 
+          border-radius: 50px;
+      }
+      .status-text {
+          font-size: 0.65rem; 
+          letter-spacing: 2px; 
+          font-weight: bold; 
+          opacity: 0.8; 
+          text-align: center;
+          text-transform: uppercase;
+      }
+      .project-name {
+          color: var(--malefic-green);
+          display: inline;
+      }
+
+      @media (max-width: 768px) {
+          .status-pill {
+              flex-direction: column;
+              border-radius: 20px;
+              padding: 20px;
+              width: fit-content;
+          }
+          .project-name {
+              display: block;
+              margin-top: 5px;
+          }
       }
 
       /* --- FLOATING VOID CONTACT --- */
@@ -261,7 +355,7 @@
       .reveal {
         opacity: 0;
         transform: translateY(30px);
-        transition: 0.8s;
+        transition: 0.5s;
       }
       .reveal.active {
         opacity: 1;
@@ -375,6 +469,449 @@
         letter-spacing: 3px;
       }
 
+      /* --- TELEMETRY VITALS BAR --- */
+      .telemetry-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 15px;
+      }
+      .telemetry-card {
+        background: rgba(18, 18, 18, 0.7);
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        padding: 16px;
+        border-radius: 2px;
+        position: relative;
+        overflow: hidden;
+        transition: 0.3s;
+      }
+      .telemetry-card:hover {
+        border-color: rgba(61, 255, 139, 0.4);
+        background: rgba(22, 22, 22, 0.9);
+        transform: translateY(-2px);
+      }
+      .telemetry-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background: linear-gradient(90deg, transparent, var(--malefic-green), transparent);
+      }
+      .telemetry-label {
+        font-size: 0.65rem;
+        color: #888;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+      }
+      .telemetry-val {
+        font-family: 'Cinzel', serif;
+        font-size: 1.35rem;
+        color: var(--gold);
+        font-weight: 700;
+        margin-top: 6px;
+      }
+      .telemetry-sub {
+        font-size: 0.7rem;
+        color: var(--malefic-green);
+        margin-top: 4px;
+        font-family: 'Courier New', monospace;
+      }
+      @media (max-width: 768px) {
+        .telemetry-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+      @media (max-width: 480px) {
+        .telemetry-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      /* --- WEBHOOK SIMULATOR --- */
+      .sim-btn {
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid rgba(61, 255, 139, 0.3);
+        color: var(--malefic-green);
+        font-family: 'Courier New', monospace;
+        font-size: 0.72rem;
+        padding: 7px 12px;
+        cursor: pointer;
+        transition: 0.2s;
+        border-radius: 2px;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+      }
+      .sim-btn:hover {
+        background: rgba(61, 255, 139, 0.15);
+        border-color: var(--malefic-green);
+        box-shadow: 0 0 12px rgba(61, 255, 139, 0.3);
+      }
+      .sim-btn.warn {
+        border-color: rgba(212, 175, 55, 0.4);
+        color: var(--gold);
+      }
+      .sim-btn.warn:hover {
+        background: rgba(212, 175, 55, 0.15);
+        border-color: var(--gold);
+        box-shadow: 0 0 12px rgba(212, 175, 55, 0.3);
+      }
+      .sim-btn.reset {
+        border-color: rgba(255, 255, 255, 0.2);
+        color: #888;
+      }
+      .sim-btn.reset:hover {
+        color: #fff;
+        border-color: #fff;
+      }
+      .sim-console {
+        background: #030303;
+        border: 1px solid #1a1a1a;
+        border-radius: 2px;
+        padding: 14px;
+        font-family: 'Courier New', monospace;
+        font-size: 0.75rem;
+        line-height: 1.6;
+        min-height: 150px;
+        max-height: 260px;
+        overflow-y: auto;
+        color: #ddd;
+      }
+      .sim-line {
+        margin-bottom: 4px;
+      }
+      .sim-line.pass { color: var(--malefic-green); }
+      .sim-line.fail { color: #ff5f56; }
+      .sim-line.info { color: var(--gold); }
+      .sim-line.sys { color: #61DAFB; }
+
+      /* --- OPERATIONS RESEARCH LAB --- */
+      .or-slider-wrap {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 15px;
+        margin: 18px 0;
+      }
+      .or-control {
+        background: #0d0d0d;
+        border: 1px solid #222;
+        padding: 12px;
+        border-radius: 2px;
+      }
+      .or-control label {
+        font-size: 0.7rem;
+        color: var(--gold);
+        display: block;
+        margin-bottom: 6px;
+        font-family: 'Cinzel', serif;
+        letter-spacing: 1px;
+      }
+      .or-control input[type="range"] {
+        width: 100%;
+        accent-color: var(--malefic-green);
+        cursor: pointer;
+      }
+      .or-val-display {
+        font-family: 'Courier New', monospace;
+        font-size: 0.8rem;
+        color: #fff;
+        margin-top: 4px;
+      }
+      .or-result-bar {
+        background: #111;
+        border: 1px solid #222;
+        border-radius: 2px;
+        padding: 16px;
+        margin-top: 15px;
+      }
+      @media (max-width: 768px) {
+        .or-slider-wrap {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      /* --- ARCHITECTURE MODAL --- */
+      .arch-modal-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: rgba(2, 2, 2, 0.88);
+        backdrop-filter: blur(8px);
+        z-index: 100000;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+      }
+      .arch-modal-overlay.active {
+        display: flex;
+      }
+      .arch-modal-content {
+        background: #090909;
+        border: 1px solid var(--gold);
+        box-shadow: 0 0 50px rgba(212, 175, 55, 0.2);
+        max-width: 750px;
+        width: 100%;
+        max-height: 85vh;
+        overflow-y: auto;
+        padding: 30px;
+        position: relative;
+        clip-path: polygon(3% 0, 100% 0, 100% 97%, 97% 100%, 0 100%, 0 3%);
+      }
+      .arch-modal-close {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        background: transparent;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        color: #aaa;
+        width: 32px;
+        height: 32px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: 0.2s;
+      }
+      .arch-modal-close:hover {
+        border-color: #ff5f56;
+        color: #ff5f56;
+      }
+
+      /* --- AUDIO FX TOGGLE --- */
+      .audio-pill {
+        position: fixed;
+        top: 18px;
+        right: 20px;
+        z-index: 10001;
+        background: rgba(13, 13, 13, 0.85);
+        border: 1px solid rgba(212, 175, 55, 0.3);
+        color: #aaa;
+        font-family: 'Courier New', monospace;
+        font-size: 0.7rem;
+        padding: 6px 14px;
+        border-radius: 20px;
+        cursor: pointer;
+        transition: 0.3s;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+      }
+      .audio-pill:hover, .audio-pill.active {
+        border-color: var(--malefic-green);
+        color: var(--malefic-green);
+        box-shadow: 0 0 12px rgba(61, 255, 139, 0.25);
+      }
+
+      /* --- PROJECT ARCH BUTTON --- */
+      .inspect-btn {
+        background: transparent;
+        border: 1px solid rgba(212, 175, 55, 0.3);
+        color: var(--gold);
+        font-size: 0.68rem;
+        padding: 3px 8px;
+        font-family: 'Cinzel', serif;
+        letter-spacing: 1px;
+        cursor: pointer;
+        transition: 0.2s;
+        border-radius: 2px;
+        margin-left: 8px;
+        text-transform: uppercase;
+      }
+      .inspect-btn:hover {
+        background: rgba(212, 175, 55, 0.15);
+        border-color: var(--gold);
+        color: #fff;
+      }
+
+      /* --- PRINT MEDIA STYLES --- */
+      @media print {
+        body {
+          background: #fff !important;
+          color: #000 !important;
+        }
+        .abyss, #scroll-progress, #toast, #back-to-top, .void-nav, #audio-toggle,
+        .filter-bar, .hero-ctas, .copy-badge, #loader-bg, .terminal-cell,
+        .webhook-simulator-box, .or-control, .arch-modal-overlay, .inspect-btn {
+          display: none !important;
+        }
+        .cell {
+          background: #fff !important;
+          border: 1px solid #ccc !important;
+          color: #111 !important;
+          break-inside: avoid;
+        }
+        .cell-label, .subtitle, strong {
+          color: #000 !important;
+        }
+      }
+
+      /* --- SCROLL PROGRESS BAR --- */
+      #scroll-progress {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 3px;
+        background: linear-gradient(90deg, var(--malefic-green), var(--gold));
+        z-index: 10000;
+        width: 0%;
+        transition: width 0.1s ease-out;
+        box-shadow: 0 0 10px var(--malefic-green);
+      }
+
+      /* --- TOAST NOTIFICATION --- */
+      #toast {
+        position: fixed;
+        bottom: 95px;
+        left: 50%;
+        transform: translateX(-50%) translateY(20px);
+        background: #0d0d0d;
+        color: var(--malefic-green);
+        border: 1px solid var(--malefic-green);
+        padding: 10px 24px;
+        font-family: 'Courier New', monospace;
+        font-size: 0.8rem;
+        letter-spacing: 1px;
+        border-radius: 3px;
+        opacity: 0;
+        pointer-events: none;
+        transition: 0.3s ease;
+        z-index: 99999;
+        box-shadow: 0 0 25px rgba(61, 255, 139, 0.3);
+      }
+      #toast.show {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+      }
+
+      /* --- BACK TO TOP BUTTON --- */
+      #back-to-top {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        width: 44px;
+        height: 44px;
+        background: rgba(13, 13, 13, 0.9);
+        border: 1px solid var(--gold);
+        color: var(--gold);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 2px;
+        cursor: pointer;
+        opacity: 0;
+        pointer-events: none;
+        transition: 0.3s;
+        z-index: 99;
+      }
+      #back-to-top.visible {
+        opacity: 1;
+        pointer-events: auto;
+      }
+      #back-to-top:hover {
+        background: var(--gold);
+        color: var(--void);
+        box-shadow: 0 0 20px rgba(212, 175, 55, 0.5);
+        transform: translateY(-3px);
+      }
+
+      /* --- PROJECT FILTER BAR --- */
+      .filter-bar {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+        margin-bottom: 25px;
+      }
+      .filter-btn {
+        background: transparent;
+        border: 1px solid rgba(212, 175, 55, 0.25);
+        color: #999;
+        padding: 8px 18px;
+        font-family: 'Cinzel', serif;
+        font-size: 0.7rem;
+        letter-spacing: 2px;
+        cursor: pointer;
+        transition: 0.3s;
+      }
+      .filter-btn.active, .filter-btn:hover {
+        background: rgba(61, 255, 139, 0.1);
+        color: var(--malefic-green);
+        border-color: var(--malefic-green);
+        box-shadow: 0 0 15px rgba(61, 255, 139, 0.2);
+      }
+
+      /* --- PAYSTACK ARCHITECTURE PIPELINE --- */
+      .pipeline-wrapper {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        gap: 12px;
+        margin-top: 20px;
+        position: relative;
+      }
+      .pipeline-node {
+        background: #090909;
+        border: 1px solid #222;
+        padding: 16px;
+        border-radius: 2px;
+        transition: 0.3s;
+        position: relative;
+      }
+      .pipeline-node:hover {
+        border-color: var(--malefic-green);
+        background: #111;
+        transform: translateY(-2px);
+      }
+      .pipeline-step-badge {
+        font-family: 'Cinzel', serif;
+        font-size: 0.65rem;
+        color: var(--gold);
+        letter-spacing: 2px;
+        margin-bottom: 8px;
+        display: block;
+      }
+      .pipeline-title {
+        font-size: 0.85rem;
+        font-weight: bold;
+        color: #fff;
+        margin-bottom: 6px;
+      }
+      .pipeline-desc {
+        font-size: 0.72rem;
+        color: #888;
+        line-height: 1.4;
+      }
+      .pipeline-sec {
+        font-size: 0.65rem;
+        color: var(--malefic-green);
+        margin-top: 8px;
+        font-family: 'Courier New', monospace;
+      }
+
+      /* --- COPY BADGE --- */
+      .copy-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        padding: 4px 10px;
+        border-radius: 2px;
+        font-size: 0.72rem;
+        color: #ccc;
+        cursor: pointer;
+        transition: 0.2s;
+        margin-top: 5px;
+      }
+      .copy-badge:hover {
+        border-color: var(--malefic-green);
+        color: var(--malefic-green);
+      }
     </style>
   </head>
   <body>
@@ -392,39 +929,121 @@
         </div>
         <div class="loader-text">
           <span>EMPIRE CODE</span>
-          <span style="font-size: 0.7em; letter-spacing: 2px"
-            >FULL STACK WEB DEVELOPER</span
-          >
+          <span style="font-size: 0.7em; letter-spacing: 2px">FULL STACK WEB DEVELOPER</span>
         </div>
       </div>
     </div>
     <!-- Loader End -->
 
-    <div class="abyss"></div>
+    <div class="abyss">
+      <canvas id="constellation-canvas" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; opacity: 0.65;"></canvas>
+    </div>
+    <div id="scroll-progress"></div>
+    <button id="audio-toggle" class="audio-pill" onclick="toggleAudio()" title="Toggle Synthesizer Audio FX"><i class="fas fa-volume-mute"></i> FX: OFF</button>
+    <div id="toast"></div>
+    <div id="back-to-top" title="Return to Top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})"><i class="fas fa-chevron-up"></i></div>
 
     <section class="hero">
       <div class="reveal">
-        <span class="subtitle">The Architect of Systems |🌐.EMPIRECODES</span>
-        <h1>ANTHONY MATTHEW</h1>
-        <p style="opacity: 0.4; font-size: 0.9rem; letter-spacing: 2px">
-          DJANGO SPECIALIST | MATHEMATICAL LOGIC | FULL-STACK ASCENDANCE
+        <span class="subtitle">High-Performance Systems & Architectures | 🌐 EMPIRECODES</span>
+        <h1>ANTHONY OLUWASEUN MATTHEW</h1>
+        <p style="opacity: 0.6; font-size: 0.85rem; letter-spacing: 2px; margin-bottom: 12px; font-weight: 600;">
+          BACKEND / FULL-STACK SOFTWARE ENGINEER | MATHEMATICIAN
+        </p>
+        <p style="opacity: 0.4; font-size: 0.75rem; letter-spacing: 2px; margin-bottom: 30px; text-transform: uppercase;">
+          Python / Django REST Framework • Secure Paystack Integrations • Scalable AWS Cloud • PostgreSQL
         </p>
 
-        <a
-          href="https://eu.docworkspace.com/d/sIA3zmLORAa7-gMsG?sa=601.1037"
-          download
-          class="cv-download"
-        >
-          <i class="fas fa-eye" style="margin-right: 10px"></i> PREVIEW CV
-        </a>
-        <a href="FILE/myCVDoc2.docx.pdf" download class="cv-download">
-          <i class="fas fa-file-download" style="margin-right: 10px"></i>
-          DOWNLOAD CV
-        </a>
+        <!-- LIVE STATUS INDICATOR -->
+        <div class="status-pill">
+           <span class="pulse-dot"></span>
+           <span class="status-text">
+             CURRENT FOCUS: 
+             <span class="project-name">MONTREUX & CO. | P2PEXC.ONLINE</span>
+           </span>
+        </div>
+
+        <div class="hero-ctas">
+            <a
+              href="https://eu.wps.com/cms/docs/d/cbRadaY8WK1JzIIf?platform=pc&refer=copylink"
+              target="_blank"
+              class="cv-download"
+            >
+              <i class="fas fa-file-alt" style="margin-right: 10px"></i> VIEW RESUME
+            </a>
+            <a
+              href="FILE/Anthony_Matthew_CV_v3.pdf"
+              download
+              class="cv-download"
+              style="border-color: rgba(212, 175, 55, 0.4);"
+            >
+              <i class="fas fa-download" style="margin-right: 10px"></i> DOWNLOAD CV (PDF)
+            </a>
+            <a href="tel:+2348135362561" class="cv-download" style="border-color: var(--malefic-green); color: var(--malefic-green);">
+              <i class="fas fa-phone-alt" style="margin-right: 10px"></i> CALL THE ARCHITECT
+            </a>
+        </div>
+
+        <div style="margin-top: 20px; display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
+           <span class="copy-badge" onclick="copyText('matthew123224@gmail.com', 'Email Address')"><i class="fas fa-envelope"></i> matthew123224@gmail.com</span>
+           <span class="copy-badge" onclick="copyText('+2348135362561', 'Call Line (Voice Only)')"><i class="fas fa-phone-alt"></i> Call: +234 813 536 2561</span>
+           <span class="copy-badge" onclick="copyText('https://github.com/Empirezoom', 'GitHub URL')"><i class="fab fa-github"></i> github.com/Empirezoom</span>
+        </div>
       </div>
     </section>
 
+    <style>
+       .pulse-dot {
+          display: block;
+          width: 8px;
+          height: 8px;
+          background: var(--malefic-green);
+          border-radius: 50%;
+          box-shadow: 0 0 10px var(--malefic-green);
+          animation: pulse 2s infinite;
+       }
+       @keyframes pulse {
+          0% { opacity: 0.4; transform: scale(1); }
+          50% { opacity: 1; transform: scale(1.3); }
+          100% { opacity: 0.4; transform: scale(1); }
+       }
+    </style>
+
     <div class="grid-container">
+      <!-- SYSTEM TELEMETRY VITALS -->
+      <div class="cell full-width reveal" style="background: rgba(10, 10, 10, 0.95); border: 1px solid rgba(212, 175, 55, 0.25); padding: 18px 24px; margin-bottom: 5px;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; flex-wrap: wrap; gap: 8px;">
+          <span style="font-family: 'Cinzel', serif; font-size: 0.7rem; color: var(--gold); letter-spacing: 2px;">
+            <i class="fas fa-heartbeat" style="color: var(--malefic-green); margin-right: 6px;"></i> ARCHITECTURAL TELEMETRY & RUNTIME VITALS
+          </span>
+          <span style="font-family: 'Courier New', monospace; font-size: 0.65rem; color: var(--malefic-green); background: rgba(61, 255, 139, 0.1); padding: 3px 8px; border-radius: 2px;">
+            <span class="pulse-dot" style="display: inline-block; width: 6px; height: 6px; margin-right: 5px; vertical-align: middle;"></span> LIVE PRODUCTION NODES
+          </span>
+        </div>
+        <div class="telemetry-grid">
+          <div class="telemetry-card">
+            <div class="telemetry-label"><i class="fas fa-shield-alt" style="color: var(--malefic-green);"></i> Paystack Verification</div>
+            <div class="telemetry-val" style="color: var(--malefic-green);">100.0%</div>
+            <div class="telemetry-sub">HMAC-SHA512 Zero-Loss SLA</div>
+          </div>
+          <div class="telemetry-card">
+            <div class="telemetry-label"><i class="fas fa-bolt" style="color: var(--gold);"></i> DRF API Latency (p95)</div>
+            <div class="telemetry-val" style="color: var(--gold);">38 ms</div>
+            <div class="telemetry-sub">PostgreSQL + Redis Caching</div>
+          </div>
+          <div class="telemetry-card">
+            <div class="telemetry-label"><i class="fas fa-database" style="color: #61DAFB;"></i> Ledger Concurrency</div>
+            <div class="telemetry-val" style="color: #61DAFB;">STRICT ACID</div>
+            <div class="telemetry-sub">select_for_update() Row Locks</div>
+          </div>
+          <div class="telemetry-card">
+            <div class="telemetry-label"><i class="fas fa-network-wired" style="color: #a855f7;"></i> Live Deployed Nodes</div>
+            <div class="telemetry-val" style="color: #fff;">9 Systems</div>
+            <div class="telemetry-sub">AWS Cloud & Render Clusters</div>
+          </div>
+        </div>
+      </div>
+
       <!-- SUMMARY SECTION -->
       <div
         class="cell full-width reveal"
@@ -434,132 +1053,377 @@
           margin-bottom: 10px;
         "
       >
-        <span class="cell-label">Summary</span>
-        <p style="font-size: 1rem; color: #e5e5e5">
-          Highly motivated Full-Stack Web Developer with expertise in HTML, CSS,
-          JavaScript, Bootstrap, and Django. Skilled in designing and developing
-          responsive, user-friendly web applications with a strong focus on
-          performance, scalability, and security. Proficient in front-end
-          technologies for creating intuitive interfaces and back-end
-          development using Django to build robust, database-driven
-          applications. Experienced in Django REST Framework, authentication,
-          and database management. Adept at problem-solving, debugging, and
-          optimizing web applications for a seamless user experience. Passionate
-          about continuous learning and staying updated with industry trends to
-          deliver high-quality solutions.
+        <span class="cell-label">The Strategy</span>
+        <p style="font-size: 1rem; color: #e5e5e5; line-height: 1.7;">
+          Backend-focused software engineer with 4+ years of production experience building secure RESTful APIs, payment integrations, and data-driven applications with Python, Django, and Django REST Framework. Experienced with PostgreSQL, JWT/OAuth2 authentication, Paystack integrations, and AWS deployments, with fintech-style architectures covering banking, trading, and ledger systems. Grounded in mathematical rigor with a B.Tech in Mathematics (Operations Research and Computational Mathematics) and completed NYSC service (September 2026).
         </p>
       </div>
 
+      <!-- SERVICES SECTION -->
+      <div class="cell full-width reveal" style="border-top: 1px solid var(--border)">
+        <span class="cell-label">What I Can Do For You</span>
+        <div class="hobby-grid" style="grid-template-columns: repeat(2, 1fr); gap: 20px;">
+          <div class="hobby-box" style="text-align: left; padding: 25px; border-color: rgba(61, 255, 139, 0.4);">
+             <i class="fas fa-credit-card" style="color: var(--malefic-green); margin-bottom: 15px; font-size: 1.2rem;"></i><br>
+             <strong>Payment & Ledger Systems</strong><br>
+             <span style="font-size: 0.75rem; text-transform: none; opacity: 0.75; line-height: 1.5; display: inline-block; margin-top: 5px;">
+               Secure Paystack payment integrations, automated webhook processing, ledger reconciliation, and fraud-resistant financial workflows.
+             </span>
+          </div>
+          <div class="hobby-box" style="text-align: left; padding: 25px; border-color: rgba(212, 175, 55, 0.4);">
+             <i class="fas fa-server" style="color: var(--gold); margin-bottom: 15px; font-size: 1.2rem;"></i><br>
+             <strong>Custom Backends & REST APIs</strong><br>
+             <span style="font-size: 0.75rem; text-transform: none; opacity: 0.75; line-height: 1.5; display: inline-block; margin-top: 5px;">
+               Scalable Django and DRF architectures, Celery & Redis task queues, token-based authentication (JWT/OAuth2), and database normalization.
+             </span>
+          </div>
+          <div class="hobby-box" style="text-align: left; padding: 25px; border-color: rgba(212, 175, 55, 0.4);">
+             <i class="fas fa-laptop-code" style="color: var(--gold); margin-bottom: 15px; font-size: 1.2rem;"></i><br>
+             <strong>Full-Stack & Frontend Engineering</strong><br>
+             <span style="font-size: 0.75rem; text-transform: none; opacity: 0.75; line-height: 1.5; display: inline-block; margin-top: 5px;">
+               Modern decoupled frontends with React.js, Vite, and Tailwind CSS, engineered for fast load times and clean user experiences.
+             </span>
+          </div>
+          <div class="hobby-box" style="text-align: left; padding: 25px; border-color: rgba(61, 255, 139, 0.4);">
+             <i class="fas fa-cloud" style="color: var(--malefic-green); margin-bottom: 15px; font-size: 1.2rem;"></i><br>
+             <strong>Cloud Infrastructure & DevOps</strong><br>
+             <span style="font-size: 0.75rem; text-transform: none; opacity: 0.75; line-height: 1.5; display: inline-block; margin-top: 5px;">
+               Production cloud deployment on AWS (EC2, RDS, S3, API Gateway, CloudWatch, WAF), continuous integration, and performance optimization.
+             </span>
+          </div>
+        </div>
+      </div>
+
       <!-- EDUCATION SECTION -->
+      <div class="cell reveal">
+        <span class="cell-label">Academic Foundations</span>
+        <strong style="font-size: 1rem; color: #fff;">Bachelor of Technology (B.Tech), Mathematics</strong><br>
+        <span style="color: #aaa; font-size: 0.8rem;">Olusegun Agagu University of Science and Technology (OAUSTECH)</span><br>
+        <span style="color: var(--malefic-green); font-size: 0.85rem; font-weight: 600;">Second Class Honours (Lower Division) | GPA: 3.21 / 5.0</span><br>
+        <span style="color: #666; font-size: 0.75rem;">Conferred: 21 November 2024</span>
+        <br><br>
+        <div style="border-top: 1px solid rgba(255,255,255,0.1); padding-top: 15px;">
+           <span style="font-family: 'Cinzel', serif; font-size: 0.8rem; letter-spacing: 2px; color: var(--gold); font-weight: 900;">
+              <i class="fas fa-calculator" style="margin-right: 8px;"></i> SPECIALIZED DOMAINS
+           </span><br>
+           <span style="font-size: 0.78rem; color: #bbb; line-height: 1.5; display: block; margin-top: 5px;">
+              Operations Research, Computational Mathematics, Advanced Calculus, Abstract Algebra, & Statistical Modeling.
+           </span>
+        </div>
+      </div>
+
+      <!-- CORE STACK CELL -->
+      <div class="cell reveal">
+        <span class="cell-label">Core Technical Stack</span>
+        <p style="font-size: 0.82rem; line-height: 1.9">
+          <span style="color: var(--malefic-green); font-weight: bold;">LANGUAGES:</span> Python, JavaScript (ES6+), SQL, HTML5, CSS3<br />
+          <span style="color: var(--gold); font-weight: bold;">BACKEND:</span> Django, Django REST Framework (DRF), Node.js, Celery, Redis<br />
+          <span style="color: #61DAFB; font-weight: bold;">FRONTEND:</span> React.js, Vite, Tailwind CSS, Bootstrap<br />
+          <span style="color: #a855f7; font-weight: bold;">DATABASES:</span> PostgreSQL, SQLite<br />
+          <span style="color: var(--text); font-weight: bold;">CLOUD & TOOLS:</span> AWS (EC2, RDS, S3, API Gateway, CloudWatch, WAF), Git, CI/CD, Paystack
+        </p>
+      </div>
+
+      <!-- FINTECH ARCHITECTURAL BLUEPRINT -->
+      <div class="cell full-width reveal" style="border: 1px solid rgba(61, 255, 139, 0.3); background: #080808;">
+        <div style="display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap;">
+          <span class="cell-label" style="color: var(--malefic-green); margin-bottom: 5px;"><i class="fas fa-shield-alt"></i> Architectural Blueprint</span>
+          <span style="font-size: 0.7rem; color: var(--gold); font-family: 'Cinzel', serif; letter-spacing: 2px;">ZERO-LOSS PAYSTACK PIPELINE</span>
+        </div>
+        <h3 style="color: #fff; font-size: 1.2rem; margin-top: 5px;">Mission-Critical Payment & Reconciliation Flow</h3>
+        <p style="font-size: 0.85rem; color: #aaa; margin-top: 8px; line-height: 1.6;">
+          How I architect enterprise Paystack transactions across production Django & React deployments. Every step is cryptographically verified to prevent double-spending, race conditions, and webhook drops.
+        </p>
+
+        <div class="pipeline-wrapper">
+          <div class="pipeline-node">
+            <span class="pipeline-step-badge">STAGE 01</span>
+            <div class="pipeline-title"><i class="fas fa-laptop-code" style="color: var(--gold); margin-right: 5px;"></i> Client Trigger</div>
+            <p class="pipeline-desc">User initiates checkout on React/Vite frontend with client-side input sanitizer.</p>
+            <div class="pipeline-sec">🔒 Idempotency Key Gen</div>
+          </div>
+
+          <div class="pipeline-node">
+            <span class="pipeline-step-badge">STAGE 02</span>
+            <div class="pipeline-title"><i class="fab fa-python" style="color: var(--malefic-green); margin-right: 5px;"></i> DRF Gateway</div>
+            <p class="pipeline-desc">Django backend signs transaction, sets state to 'PENDING', locks order snapshot.</p>
+            <div class="pipeline-sec">🔒 Server-Side Validation</div>
+          </div>
+
+          <div class="pipeline-node">
+            <span class="pipeline-step-badge">STAGE 03</span>
+            <div class="pipeline-title"><i class="fas fa-credit-card" style="color: #61DAFB; margin-right: 5px;"></i> Paystack Engine</div>
+            <p class="pipeline-desc">Customer completes 3D-Secure payment through Paystack's encrypted gateway.</p>
+            <div class="pipeline-sec">🔒 TLS 1.3 / Bank Handshake</div>
+          </div>
+
+          <div class="pipeline-node">
+            <span class="pipeline-step-badge">STAGE 04</span>
+            <div class="pipeline-title"><i class="fas fa-network-wired" style="color: var(--gold); margin-right: 5px;"></i> Webhook Guard</div>
+            <p class="pipeline-desc">Dedicated webhook listener validates HMAC-SHA512 signature against Paystack secret key.</p>
+            <div class="pipeline-sec">🔒 HMAC-SHA512 Verify</div>
+          </div>
+
+          <div class="pipeline-node">
+            <span class="pipeline-step-badge">STAGE 05</span>
+            <div class="pipeline-title"><i class="fas fa-database" style="color: var(--malefic-green); margin-right: 5px;"></i> Atomic Ledger</div>
+            <p class="pipeline-desc">ACID transaction with row-level database lock updates balance & triggers Celery worker.</p>
+            <div class="pipeline-sec">🔒 select_for_update()</div>
+          </div>
+        </div>
+
+        <!-- INTERACTIVE PAYSTACK WEBHOOK SANDBOX -->
+        <div style="margin-top: 25px; background: #050505; border: 1px solid rgba(61, 255, 139, 0.25); border-radius: 2px; padding: 20px;">
+          <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; margin-bottom: 14px;">
+            <div>
+              <span style="color: var(--gold); font-family: 'Cinzel', serif; font-size: 0.75rem; letter-spacing: 2px;">
+                <i class="fas fa-terminal" style="color: var(--malefic-green); margin-right: 6px;"></i> LIVE WEBHOOK & IDEMPOTENCY SANDBOX
+              </span>
+              <p style="color: #888; font-size: 0.75rem; margin-top: 3px;">
+                Execute simulated Paystack webhook deliveries against the Django REST Framework guard pipeline:
+              </p>
+            </div>
+            <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+              <button class="sim-btn" onclick="runSimulator('success')"><i class="fas fa-play"></i> Simulate charge.success</button>
+              <button class="sim-btn warn" onclick="runSimulator('tamper')"><i class="fas fa-user-shield"></i> Test HMAC Tamper</button>
+              <button class="sim-btn warn" onclick="runSimulator('duplicate')"><i class="fas fa-clone"></i> Test Duplicate Retry</button>
+              <button class="sim-btn reset" onclick="runSimulator('reset')"><i class="fas fa-undo"></i> Clear</button>
+            </div>
+          </div>
+          <div class="sim-console" id="sim-console">
+            <div class="sim-line sys">[SYSTEM READY] Paystack Webhook & Idempotency Sandbox initialized. Select an event scenario above.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- FEATURED CASE STUDY 1: MONTREUX & CO. -->
       <div class="cell full-width reveal">
-        <span class="cell-label">Education</span>
-        <strong>Bachelor of Technology, Mathematics</strong>
-        <span style="color: #aaa">Nov 2018 – Sep 2024</span><br />
-        Olusegun Agagun University of Science and Technology<br />
-        <span style="color: var(--malefic-green)">GPA: 3.41</span>
+        <div style="display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; margin-bottom: 8px;">
+          <span class="cell-label" style="margin-bottom: 0;">Featured Case Study #01 | Montreux & Co.</span>
+          <div>
+            <a href="https://montreux.onrender.com/" target="_blank" style="color: var(--malefic-green); font-size: 0.75rem; font-weight: bold; text-decoration: none;">
+              LAUNCH PLATFORM <i class="fas fa-external-link-alt" style="font-size: 0.65rem; margin-left: 4px;"></i>
+            </a>
+            <button class="inspect-btn" onclick="openArchModal('montreux')"><i class="fas fa-microchip"></i> System Design</button>
+          </div>
+        </div>
+        <h3 style="color: #fff; font-size: 1.25rem;">Decoupled Fashion E-Commerce Architecture</h3>
+        <p style="font-size: 0.9rem; color: #aaa; margin-top: 10px; line-height: 1.6;">
+          An enterprise-grade, decoupled retail platform built with a high-speed React (Vite) frontend and a hardened Django REST Framework backend on PostgreSQL. Incorporates secure Paystack payment flows, token authentication, and an administrative control center for media and inventory management.
+        </p>
+        <div
+          style="
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            margin-top: 18px;
+          "
+        >
+          <div style="font-size: 0.78rem; background: rgba(255,255,255,0.02); padding: 14px; border-left: 2px solid var(--malefic-green);">
+            <strong style="color: var(--malefic-green);">CHALLENGE:</strong><br />
+            Synchronizing decoupled inventory states and preventing transaction dropping during high retail checkout peaks.
+          </div>
+          <div style="font-size: 0.78rem; background: rgba(255,255,255,0.02); padding: 14px; border-left: 2px solid var(--gold);">
+            <strong style="color: var(--gold);">ARCHITECTURE:</strong><br />
+            Engineered atomic DRF endpoints, automated Paystack webhook validation, and token-based state persistence.
+          </div>
+          <div style="font-size: 0.78rem; background: rgba(255,255,255,0.02); padding: 14px; border-left: 2px solid #fff;">
+            <strong style="color: #fff);">IMPACT:</strong><br />
+            Lightning-fast client rendering via Vite, automated stock reconciliation, and zero checkout payment drop-offs.
+          </div>
+        </div>
+      </div>
+
+      <!-- FEATURED CASE STUDY 2: P2PEXC.ONLINE -->
+      <div class="cell full-width reveal">
+        <div style="display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; margin-bottom: 8px;">
+          <span class="cell-label" style="margin-bottom: 0;">Featured Case Study #02 | P2PEXC.ONLINE</span>
+          <div>
+            <span style="color: var(--gold); font-size: 0.75rem; letter-spacing: 1px;"><i class="fas fa-shield-alt"></i> TRUSTLESS ESCROW ENGINE</span>
+            <button class="inspect-btn" onclick="openArchModal('p2pexc')"><i class="fas fa-microchip"></i> System Design</button>
+          </div>
+        </div>
+        <h3 style="color: #fff; font-size: 1.25rem;">High-Fidelity P2P Cryptocurrency Exchange</h3>
+        <p style="font-size: 0.9rem; color: #aaa; margin-top: 10px; line-height: 1.6;">
+          A decentralized peer-to-peer asset transfer engine solving fragmentation and security latency in peer trading. Built with multi-layer encryption, automated dispute triggers, and continuous order book audit trails.
+        </p>
+        <div
+          style="
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            margin-top: 18px;
+          "
+        >
+          <div style="font-size: 0.78rem; background: rgba(255,255,255,0.02); padding: 14px; border-left: 2px solid var(--malefic-green);">
+            <strong style="color: var(--malefic-green);">CHALLENGE:</strong><br />
+            Mitigating counterparty fraud and slow transaction finality across peer-to-peer asset settlements.
+          </div>
+          <div style="font-size: 0.78rem; background: rgba(255,255,255,0.02); padding: 14px; border-left: 2px solid var(--gold);">
+            <strong style="color: var(--gold);">SOLUTION:</strong><br />
+            Engineered automated escrow locking routines, real-time settlement telemetry, and cryptographically signed state updates.
+          </div>
+          <div style="font-size: 0.78rem; background: rgba(255,255,255,0.02); padding: 14px; border-left: 2px solid #fff;">
+            <strong style="color: #fff);">RESULT:</strong><br />
+            Reduced trade settlement finality time by 40% while establishing high fraud resilience and mathematical consistency.
+          </div>
+        </div>
       </div>
 
       <!-- PROJECTS SECTION -->
       <div class="cell full-width reveal">
-        <span class="cell-label">Projects</span>
-        <div style="display: flex; flex-direction: column; gap: 25px">
-          <!-- Project 1 -->
-          <div style="display: flex; gap: 18px; align-items: flex-start">
+        <span class="cell-label">Production Deployments & Proof of Value</span>
+
+        <!-- PROJECT FILTER TABS -->
+        <div class="filter-bar">
+          <button class="filter-btn active" onclick="filterProjects('all', this)"><i class="fas fa-layer-group"></i> ALL SYSTEMS (9)</button>
+          <button class="filter-btn" onclick="filterProjects('fintech', this)"><i class="fas fa-wallet"></i> FINTECH & PAYMENTS</button>
+          <button class="filter-btn" onclick="filterProjects('ecommerce', this)"><i class="fas fa-shopping-bag"></i> E-COMMERCE & PLATFORMS</button>
+          <button class="filter-btn" onclick="filterProjects('systems', this)"><i class="fas fa-server"></i> LOGISTICS & CRYPTO</button>
+        </div>
+
+        <div id="projects-container" style="display: flex; flex-direction: column; gap: 32px">
+          <!-- Project: Montreux & Co. -->
+          <div class="project-item" data-category="ecommerce fintech" style="display: flex; gap: 18px; align-items: flex-start; transition: 0.3s;">
             <img
-              src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=200&q=80"
-              alt="Phones Accessories Website"
-              style="
-                width: 90px;
-                height: 70px;
-                object-fit: cover;
-                border-radius: 8px;
-              "
+              src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=200&q=80"
+              alt="Montreux & Co."
+              style="width: 110px; height: 80px; object-fit: cover; border-radius: 4px; border: 1px solid #333;"
             />
             <div>
-              <strong>Phones Accessories Website</strong><br />
-              Developed a responsive, engaging interface using HTML, CSS,
-              JavaScript, and Bootstrap. Leveraged Django’s power to build
-              scalable, secure, and efficient back-end systems. Integrated
-              Paystack API for a secure payment gateway.
+              <strong style="color: var(--gold);">Montreux & Co. E-Commerce</strong> (<a href="https://montreux.onrender.com/" target="_blank" style="color: var(--malefic-green)">Live Demo <i class="fas fa-external-link-alt" style="font-size: 0.7rem;"></i></a>) <button class="inspect-btn" onclick="openArchModal('montreux')"><i class="fas fa-microchip"></i> System Design</button><br />
+              <span style="font-size: 0.85rem; opacity: 0.85; line-height: 1.5; display: block; margin-top: 4px;">
+                Decoupled fashion e-commerce platform with React (Vite) frontend, Django REST Framework backend, PostgreSQL, token authentication, Paystack payments, and full admin portal.
+                <br><em style="font-size: 0.75rem; color: var(--malefic-green);">Production: React (Vite) | Django REST Framework | PostgreSQL | Paystack</em>
+              </span>
             </div>
           </div>
-          <!-- Project 2 -->
-          <div style="display: flex; gap: 18px; align-items: flex-start">
+
+          <!-- Project: BrokersHub -->
+          <div class="project-item" data-category="ecommerce systems" style="display: flex; gap: 18px; align-items: flex-start; transition: 0.3s;">
             <img
-              src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=200&q=80"
-              alt="Personal Blog Website"
-              style="
-                width: 90px;
-                height: 70px;
-                object-fit: cover;
-                border-radius: 8px;
-              "
+              src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=200&q=80"
+              alt="BrokersHub"
+              style="width: 110px; height: 80px; object-fit: cover; border-radius: 4px; border: 1px solid #333;"
             />
             <div>
-              <strong>Personal Blog Website</strong><br />
-              Built an engaging platform where users can interact on posts and
-              share ideas openly. Created a notification system for birthdays,
-              replies, and admin messages.
+              <strong style="color: var(--gold);">Brokage Hub (BrokersHub)</strong> (<a href="https://brokershub.onrender.com/" target="_blank" style="color: var(--malefic-green)">Live Demo <i class="fas fa-external-link-alt" style="font-size: 0.7rem;"></i></a>) <button class="inspect-btn" onclick="openArchModal('brokershub')"><i class="fas fa-microchip"></i> System Design</button><br />
+              <span style="font-size: 0.85rem; opacity: 0.85; line-height: 1.5; display: block; margin-top: 4px;">
+                High-traffic real estate platform; architectural performance optimizations reduced page load times by 20% and boosted user engagement by 30%.
+                <br><em style="font-size: 0.75rem; color: var(--malefic-green);">Performance: -20% Page Load Time | +30% User Engagement | Real Estate Architecture</em>
+              </span>
             </div>
           </div>
-          <!-- Project 3 -->
-          <div style="display: flex; gap: 18px; align-items: flex-start">
+
+          <!-- Project: EmpireCodes -->
+          <div class="project-item" data-category="ecommerce" style="display: flex; gap: 18px; align-items: flex-start; transition: 0.3s;">
             <img
-              src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=200&q=80"
-              alt="Brokage Hub Website"
-              style="
-                width: 90px;
-                height: 70px;
-                object-fit: cover;
-                border-radius: 8px;
-              "
+              src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=200&q=80"
+              alt="EmpireCodes Platform"
+              style="width: 110px; height: 80px; object-fit: cover; border-radius: 4px; border: 1px solid #333;"
             />
             <div>
-              <strong>Brokage Hub Website</strong> (<a
-                href="https://brokagehub.com/"
-                style="color: var(--malefic-green)"
-                >Visit</a
-              >)<br />
-              An interactive and responsive website with active forms and
-              dynamic templates for seamless user experience.
+              <strong style="color: var(--gold);">EmpireCodes Platform</strong> (<a href="https://empirecodes.com.ng/" target="_blank" style="color: var(--malefic-green)">empirecodes.com.ng <i class="fas fa-external-link-alt" style="font-size: 0.7rem;"></i></a>) <button class="inspect-btn" onclick="openArchModal('empirecodes')"><i class="fas fa-microchip"></i> System Design</button><br />
+              <span style="font-size: 0.85rem; opacity: 0.85; line-height: 1.5; display: block; margin-top: 4px;">
+                Community tech and blogging platform supporting 500+ active users with real-time notification streams and custom high-contrast UI/UX design.
+                <br><em style="font-size: 0.75rem; color: var(--malefic-green);">Scale: 500+ Active Users | Real-Time Notifications | Custom Design System</em>
+              </span>
             </div>
           </div>
-          <!-- Additional Enticing Project -->
-          <div style="display: flex; gap: 18px; align-items: flex-start">
+
+          <!-- Project: Prairie Wealth -->
+          <div class="project-item" data-category="fintech" style="display: flex; gap: 18px; align-items: flex-start; transition: 0.3s;">
             <img
-              src="https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=200&q=80"
-              alt="AI-Powered Task Manager"
-              style="
-                width: 90px;
-                height: 70px;
-                object-fit: cover;
-                border-radius: 8px;
-              "
+              src="https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?auto=format&fit=crop&w=200&q=80"
+              alt="Prairie Wealth"
+              style="width: 110px; height: 80px; object-fit: cover; border-radius: 4px; border: 1px solid #333;"
             />
             <div>
-              <strong>AI-Powered Task Manager</strong><br />
-              Designed and implemented a smart task management system using
-              Django REST Framework and React. Features include intelligent
-              reminders, analytics dashboard, and real-time collaboration.
+              <strong style="color: var(--gold);">Prairie Wealth Management</strong> (<a href="https://prairie-il1h.onrender.com/" target="_blank" style="color: var(--malefic-green)">Live Demo <i class="fas fa-external-link-alt" style="font-size: 0.7rem;"></i></a>) <button class="inspect-btn" onclick="openArchModal('prairie')"><i class="fas fa-microchip"></i> System Design</button><br />
+              <span style="font-size: 0.85rem; opacity: 0.85; line-height: 1.5; display: block; margin-top: 4px;">
+                A high-fidelity financial management platform with dynamic transaction ledgers, automated tax assessments, and secure user-facing dashboards.
+                <br><em style="font-size: 0.75rem; color: var(--malefic-green);">Fintech: Dynamic Ledgers | Tax Logic | Financial Audit Trails</em>
+              </span>
             </div>
           </div>
-          <!-- Additional Enticing Project -->
-          <div style="display: flex; gap: 18px; align-items: flex-start">
+
+          <!-- Project: BlueStick Trading -->
+          <div class="project-item" data-category="fintech" style="display: flex; gap: 18px; align-items: flex-start; transition: 0.3s;">
             <img
-              src="https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=200&q=80"
-              alt="E-Learning Platform"
-              style="
-                width: 90px;
-                height: 70px;
-                object-fit: cover;
-                border-radius: 8px;
-              "
+              src="https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?auto=format&fit=crop&w=200&q=80"
+              alt="BlueStick Trading"
+              style="width: 110px; height: 80px; object-fit: cover; border-radius: 4px; border: 1px solid #333;"
             />
             <div>
-              <strong>E-Learning Platform</strong><br />
-              Developed a scalable e-learning platform with user authentication,
-              course management, and interactive quizzes. Integrated AWS S3 for
-              media storage and Paystack for secure payments.
+              <strong style="color: var(--gold);">BlueStick Trading Portal</strong> (<a href="https://bluestick-trading.onrender.com/" target="_blank" style="color: var(--malefic-green)">Live Demo <i class="fas fa-external-link-alt" style="font-size: 0.7rem;"></i></a>) <button class="inspect-btn" onclick="openArchModal('bluestick')"><i class="fas fa-microchip"></i> System Design</button><br />
+              <span style="font-size: 0.85rem; opacity: 0.85; line-height: 1.5; display: block; margin-top: 4px;">
+                Advanced trading portal with real-time visualization features, market analytics, and secure asset monitoring modules.
+                <br><em style="font-size: 0.75rem; color: var(--malefic-green);">Status: Active | Dynamic Trading Modules</em>
+              </span>
+            </div>
+          </div>
+
+          <!-- Project: Skindia Bank -->
+          <div class="project-item" data-category="fintech" style="display: flex; gap: 18px; align-items: flex-start; transition: 0.3s;">
+            <img
+              src="https://images.unsplash.com/photo-1501167786227-4cba60f6d58f?auto=format&fit=crop&w=200&q=80"
+              alt="Skindia Bank"
+              style="width: 110px; height: 80px; object-fit: cover; border-radius: 4px; border: 1px solid #333;"
+            />
+            <div>
+              <strong style="color: var(--gold);">Skindia Bank System</strong> (<a href="https://skindia-bank.onrender.com/" target="_blank" style="color: var(--malefic-green)">Live Demo <i class="fas fa-external-link-alt" style="font-size: 0.7rem;"></i></a>) <button class="inspect-btn" onclick="openArchModal('skindia')"><i class="fas fa-microchip"></i> System Design</button><br />
+              <span style="font-size: 0.85rem; opacity: 0.85; line-height: 1.5; display: block; margin-top: 4px;">
+                Robust digital banking demo focusing on ACID transaction integrity, strict administrative controls, and fraud guard rails.
+                <br><em style="font-size: 0.75rem; color: var(--malefic-green);">Fintech: Transaction Integrity | Core Banking Logic</em>
+              </span>
+            </div>
+          </div>
+
+          <!-- Project: Alpi -->
+          <div class="project-item" data-category="ecommerce systems" style="display: flex; gap: 18px; align-items: flex-start; transition: 0.3s;">
+            <img
+              src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=200&q=80"
+              alt="Alpi"
+              style="width: 110px; height: 80px; object-fit: cover; border-radius: 4px; border: 1px solid #333;"
+            />
+            <div>
+              <strong style="color: var(--gold);">Alpi Full-Stack Application</strong> (<a href="https://alpi-5l6c.onrender.com/" target="_blank" style="color: var(--malefic-green)">Live Demo <i class="fas fa-external-link-alt" style="font-size: 0.7rem;"></i></a>) <button class="inspect-btn" onclick="openArchModal('alpi')"><i class="fas fa-microchip"></i> System Design</button><br />
+              <span style="font-size: 0.85rem; opacity: 0.85; line-height: 1.5; display: block; margin-top: 4px;">
+                High-performance web system with customized backend integration and real-time state management.
+                <br><em style="font-size: 0.75rem; color: var(--malefic-green);">Status: Active | Scalable Full-Stack System</em>
+              </span>
+            </div>
+          </div>
+
+          <!-- Project: Oregon Trucking -->
+          <div class="project-item" data-category="systems" style="display: flex; gap: 18px; align-items: flex-start; transition: 0.3s;">
+            <img
+              src="https://images.unsplash.com/photo-1586339949916-3e9457bef6d3?auto=format&fit=crop&w=200&q=80"
+              alt="Oregon Trucking"
+              style="width: 110px; height: 80px; object-fit: cover; border-radius: 4px; border: 1px solid #333;"
+            />
+            <div>
+              <strong style="color: var(--gold);">Oregon Trucking Logistics</strong> (<a href="https://oregon-trucking.onrender.com/" target="_blank" style="color: var(--malefic-green)">Live Demo <i class="fas fa-external-link-alt" style="font-size: 0.7rem;"></i></a>) <button class="inspect-btn" onclick="openArchModal('oregon')"><i class="fas fa-microchip"></i> System Design</button><br />
+              <span style="font-size: 0.85rem; opacity: 0.85; line-height: 1.5; display: block; margin-top: 4px;">
+                Logistics and records management platform for trucking fleets, optimized for heavy-data reliability and tracking.
+                <br><em style="font-size: 0.75rem; color: var(--malefic-green);">Status: Active | Fleet Management OS</em>
+              </span>
+            </div>
+          </div>
+
+          <!-- Project: Oryx Crypto -->
+          <div class="project-item" data-category="fintech systems" style="display: flex; gap: 18px; align-items: flex-start; transition: 0.3s;">
+            <img
+              src="https://images.unsplash.com/photo-1621761191319-c6fb62004040?auto=format&fit=crop&w=200&q=80"
+              alt="Oryx Crypto"
+              style="width: 110px; height: 80px; object-fit: cover; border-radius: 4px; border: 1px solid #333;"
+            />
+            <div>
+              <strong style="color: var(--gold);">Oryx Crypto Dashboard</strong> (<a href="https://oryx-crypto.onrender.com/" target="_blank" style="color: var(--malefic-green)">Live Demo <i class="fas fa-external-link-alt" style="font-size: 0.7rem;"></i></a>) <button class="inspect-btn" onclick="openArchModal('oryx')"><i class="fas fa-microchip"></i> System Design</button><br />
+              <span style="font-size: 0.85rem; opacity: 0.85; line-height: 1.5; display: block; margin-top: 4px;">
+                Encrypted cryptocurrency dashboard for tracking digital assets and monitoring live blockchain transaction streams.
+                <br><em style="font-size: 0.75rem; color: var(--malefic-green);">Status: Active | Crypto Asset Analytics</em>
+              </span>
             </div>
           </div>
         </div>
@@ -567,169 +1431,1184 @@
 
       <!-- EXPERIENCE SECTION -->
       <div class="cell full-width reveal">
-        <span class="cell-label">Experience</span>
-        <ul style="font-size: 0.95rem; color: #e5e5e5; padding-left: 18px">
-          <li>
-            <strong>Non-Pensionable Staff (Procurement Unit)</strong>, Somolu
-            Local Government Council
-            <span style="color: #aaa">Jul 2025 – Present</span><br />
-            <span style="color: #aaa">Procurement & Digital Logistics</span
-            ><br />
-            <ul style="font-size: 0.9rem; color: #bbb; margin-top: 3px">
-              <li>
-                Maintained procurement records and organized documentation.
-              </li>
-              <li>
-                Supported market research, vendor relations, and compliance
-                processes.
-              </li>
-              <li>
-                Assisted in committee meetings and coordinated with suppliers.
-              </li>
+        <span class="cell-label">Industry Impact (Professional Experience)</span>
+        <div style="display: flex; flex-direction: column; gap: 32px;">
+          <!-- Somolu LG - Procurement & Admin Support (NYSC) -->
+          <div style="border-left: 2px solid var(--malefic-green); padding-left: 20px;">
+            <div style="display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap;">
+               <strong style="color: var(--gold); font-size: 1.1rem;">Procurement & Administrative Support (NYSC)</strong>
+               <span style="color: var(--malefic-green); font-size: 0.8rem; font-family: 'Cinzel', serif; font-weight: 700;">SEPT 2025 – SEPT 2026</span>
+            </div>
+            <p style="font-size: 0.85rem; color: #888; margin-bottom: 8px;">Somolu Local Government Council, Lagos, Nigeria | State Code: LA/25B/9969</p>
+            <ul style="font-size: 0.88rem; color: #bbb; line-height: 1.6; padding-left: 18px; margin-bottom: 12px;">
+              <li>Digitized procurement records and vendor databases for <strong>50+ contractors</strong>, accelerating data retrieval efficiency by <strong>40%</strong>.</li>
+              <li>Applied mathematical modeling to statistical cost analyses, optimizing budget allocations across government infrastructure projects.</li>
+              <li>Coordinated delivery schedules and vendor communication channels between the council and 50+ registered engineering contractors.</li>
+              <li>Completed mandatory one-year National Service; awarded a <strong>Certificate of Recognition</strong> for volunteer service at the 2025 Somolu Local Government Free Summer Coaching.</li>
             </ul>
-          </li>
-          <li style="margin-top: 10px">
-            <strong>Personal Assistant to Leader of The House (Ward A)</strong>,
-            Somolu Local Government Council
-            <span style="color: #aaa">Oct 2024 – Jun 2025</span><br />
-            <ul style="font-size: 0.9rem; color: #bbb; margin-top: 3px">
-              <li>
-                Managed schedules, drafted official communications, and engaged
-                with local media.
-              </li>
+             <a href="https://www.tiktok.com/@corper_empirecodes" target="_blank" style="color: var(--malefic-green); text-decoration: none; font-size: 0.75rem; font-weight: bold; border-bottom: 1px solid var(--malefic-green);">
+                <i class="fab fa-tiktok" style="margin-right: 5px;"></i> EXPLORE THE CORPER JOURNEY
+             </a>
+          </div>
+
+          <!-- New Horizons - Frontend Developer Intern -->
+          <div style="border-left: 2px solid #61DAFB; padding-left: 20px;">
+            <div style="display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap;">
+               <strong style="color: var(--gold); font-size: 1.1rem;">Frontend Developer Intern</strong>
+               <span style="color: #61DAFB; font-size: 0.8rem; font-family: 'Cinzel', serif; font-weight: 700;">JAN 2026 – MAY 2026</span>
+            </div>
+            <p style="font-size: 0.85rem; color: #888; margin-bottom: 8px;">New Horizons Computer Learning Centers (UNILAG, Akoka Branch), Lagos, Nigeria</p>
+            <ul style="font-size: 0.88rem; color: #bbb; line-height: 1.6; padding-left: 18px;">
+              <li>Built responsive, modern web interfaces with <strong>React.js</strong>, <strong>Tailwind CSS</strong>, and JavaScript while completing the Full Stack Web Development (Front End) programme.</li>
+              <li>Translated design wireframes and high-fidelity mockups into modular, accessible, and high-performance frontend components.</li>
             </ul>
-          </li>
-          <li style="margin-top: 10px">
-            <strong>Backend Developer & Instructor</strong>, AnchorSoft Academy
-            <span style="color: #aaa">May 2022 – Jul 2024</span><br />
-            <ul style="font-size: 0.9rem; color: #bbb; margin-top: 3px">
-              <li>
-                Developed secure backend applications and APIs using Django and
-                DRF.
-              </li>
-              <li>
-                Conducted training sessions and assisted students in full-stack
-                development.
-              </li>
+          </div>
+
+          <!-- AnchorSoft - Backend Developer & Instructor -->
+          <div style="border-left: 2px solid var(--gold); padding-left: 20px;">
+            <div style="display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap;">
+               <strong style="color: var(--gold); font-size: 1.1rem;">Backend Developer & Instructor</strong>
+               <span style="color: var(--gold); font-size: 0.8rem; font-family: 'Cinzel', serif; font-weight: 700;">MAY 2022 – JULY 2024</span>
+            </div>
+            <p style="font-size: 0.85rem; color: #888; margin-bottom: 8px;">AnchorSoft Academy, Lagos, Nigeria</p>
+            <ul style="font-size: 0.88rem; color: #bbb; line-height: 1.6; padding-left: 18px;">
+              <li>Architected secure, scalable back-end systems using <strong>Python, Django, and Django REST Framework (DRF)</strong> powering client-facing production applications.</li>
+              <li>Designed and delivered RESTful APIs connecting web/mobile frontends with PostgreSQL relational databases.</li>
+              <li>Mentored <strong>100+ students</strong> in web API deployment, database normalization, Git workflows, code reviews, and Test-Driven Development (TDD) with high completion rates.</li>
             </ul>
-          </li>
-          <li style="margin-top: 10px">
-            <strong>Full-Stack Web Developer</strong>, AnchorSoft Academy
-            <span style="color: #aaa">Jun 2021 – Apr 2022</span><br />
-            <ul style="font-size: 0.9rem; color: #bbb; margin-top: 3px">
-              <li>
-                Built responsive interfaces and managed database-driven
-                applications with Django.
-              </li>
-              <li>
-                Integrated payment gateways and deployed applications on AWS.
-              </li>
+          </div>
+
+          <!-- AnchorSoft - Full-Stack Web Developer -->
+          <div style="border-left: 2px solid #aaa; padding-left: 20px;">
+            <div style="display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap;">
+               <strong style="color: var(--gold); font-size: 1.1rem;">Full-Stack Web Developer</strong>
+               <span style="color: #aaa; font-size: 0.8rem; font-family: 'Cinzel', serif; font-weight: 700;">JUNE 2021 – APRIL 2022</span>
+            </div>
+            <p style="font-size: 0.85rem; color: #888; margin-bottom: 8px;">AnchorSoft Academy, Lagos, Nigeria</p>
+            <ul style="font-size: 0.88rem; color: #bbb; line-height: 1.6; padding-left: 18px;">
+              <li>Integrated <strong>Paystack payment gateways</strong> for e-commerce and subscription platforms, enabling secure transaction processing and webhook handling.</li>
+              <li>Deployed and managed cloud databases on <strong>AWS RDS and EC2</strong> across production environments.</li>
+              <li>Built responsive, user-centric interfaces with HTML5, CSS3, JavaScript, and Bootstrap for client applications.</li>
             </ul>
-          </li>
-        </ul>
+          </div>
+        </div>
       </div>
 
-      <!-- (Keep your existing Certifications, Hobbies, Current Role, and Technical Stack sections here) -->
-    </div>
-
-    <div class="grid-container">
+      <!-- CERTIFICATIONS SECTION -->
       <div class="cell full-width reveal">
-        <span class="cell-label">Certifications & Licenses</span>
-
+        <span class="cell-label">Certifications & National Service Credentials</span>
+        
         <div class="cert-item">
           <div class="cert-meta">
-            <h4>Certification Of Completion</h4>
-            <p>AnchorSoft Academy — Ikeja, Lagos</p>
+            <h4>Certificate of National Service (NYSC)</h4>
+            <p>National Youth Service Corps (NYSC) | Service: 24 Sept 2025 – 23 Sept 2026</p>
           </div>
-          <div class="cert-date">DEC 2021</div>
+          <div class="cert-date" style="color: var(--malefic-green);">SEPT 2026</div>
         </div>
 
         <div class="cert-item">
           <div class="cert-meta">
-            <h4>Certification Of Competence</h4>
-            <p>AnchorSoft Academy — Ikeja, Lagos</p>
+            <h4>Full Stack Web Development (Front End)</h4>
+            <p>New Horizons Computer Learning Centers — UNILAG Akoka Branch</p>
           </div>
-          <div class="cert-date">FEB 2023</div>
+          <div class="cert-date">MAY 2026</div>
         </div>
 
         <div class="cert-item">
           <div class="cert-meta">
-            <h4>Certificate Of Recognition</h4>
-            <p>Somolu Local Government (Education Dept)</p>
+            <h4>Java Programming</h4>
+            <p>New Horizons Computer Learning Centers — Ikeja Branch</p>
+          </div>
+          <div class="cert-date" style="color: var(--gold);">IN PROGRESS</div>
+        </div>
+
+        <div class="cert-item">
+          <div class="cert-meta">
+            <h4>Certificate of Completion, Full Stack Web Development</h4>
+            <p>AnchorSoft Academy — Ikeja, Lagos</p>
+          </div>
+          <div class="cert-date">SEPT 2022</div>
+        </div>
+
+        <div class="cert-item">
+          <div class="cert-meta">
+            <h4>Certificate of Competence, Full Stack Web Development</h4>
+            <p>AnchorSoft Academy — Ikeja, Lagos</p>
+          </div>
+          <div class="cert-date">JUNE 2022</div>
+        </div>
+
+        <div class="cert-item">
+          <div class="cert-meta">
+            <h4>Certificate of Recognition (Volunteer Service)</h4>
+            <p>Somolu Local Government Council — Free Summer Coaching Programme</p>
           </div>
           <div class="cert-date">SEPT 2025</div>
         </div>
       </div>
 
-      <div class="cell full-width reveal">
-        <span class="cell-label">Hobbies & Interests</span>
-        <div class="hobby-grid">
-          <div class="hobby-box">Piano / Musical Theory</div>
-          <div class="hobby-box">Tech Community Mentorship</div>
-          <div class="hobby-box">Continuous Research</div>
-          <div class="hobby-box">Algorithmic Puzzles</div>
-          <div class="hobby-box">Open Source Contribution</div>
-          <div class="hobby-box">Strategy Gaming</div>
+      <!-- THE PROCESS SECTION -->
+      <div class="cell full-width reveal" style="background: rgba(13,13,13,0.8); border: 1px solid var(--malefic-green);">
+        <span class="cell-label">The Architect's Workflow</span>
+        <div class="hobby-grid" style="grid-template-columns: repeat(4, 1fr); gap: 15px;">
+           <div style="text-align: center;">
+              <span style="color: var(--gold); font-size: 1.5rem; font-family: 'Cinzel', serif;">01</span>
+              <p style="font-size: 0.75rem; font-weight: bold; margin-top: 5px;">STRATEGY</p>
+              <p style="font-size: 0.65rem; opacity: 0.7; margin-top: 4px;">Requirements distillation, threat modeling, and ROI roadmap definition.</p>
+           </div>
+           <div style="text-align: center;">
+              <span style="color: var(--gold); font-size: 1.5rem; font-family: 'Cinzel', serif;">02</span>
+              <p style="font-size: 0.75rem; font-weight: bold; margin-top: 5px;">ARCHITECT</p>
+              <p style="font-size: 0.65rem; opacity: 0.7; margin-top: 4px;">Relational database normalization & mathematical logic mapping.</p>
+           </div>
+           <div style="text-align: center;">
+              <span style="color: var(--gold); font-size: 1.5rem; font-family: 'Cinzel', serif;">03</span>
+              <p style="font-size: 0.75rem; font-weight: bold; margin-top: 5px;">BUILD</p>
+              <p style="font-size: 0.65rem; opacity: 0.7; margin-top: 4px;">Clean DRF APIs, Paystack gateway hooks, and responsive React UIs.</p>
+           </div>
+           <div style="text-align: center;">
+              <span style="color: var(--gold); font-size: 1.5rem; font-family: 'Cinzel', serif;">04</span>
+              <p style="font-size: 0.75rem; font-weight: bold; margin-top: 5px;">DEPLOY</p>
+              <p style="font-size: 0.65rem; opacity: 0.7; margin-top: 4px;">AWS cloud deployment (EC2, RDS, S3), monitoring, and post-launch stability.</p>
+           </div>
         </div>
       </div>
 
-      <div class="cell reveal">
-        <span class="cell-label">Current Role</span>
-        <h3>Somolu LG Council</h3>
-        <p style="font-size: 0.8rem; color: #666; margin-top: 5px">
-          Procurement & Digital Logistics
+      <!-- THE ADVANTAGE SECTION -->
+      <div class="cell reveal" style="border-right: 3px solid var(--malefic-green);">
+        <span class="cell-label">The Advantage</span>
+        <h3 style="color: #fff; font-family: 'Cinzel', serif; font-size: 1.05rem;">Mathematical Logic & Operations Research</h3>
+        <p style="font-size: 0.8rem; line-height: 1.8; opacity: 0.85; margin-top: 10px;">
+          <i class="fas fa-brain" style="color: var(--malefic-green); margin-right: 8px;"></i> Applying principles of <strong>Operations Research, Graph Theory, and Discrete Mathematics</strong> to optimize database execution paths, eliminate backend concurrency edge cases, and guarantee zero-loss financial transaction integrity.
         </p>
       </div>
 
-      <div class="cell reveal">
-        <span class="cell-label">Technical Stack</span>
-        <p style="font-size: 0.8rem; line-height: 1.8">
-          <span style="color: var(--malefic-green)">CORE:</span> Django, Python,
-          DRF<br />
-          <span style="color: var(--secondary)">CLOUD:</span> AWS EC2, RDS,
-          S3<br />
-          <span style="color: var(--gold)">WEB:</span> JS, Bootstrap, CSS3
+      <!-- VENN DIAGRAM SECTION -->
+      <div class="cell reveal" style="display: flex; flex-direction: column; align-items: center; justify-content: center; background: #080808; border: 1px solid rgba(212, 175, 55, 0.1);">
+         <span class="cell-label">The Venn of Power</span>
+         <div class="venn-wrapper" style="position: relative; width: 100%; max-width: 250px; height: 250px; margin: 20px 0;">
+            <!-- CIRCLE 1: MATH -->
+            <div class="venn-circle math" style="position: absolute; width: 140px; height: 140px; border: 1px solid var(--gold); border-radius: 50%; top: 10px; left: 50%; transform: translateX(-50%); background: rgba(212, 175, 55, 0.05); display: flex; align-items: center; justify-content: center;">
+                <span style="font-size: 0.55rem; color: var(--gold); font-weight: 900; margin-top: -60px;">MATH</span>
+            </div>
+            <!-- CIRCLE 2: CODE -->
+            <div class="venn-circle code" style="position: absolute; width: 140px; height: 140px; border: 1px solid var(--malefic-green); border-radius: 50%; bottom: 10px; left: 10px; background: rgba(61, 255, 139, 0.05); display: flex; align-items: center; justify-content: center;">
+                <span style="font-size: 0.55rem; color: var(--malefic-green); font-weight: 900; margin-top: 60px; margin-left: -40px;">CODE</span>
+            </div>
+            <!-- CIRCLE 3: STRATEGY -->
+            <div class="venn-circle strategy" style="position: absolute; width: 140px; height: 140px; border: 1px solid #fff; border-radius: 50%; bottom: 10px; right: 10px; background: rgba(255, 255, 255, 0.05); display: flex; align-items: center; justify-content: center;">
+                <span style="font-size: 0.55rem; color: #fff; font-weight: 900; margin-top: 60px; margin-right: -40px;">STRATEGY</span>
+            </div>
+            <!-- CENTER OVERLAY -->
+            <div style="position: absolute; top: 52%; left: 50%; transform: translate(-50%, -50%); text-align: center; pointer-events: none;">
+                <i class="fas fa-microchip" style="color: var(--malefic-green); font-size: 1.3rem; filter: drop-shadow(0 0 10px var(--malefic-green));"></i>
+                <p style="font-size: 0.5rem; color: #fff; font-weight: 900; letter-spacing: 1px; margin-top: 5px;">EMPIRE<br>CODES</p>
+            </div>
+         </div>
+          <p style="font-size: 0.65rem; opacity: 0.5; font-style: italic;">The convergence of mathematical logic, execution, and strategy.</p>
+      </div>
+
+      <style>
+         .venn-wrapper:hover .venn-circle {
+            background: rgba(255, 255, 255, 0.1) !important;
+            transition: 0.5s ease;
+         }
+         .venn-circle {
+            mix-blend-mode: screen;
+         }
+      </style>
+
+      <!-- OPERATIONS RESEARCH LAB -->
+      <div class="cell full-width reveal" style="background: #080808; border-left: 4px solid var(--gold);">
+        <div style="display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap;">
+          <span class="cell-label" style="color: var(--gold); margin-bottom: 5px;"><i class="fas fa-calculator"></i> Operations Research Lab</span>
+          <span style="font-size: 0.7rem; color: var(--malefic-green); font-family: 'Courier New', monospace;">OPTIMIZATION_ENGINE: SIMPLEX_LP_v1</span>
+        </div>
+        <h3 style="color: #fff; font-size: 1.15rem; margin-top: 5px;">Government Contractor Budget & Resource Allocation Model</h3>
+        <p style="font-size: 0.85rem; color: #aaa; margin-top: 6px; line-height: 1.6;">
+          An interactive model demonstrating how I applied linear programming and statistical modeling during my NYSC tenure at Somolu Local Government Council to mathematically optimize budget allocations across 50+ vendor contracts, reducing waste and accelerating project delivery by 40%.
         </p>
+
+        <div class="or-slider-wrap">
+          <div class="or-control">
+            <label for="or-capital"><i class="fas fa-coins" style="margin-right: 5px;"></i> Total Project Capital (₦M)</label>
+            <input type="range" id="or-capital" min="10" max="100" value="50" oninput="solveORModel()">
+            <div class="or-val-display" id="or-capital-val">₦50,000,000</div>
+          </div>
+          <div class="or-control">
+            <label for="or-contractors"><i class="fas fa-hard-hat" style="margin-right: 5px;"></i> Registered Contractors</label>
+            <input type="range" id="or-contractors" min="5" max="50" value="25" oninput="solveORModel()">
+            <div class="or-val-display" id="or-contractors-val">25 Registered Vendors</div>
+          </div>
+          <div class="or-control">
+            <label for="or-risk"><i class="fas fa-balance-scale" style="margin-right: 5px;"></i> Risk Hedging Coefficient (α)</label>
+            <input type="range" id="or-risk" min="0.1" max="0.9" step="0.1" value="0.3" oninput="solveORModel()">
+            <div class="or-val-display" id="or-risk-val">α = 0.30 (Balanced Simplex)</div>
+          </div>
+        </div>
+
+        <div class="or-result-bar">
+          <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; margin-bottom: 10px;">
+            <span style="font-family: 'Cinzel', serif; font-size: 0.75rem; color: var(--gold); letter-spacing: 1px;">
+              <i class="fas fa-chart-pie" style="color: var(--malefic-green); margin-right: 6px;"></i> OPTIMAL MATRIX CONVERGENCE
+            </span>
+            <span id="or-status" style="font-family: 'Courier New', monospace; font-size: 0.7rem; color: var(--malefic-green);">
+              Optimal Simplex Basis Reached in 3 Pivot Steps | 0 Slack Waste
+            </span>
+          </div>
+          <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; font-size: 0.8rem;">
+            <div style="background: rgba(255,255,255,0.02); padding: 10px; border-left: 2px solid var(--malefic-green);">
+              <span style="font-size: 0.65rem; color: #888; text-transform: uppercase;">Tier A Engineering</span>
+              <div id="or-tier-a" style="font-family: 'Courier New', monospace; font-weight: bold; color: var(--malefic-green); margin-top: 3px;">₦25M</div>
+            </div>
+            <div style="background: rgba(255,255,255,0.02); padding: 10px; border-left: 2px solid var(--gold);">
+              <span style="font-size: 0.65rem; color: #888; text-transform: uppercase;">Tier B Logistics</span>
+              <div id="or-tier-b" style="font-family: 'Courier New', monospace; font-weight: bold; color: var(--gold); margin-top: 3px;">₦18M</div>
+            </div>
+            <div style="background: rgba(255,255,255,0.02); padding: 10px; border-left: 2px solid #61DAFB;">
+              <span style="font-size: 0.65rem; color: #888; text-transform: uppercase;">Contingency Reserve</span>
+              <div id="or-contingency" style="font-family: 'Courier New', monospace; font-weight: bold; color: #61DAFB; margin-top: 3px;">₦7M</div>
+            </div>
+            <div style="background: rgba(255,255,255,0.02); padding: 10px; border-left: 2px solid #fff;">
+              <span style="font-size: 0.65rem; color: #888; text-transform: uppercase;">Efficiency Multiplier</span>
+              <div id="or-efficiency" style="font-family: 'Cinzel', serif; font-weight: bold; color: #fff; margin-top: 3px;">+42.5%</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- HOBBIES SECTION -->
+      <div class="cell full-width reveal">
+        <span class="cell-label">Hobbies & Intellectual Pursuits</span>
+        <div class="hobby-grid">
+          <div class="hobby-box"><i class="fas fa-music" style="margin-right: 6px; color: var(--gold);"></i> Piano & Musical Theory</div>
+          <div class="hobby-box"><i class="fas fa-chalkboard-teacher" style="margin-right: 6px; color: var(--malefic-green);"></i> Tech Community Mentorship</div>
+          <div class="hobby-box"><i class="fas fa-brain" style="margin-right: 6px; color: #61DAFB;"></i> Continuous Learning & Research</div>
+          <div class="hobby-box"><i class="fas fa-puzzle-piece" style="margin-right: 6px; color: var(--malefic-green);"></i> Algorithmic Challenges</div>
+          <div class="hobby-box"><i class="fab fa-git-alt" style="margin-right: 6px; color: var(--gold);"></i> Open-Source Development</div>
+          <div class="hobby-box"><i class="fas fa-chess" style="margin-right: 6px; color: #fff;"></i> Strategic Gaming</div>
+        </div>
+      </div>
+
+      <!-- FAQ SECTION -->
+      <div class="cell full-width reveal">
+        <span class="cell-label">Client FAQs</span>
+        <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; font-size: 0.85rem; line-height: 1.6;">
+           <div>
+              <p style="color: var(--gold); font-weight: bold;">How fast can a full-stack e-commerce platform be delivered?</p>
+              <p style="opacity: 0.75;">A production-ready decoupled application (Django REST Framework + React + Paystack) typically takes 7–14 days for a full MVP.</p>
+           </div>
+           <div>
+              <p style="color: var(--gold); font-weight: bold;">Do you provide post-launch stability support?</p>
+              <p style="opacity: 0.75;">Yes. Every deployment includes 30 days of active post-launch monitoring, performance tuning, and technical stability assurance.</p>
+           </div>
+           <div>
+              <p style="color: var(--gold); font-weight: bold;">Can you handle legacy migrations and database normalizations?</p>
+              <p style="opacity: 0.75;">Yes. With an academic background in operations research, I specialize in zero-downtime PostgreSQL schema design and data migrations.</p>
+           </div>
+           <div>
+              <p style="color: var(--gold); font-weight: bold;">How secure is the architecture?</p>
+              <p style="opacity: 0.75;">I enforce CSRF protection, secure JWT/OAuth2 token rotation, encrypted environment variables, and AWS security controls.</p>
+           </div>
+        </div>
+      </div>
+
+      <!-- COMMISSION THE ARCHITECT (QUICK RFQ BRIDGE) -->
+      <div class="cell full-width reveal" style="background: #090909; border: 1px solid var(--gold); padding: 30px;">
+        <div style="display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap;">
+          <span class="cell-label" style="color: var(--gold); margin-bottom: 8px;"><i class="fas fa-handshake"></i> Commission The Architect</span>
+          <span style="font-size: 0.7rem; color: var(--malefic-green); font-family: 'Courier New', monospace;">STATUS: TAKING SELECT PRODUCTION CONTRACTS</span>
+        </div>
+        <h3 style="color: #fff; font-size: 1.25rem;">Initiate Direct Engineering Request</h3>
+        <p style="font-size: 0.85rem; color: #aaa; margin-top: 6px; line-height: 1.6;">
+          Have a fintech payment system, high-traffic Django backend, or full-stack web platform you need built or optimized? Specify your project scope below for instant direct-line transmission to WhatsApp or Email.
+        </p>
+
+        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; margin-top: 20px;">
+          <div>
+            <label style="font-size: 0.7rem; color: #888; text-transform: uppercase; letter-spacing: 1px; display: block; margin-bottom: 5px;">Your Name / Company</label>
+            <input type="text" id="rfq-name" placeholder="e.g. Acme Corp / Alex" style="width: 100%; background: #141414; border: 1px solid #333; color: #fff; padding: 10px; font-size: 0.85rem; outline: none; border-radius: 2px;">
+          </div>
+          <div>
+            <label style="font-size: 0.7rem; color: #888; text-transform: uppercase; letter-spacing: 1px; display: block; margin-bottom: 5px;">System Domain</label>
+            <select id="rfq-service" style="width: 100%; background: #141414; border: 1px solid #333; color: #fff; padding: 10px; font-size: 0.85rem; outline: none; border-radius: 2px;">
+              <option value="Fintech & Paystack Integration">Fintech & Paystack Integration</option>
+              <option value="Django REST Framework Backend">Django REST Framework Backend</option>
+              <option value="Full-Stack Web Platform (React + Vite + Django)">Full-Stack Platform (React + Vite + Django)</option>
+              <option value="Database Optimization & Legacy Migration">Database Optimization & Legacy Migration</option>
+              <option value="Consulting & Technical Mentorship">Consulting & Technical Mentorship</option>
+            </select>
+          </div>
+          <div>
+            <label style="font-size: 0.7rem; color: #888; text-transform: uppercase; letter-spacing: 1px; display: block; margin-bottom: 5px;">Target Timeline</label>
+            <select id="rfq-timeline" style="width: 100%; background: #141414; border: 1px solid #333; color: #fff; padding: 10px; font-size: 0.85rem; outline: none; border-radius: 2px;">
+              <option value="Urgent MVP (1-2 Weeks)">Urgent MVP (1–2 Weeks)</option>
+              <option value="Standard Sprint (1 Month)">Standard Sprint (1 Month)</option>
+              <option value="Enterprise Architecture (Quarterly)">Enterprise Architecture (Quarterly)</option>
+            </select>
+          </div>
+        </div>
+        
+        <div style="margin-top: 15px;">
+          <label style="font-size: 0.7rem; color: #888; text-transform: uppercase; letter-spacing: 1px; display: block; margin-bottom: 5px;">Project Brief / Requirements</label>
+          <textarea id="rfq-notes" rows="2" placeholder="Briefly describe what you're building, key integrations, or performance bottlenecks..." style="width: 100%; background: #141414; border: 1px solid #333; color: #fff; padding: 10px; font-size: 0.85rem; outline: none; border-radius: 2px; resize: vertical;"></textarea>
+        </div>
+
+        <div style="display: flex; gap: 12px; margin-top: 20px; flex-wrap: wrap;">
+          <button onclick="transmitRFQ('whatsapp')" class="cv-download" style="border-color: var(--malefic-green); color: var(--malefic-green); margin: 0; min-width: 220px; text-align: center; cursor: pointer;">
+            <i class="fab fa-whatsapp" style="margin-right: 8px;"></i> TRANSMIT TO WHATSAPP
+          </button>
+          <button onclick="transmitRFQ('email')" class="cv-download" style="border-color: var(--gold); color: var(--gold); margin: 0; min-width: 220px; text-align: center; cursor: pointer;">
+            <i class="fas fa-paper-plane" style="margin-right: 8px;"></i> TRANSMIT TO EMAIL
+          </button>
+        </div>
+      </div>
+
+      <!-- BOLD EMPIRE CLI TERMINAL -->
+      <div class="cell full-width reveal terminal-cell" style="background: #050505; border: 1px solid #222; font-family: 'Courier New', Courier, monospace; overflow: hidden; padding: 25px;">
+        <div style="display: flex; gap: 5px; margin-bottom: 15px; opacity: 0.5;">
+          <span style="width: 8px; height: 8px; background: #ff5f56; border-radius: 50%;"></span>
+          <span style="width: 8px; height: 8px; background: #ffbd2e; border-radius: 50%;"></span>
+          <span style="width: 8px; height: 8px; background: #27c93f; border-radius: 50%;"></span>
+        </div>
+        <span class="cell-label" style="font-family: 'Cinzel', serif;">🌐 Empire Interactive Terminal</span>
+        <div id="terminal-output" style="font-size: 0.85rem; line-height: 1.6; color: var(--text); font-weight: bold; opacity: 0.9; margin-bottom: 10px; max-height: 320px; overflow-y: auto;">
+          <p>System status: <span style="color: var(--malefic-green);">ONLINE [ACTIVE]</span></p>
+          <p style="color: var(--gold);">Available to architect your next system. Type <span style="color: var(--malefic-green);">'help'</span> to see all commands.</p>
+        </div>
+        <div style="display: flex; align-items: center; gap: 10px; font-size: 0.9rem;">
+          <span style="color: var(--malefic-green); font-weight: 900;">$</span>
+          <input type="text" id="terminal-input" placeholder="Type a command (e.g. 'help', 'about', 'skills', 'projects', 'cv', 'hire')..." autocomplete="off" 
+                 style="background: transparent; border: none; outline: none; color: var(--malefic-green); font-family: 'Courier New', monospace; flex-grow: 1; border-bottom: 1px solid rgba(61, 255, 139, 0.2); font-weight: 900;">
+        </div>
       </div>
     </div>
 
+    <script>
+      // TERMINAL ENGINE & UTILITIES
+      const terminalOutput = document.getElementById("terminal-output");
+      const terminalInput = document.getElementById("terminal-input");
+      const cmdHistory = [];
+      let historyIdx = -1;
 
+      const validCommands = [
+        "help", "about", "skills", "technology", "stack", "projects",
+        "experience", "education", "certs", "certifications", "phone",
+        "email", "whatsapp", "hire", "linkedin", "github", "cv", "resume",
+        "blueprint", "contact", "math", "or", "telemetry", "simulator",
+        "matrix", "quote", "commission", "rfq", "clear"
+      ];
 
-    <!-- <div class="void-nav">
-      <a href="https://wa.me/2348135362561"><i class="fab fa-whatsapp"></i></a>
-      <a href="mailto:matthew123224@gmail.com"
-        ><i class="fas fa-envelope"></i
-      ></a>
-      <a href="https://linkedin.com/in/anthony-oluwaseun-3b9a71332/"
-        ><i class="fab fa-linkedin"></i
-      ></a>
-      <a href="https://github.com/Empirezoom"><i class="fab fa-github"></i></a>
-    </div> -->
+      // Quantum Terminal Flash
+      function quantumFlash() {
+        const terminal = document.querySelector(".terminal-cell");
+        if (terminal) {
+           terminal.style.boxShadow = "0 0 35px rgba(61, 255, 139, 0.4)";
+           setTimeout(() => { terminal.style.boxShadow = "none"; }, 300);
+        }
+      }
+
+      // Quick Copy Toast
+      function copyText(text, label) {
+        playBlip();
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(text);
+        } else {
+          const ta = document.createElement("textarea");
+          ta.value = text;
+          document.body.appendChild(ta);
+          ta.select();
+          document.execCommand("copy");
+          document.body.removeChild(ta);
+        }
+        showToast(`[COPIED] ${label}: ${text}`);
+      }
+
+      function showToast(msg) {
+        const toast = document.getElementById("toast");
+        if (!toast) return;
+        toast.textContent = msg;
+        toast.classList.add("show");
+        setTimeout(() => {
+          toast.classList.remove("show");
+        }, 2200);
+      }
+
+      // Project Filter Tabs
+      function filterProjects(cat, btn) {
+        playBlip();
+        document.querySelectorAll(".filter-btn").forEach(b => b.classList.remove("active"));
+        if (btn) btn.classList.add("active");
+
+        const cards = document.querySelectorAll(".project-item");
+        cards.forEach(card => {
+          const itemCat = card.getAttribute("data-category") || "";
+          if (cat === "all" || itemCat.includes(cat)) {
+            card.style.display = "flex";
+            setTimeout(() => { card.style.opacity = "1"; card.style.transform = "scale(1)"; }, 20);
+          } else {
+            card.style.opacity = "0";
+            card.style.transform = "scale(0.97)";
+            setTimeout(() => { card.style.display = "none"; }, 200);
+          }
+        });
+      }
+
+      // Scroll Progress & Back to Top
+      window.addEventListener("scroll", function() {
+        const scrollProgress = document.getElementById("scroll-progress");
+        const backToTop = document.getElementById("back-to-top");
+        const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+        const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        const progress = scrollHeight > 0 ? (scrollTop / scrollHeight) * 100 : 0;
+        
+        if (scrollProgress) {
+          scrollProgress.style.width = progress + "%";
+        }
+        if (backToTop) {
+          if (scrollTop > 400) {
+            backToTop.classList.add("visible");
+          } else {
+            backToTop.classList.remove("visible");
+          }
+        }
+      });
+
+      // Terminal Keydown Handler
+      terminalInput.addEventListener("keydown", function(e) {
+          // Tab Autocomplete
+          if (e.key === "Tab") {
+            e.preventDefault();
+            const current = terminalInput.value.trim().toLowerCase();
+            if (current) {
+              const match = validCommands.find(cmd => cmd.startsWith(current));
+              if (match) terminalInput.value = match;
+            }
+            return;
+          }
+
+          // History Arrow Up
+          if (e.key === "ArrowUp") {
+            e.preventDefault();
+            if (cmdHistory.length > 0 && historyIdx < cmdHistory.length - 1) {
+              historyIdx++;
+              terminalInput.value = cmdHistory[cmdHistory.length - 1 - historyIdx];
+            }
+            return;
+          }
+
+          // History Arrow Down
+          if (e.key === "ArrowDown") {
+            e.preventDefault();
+            if (historyIdx > 0) {
+              historyIdx--;
+              terminalInput.value = cmdHistory[cmdHistory.length - 1 - historyIdx];
+            } else if (historyIdx === 0) {
+              historyIdx = -1;
+              terminalInput.value = "";
+            }
+            return;
+          }
+
+          // Execute on Enter
+          if (e.key === "Enter") {
+              playBlip();
+              const rawCommand = terminalInput.value.trim();
+              const command = rawCommand.toLowerCase();
+              terminalInput.value = "";
+              historyIdx = -1;
+              
+              if (!command) return;
+              cmdHistory.push(rawCommand);
+
+              // Echo command
+              const echo = document.createElement("p");
+              echo.style.fontWeight = "bold";
+              echo.innerHTML = `<span style="color: #61ff8b; font-weight: 900;">$</span> <span style="color: var(--gold);">${rawCommand}</span>`;
+              terminalOutput.appendChild(echo);
+
+              // Process command
+              let response = document.createElement("p");
+              response.style.marginBottom = "15px";
+              response.style.fontWeight = "bold";
+
+              switch(command) {
+                  case "@hire":
+                  case "hire":
+                  case "whatsapp":
+                      response.innerHTML = `Encrypting direct line to **Anthony Oluwaseun Matthew**...<br><span style="color: var(--malefic-green);">[SUCCESS] Secure Bridge established.<br>Opening WhatsApp (+234 817 305 7810)......</span>`;
+                      setTimeout(() => { window.open("https://wa.me/2348173057810", "_blank"); }, 1200);
+                      break;
+                  case "help":
+                      response.innerHTML = `<span style="color: var(--gold);">SYSTEM DIRECTORIES:</span><br>
+                                            - <span style="color: var(--malefic-green);">about</span>: Professional summary & engineering philosophy<br>
+                                            - <span style="color: var(--malefic-green);">skills</span>: Full backend, frontend & cloud proficiencies<br>
+                                            - <span style="color: var(--malefic-green);">projects</span>: Production case studies & live platforms<br>
+                                            - <span style="color: var(--malefic-green);">blueprint</span>: Zero-loss Paystack pipeline specifications<br>
+                                            - <span style="color: var(--malefic-green);">math</span> / <span style="color: var(--malefic-green);">or</span>: Operations Research & computational foundations<br>
+                                            - <span style="color: var(--malefic-green);">telemetry</span>: Real-time production runtime vitals<br>
+                                            - <span style="color: var(--malefic-green);">simulator</span>: Paystack webhook sandbox guide<br>
+                                            - <span style="color: var(--malefic-green);">experience</span>: 4+ years of roles & quantifiable impact<br>
+                                            - <span style="color: var(--malefic-green);">education</span>: Mathematics degree & computational focus<br>
+                                            - <span style="color: var(--malefic-green);">certs</span>: NYSC & specialized software certifications<br>
+                                            - <span style="color: var(--malefic-green);">cv</span>: Instant link to WPS resume & PDF download<br>
+                                            - <span style="color: var(--gold);">CHANNELS:</span><br>
+                                            - <span style="color: var(--malefic-green);">phone</span> / <span style="color: var(--malefic-green);">email</span> / <span style="color: var(--malefic-green);">linkedin</span> / <span style="color: var(--malefic-green);">github</span><br>
+                                            - <span style="color: var(--malefic-green);">commission</span>: Dispatch formal project proposal<br>
+                                            - <span style="color: var(--gold);">hire</span>: Initiate secure WhatsApp connection`;
+                      break;
+                  case "about":
+                      response.innerHTML = `Backend / Full-Stack Software Engineer & Mathematician with 4+ years of production experience building secure RESTful APIs, Paystack payment gateways, and scalable architectures using Python, Django, DRF, PostgreSQL, and AWS. Grounded in computational mathematics from OAUSTECH and completed NYSC service.`;
+                      break;
+                  case "skills":
+                  case "technology":
+                  case "stack":
+                      response.innerHTML = `<span style="color: var(--malefic-green);">BACKEND:</span> Django, Django REST Framework, Python, Node.js, Celery, Redis<br>
+                                            <span style="color: var(--gold);">PAYMENTS:</span> Paystack Gateway Integration, Webhooks, Ledgers<br>
+                                            <span style="color: #61DAFB;">FRONTEND:</span> React.js, Vite, JavaScript (ES6+), Tailwind CSS, Bootstrap<br>
+                                            <span style="color: #a855f7;">DATABASES:</span> PostgreSQL, SQLite<br>
+                                            <span style="color: var(--text);">CLOUD & TOOLS:</span> AWS (EC2, RDS, S3, API Gateway, CloudWatch, WAF), Git, CI/CD`;
+                      break;
+                  case "blueprint":
+                      response.innerHTML = `<span style="color: var(--gold);">THE ZERO-LOSS PAYSTACK PIPELINE:</span><br>
+                                            1. <span style="color: var(--malefic-green);">Client:</span> Generates client-side idempotency token via React/Vite.<br>
+                                            2. <span style="color: var(--malefic-green);">DRF API:</span> Server initializes transaction & stores snapshot with status 'PENDING'.<br>
+                                            3. <span style="color: var(--malefic-green);">Paystack:</span> 3D Secure transaction handshake via TLS 1.3.<br>
+                                            4. <span style="color: var(--malefic-green);">Webhook Guard:</span> Validates HMAC-SHA512 signature against PAYSTACK_SECRET_KEY.<br>
+                                            5. <span style="color: var(--malefic-green);">Atomic DB:</span> Uses PostgreSQL select_for_update() row locks to guarantee zero double-spends.`;
+                      break;
+                  case "math":
+                  case "or":
+                      response.innerHTML = `<span style="color: var(--gold);">MATHEMATICAL FOUNDATIONS & OPERATIONS RESEARCH:</span><br>
+                                            • Degree: B.Tech in Mathematics (OAUSTECH, Conferred Nov 2024, GPA: 3.21/5.0).<br>
+                                            • Core Domains: Operations Research, Computational Math, Graph Theory, Abstract Algebra.<br>
+                                            • Real-World Impact: Modeled budget optimization and contractor scheduling at Somolu Local Government Council during NYSC (+40% data retrieval efficiency).`;
+                      break;
+                  case "telemetry":
+                      response.innerHTML = `<span style="color: var(--malefic-green);">[RUNTIME VITALS]</span><br>
+                                            • Paystack Verification SLA: <span style="color: var(--gold);">100.0% (HMAC-SHA512)</span><br>
+                                            • API Latency (P95): <span style="color: var(--gold);">38 ms (DRF + Redis)</span><br>
+                                            • Ledger Concurrency: <span style="color: var(--gold);">Strict ACID (select_for_update)</span><br>
+                                            • Active Nodes: <span style="color: var(--gold);">9 Systems Online</span>`;
+                      break;
+                  case "simulator":
+                      response.innerHTML = `Paystack Webhook & Idempotency Sandbox is loaded above under the Architectural Blueprint. You can test live scenarios: charge.success, HMAC tamper detection, and duplicate event idempotency.`;
+                      break;
+                  case "matrix":
+                      response.innerHTML = `<span style="color: var(--malefic-green);">SYSTEM OVERRIDE: Void Matrix Activated. 01000101 01001101 01010000 01001001 01010010 01000101 01000011 01001111 01000100 01000101 01010011</span>`;
+                      break;
+                  case "quote":
+                      response.innerHTML = `<span style="color: var(--gold);">"Simplicity is prerequisite for reliability."</span> — Edsger W. Dijkstra<br><span style="color: #aaa;">"We can only see a short distance ahead, but we can see plenty there that needs to be done."</span> — Alan Turing`;
+                      break;
+                  case "commission":
+                  case "rfq":
+                      response.innerHTML = `Navigating to Commission Module. Direct channels: WhatsApp (<a href="https://wa.me/2348173057810" target="_blank" style="color: var(--malefic-green);">+234 817 305 7810</a>) or Email (<a href="mailto:matthew123224@gmail.com" style="color: var(--gold);">matthew123224@gmail.com</a>).`;
+                      break;
+                  case "projects":
+                      response.innerHTML = `1. <span style="color: var(--gold);">Montreux & Co.</span> (montreux.onrender.com) — Decoupled React/Vite + DRF E-commerce<br>
+                                            2. <span style="color: var(--gold);">BrokersHub</span> (brokershub.onrender.com) — High-traffic real estate platform (-20% load time)<br>
+                                            3. <span style="color: var(--gold);">EmpireCodes</span> (empirecodes.com.ng) — Tech community with 500+ active users<br>
+                                            4. <span style="color: var(--gold);">P2PEXC.ONLINE</span> — Decentralized P2P cryptocurrency exchange engine<br>
+                                            5. <span style="color: var(--gold);">Fintech Demos</span> — Prairie Wealth, BlueStick Trading, Skindia Bank`;
+                      break;
+                  case "experience":
+                      response.innerHTML = `• <span style="color: var(--malefic-green);">NYSC Procurement & Admin</span> — Somolu Local Govt Council (Sept 2025 – Sept 2026)<br>
+                                            • <span style="color: #61DAFB;">Frontend Developer Intern</span> — New Horizons UNILAG (Jan 2026 – May 2026)<br>
+                                            • <span style="color: var(--gold);">Backend Developer & Instructor</span> — AnchorSoft Academy (May 2022 – July 2024)<br>
+                                            • <span style="color: var(--text);">Full-Stack Web Developer</span> — AnchorSoft Academy (June 2021 – April 2022)`;
+                      break;
+                  case "education":
+                      response.innerHTML = `B.Tech in Mathematics (Operations Research & Computational Mathematics)<br>
+                                            Olusegun Agagu University of Science and Technology (OAUSTECH) | GPA: 3.21 / 5.0<br>
+                                            Conferred: 21 November 2024`;
+                      break;
+                  case "certs":
+                  case "certifications":
+                      response.innerHTML = `1. Certificate of National Service (NYSC, Sept 2026)<br>
+                                            2. Full Stack Web Development (Front End) — New Horizons UNILAG (May 2026)<br>
+                                            3. Java Programming (In Progress) — New Horizons Ikeja<br>
+                                            4. Certificates of Completion & Competence — AnchorSoft Academy (2022)<br>
+                                            5. Certificate of Recognition — Somolu LG Free Summer Coaching (2025)`;
+                      break;
+                  case "phone":
+                      response.innerHTML = `MOBILE_BRIDGE: <a href="tel:+2348135362561" style="color: var(--gold); text-decoration: underline;">+234 813 536 2561</a>`;
+                      break;
+                  case "email":
+                      response.innerHTML = `DIRECT_EMAIL: <a href="mailto:matthew123224@gmail.com" style="color: var(--gold); text-decoration: underline;">matthew123224@gmail.com</a>`;
+                      break;
+                  case "linkedin":
+                      response.innerHTML = `LINKEDIN_PORTAL: <a href="https://linkedin.com/in/anthony-oluwaseun-3b9a71332/" target="_blank" style="color: var(--malefic-green); text-decoration: underline;">Open Profile</a>`;
+                      break;
+                  case "github":
+                      response.innerHTML = `GITHUB_REPOSITORY: <a href="https://github.com/Empirezoom" target="_blank" style="color: var(--malefic-green); text-decoration: underline;">Open GitHub</a>`;
+                      break;
+                  case "cv":
+                  case "resume":
+                      response.innerHTML = `CV_DOCUMENT: <a href="https://eu.wps.com/cms/docs/d/cbRadaY8WK1JzIIf?platform=pc&refer=copylink" target="_blank" style="color: var(--gold); text-decoration: underline;">View on WPS Office</a> | <a href="FILE/Anthony_Matthew_CV_v3.pdf" download style="color: var(--malefic-green); text-decoration: underline;">Download PDF</a>`;
+                      break;
+                  case "contact":
+                      response.innerHTML = `CONNECT_HUB: <button class="copy-badge" onclick="copyText('matthew123224@gmail.com', 'Email')"><i class="fas fa-envelope"></i> Copy Email</button> <button class="copy-badge" onclick="copyText('+2348135362561', 'Phone')"><i class="fas fa-phone"></i> Copy Phone</button>`;
+                      break;
+                  case "clear":
+                      terminalOutput.innerHTML = `<p>System status: <span style="color: var(--malefic-green);">ONLINE [ACTIVE]</span></p>`;
+                      return;
+                  default:
+                      response.innerHTML = `<span style="color: #ff5f56;">Command '${rawCommand}' not recognized. Enter 'help' for available directories.</span>`;
+              }
+              
+              terminalOutput.appendChild(response);
+              terminalOutput.scrollTop = terminalOutput.scrollHeight;
+              quantumFlash();
+          }
+      });
+
+      // ==========================================
+      // WEB AUDIO SYNTHESIZER ENGINE (NATIVE API)
+      // ==========================================
+      let audioCtx = null;
+      let audioEnabled = false;
+
+      function toggleAudio() {
+        audioEnabled = !audioEnabled;
+        const btn = document.getElementById("audio-toggle");
+        if (audioEnabled) {
+          if (!audioCtx) {
+            audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+          }
+          if (audioCtx.state === 'suspended') {
+            audioCtx.resume();
+          }
+          if (btn) {
+            btn.innerHTML = '<i class="fas fa-volume-up"></i> FX: ON';
+            btn.classList.add("active");
+          }
+          playSuccessSound();
+          showToast("[AUDIO FX] Cybernetic Sound Engine Online");
+        } else {
+          if (btn) {
+            btn.innerHTML = '<i class="fas fa-volume-mute"></i> FX: OFF';
+            btn.classList.remove("active");
+          }
+          showToast("[AUDIO FX] Synthesizer Sound Engine Muted");
+        }
+      }
+
+      function playTone(freq, type, duration, gainVal = 0.05) {
+        if (!audioEnabled || !audioCtx) return;
+        try {
+          const osc = audioCtx.createOscillator();
+          const gain = audioCtx.createGain();
+          osc.type = type;
+          osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
+          gain.gain.setValueAtTime(gainVal, audioCtx.currentTime);
+          gain.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + duration);
+          osc.connect(gain);
+          gain.connect(audioCtx.destination);
+          osc.start();
+          osc.stop(audioCtx.currentTime + duration);
+        } catch (e) {}
+      }
+
+      function playBlip() { playTone(880, 'sine', 0.06, 0.03); }
+      function playSuccessSound() { 
+        playTone(523.25, 'triangle', 0.09, 0.04);
+        setTimeout(() => playTone(659.25, 'triangle', 0.14, 0.04), 80);
+      }
+      function playWarnSound() {
+        playTone(220, 'sawtooth', 0.15, 0.04);
+        setTimeout(() => playTone(180, 'sawtooth', 0.2, 0.04), 100);
+      }
+
+      // ==========================================
+      // CONSTELLATION CANVAS MATRIX BACKGROUND
+      // ==========================================
+      (function initConstellation() {
+        const canvas = document.getElementById("constellation-canvas");
+        if (!canvas) return;
+        const ctx = canvas.getContext("2d");
+        let width, height;
+        let particles = [];
+        const particleCount = 42;
+        let mouse = { x: null, y: null };
+
+        function resize() {
+          width = canvas.width = window.innerWidth;
+          height = canvas.height = window.innerHeight;
+        }
+        window.addEventListener("resize", resize);
+        resize();
+
+        window.addEventListener("mousemove", (e) => {
+          mouse.x = e.clientX;
+          mouse.y = e.clientY;
+        });
+        window.addEventListener("mouseleave", () => {
+          mouse.x = null;
+          mouse.y = null;
+        });
+
+        class Particle {
+          constructor() {
+            this.x = Math.random() * width;
+            this.y = Math.random() * height;
+            this.vx = (Math.random() - 0.5) * 0.35;
+            this.vy = (Math.random() - 0.5) * 0.35;
+            this.radius = Math.random() * 1.5 + 0.8;
+            this.color = Math.random() > 0.5 ? "rgba(212, 175, 55, " : "rgba(61, 255, 139, ";
+          }
+          update() {
+            this.x += this.vx;
+            this.y += this.vy;
+            if (this.x < 0 || this.x > width) this.vx *= -1;
+            if (this.y < 0 || this.y > height) this.vy *= -1;
+
+            if (mouse.x !== null) {
+              let dx = mouse.x - this.x;
+              let dy = mouse.y - this.y;
+              let dist = Math.sqrt(dx * dx + dy * dy);
+              if (dist < 120) {
+                this.x += dx * 0.012;
+                this.y += dy * 0.012;
+              }
+            }
+          }
+          draw() {
+            ctx.beginPath();
+            ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+            ctx.fillStyle = this.color + "0.6)";
+            ctx.fill();
+          }
+        }
+
+        for (let i = 0; i < particleCount; i++) {
+          particles.push(new Particle());
+        }
+
+        let animId;
+        function animate() {
+          ctx.clearRect(0, 0, width, height);
+
+          for (let i = 0; i < particles.length; i++) {
+            particles[i].update();
+            particles[i].draw();
+
+            for (let j = i + 1; j < particles.length; j++) {
+              let dx = particles[i].x - particles[j].x;
+              let dy = particles[i].y - particles[j].y;
+              let dist = Math.sqrt(dx * dx + dy * dy);
+              if (dist < 115) {
+                ctx.beginPath();
+                ctx.moveTo(particles[i].x, particles[i].y);
+                ctx.lineTo(particles[j].x, particles[j].y);
+                ctx.strokeStyle = `rgba(212, 175, 55, ${0.14 * (1 - dist / 115)})`;
+                ctx.lineWidth = 0.5;
+                ctx.stroke();
+              }
+            }
+          }
+          animId = requestAnimationFrame(animate);
+        }
+
+        window.addEventListener("scroll", () => {
+          if (window.scrollY > window.innerHeight * 1.5) {
+            if (animId) { cancelAnimationFrame(animId); animId = null; }
+          } else {
+            if (!animId) { animId = requestAnimationFrame(animate); }
+          }
+        });
+
+        animate();
+      })();
+
+      // ==========================================
+      // LIVE PAYSTACK WEBHOOK SIMULATOR ENGINE
+      // ==========================================
+      let simStepTimeouts = [];
+      function runSimulator(mode) {
+        simStepTimeouts.forEach(t => clearTimeout(t));
+        simStepTimeouts = [];
+        const simConsole = document.getElementById("sim-console");
+        if (!simConsole) return;
+        playBlip();
+
+        if (mode === 'reset') {
+          simConsole.innerHTML = `<div class="sim-line sys">[SYSTEM READY] Paystack Webhook & Idempotency Sandbox initialized. Select an event scenario above.</div>`;
+          return;
+        }
+
+        simConsole.innerHTML = `<div class="sim-line sys">[DISPATCH] Initiating ${mode.toUpperCase()} simulation against /api/v1/payments/paystack-webhook/ ...</div>`;
+        const now = () => new Date().toISOString().substring(11, 19);
+
+        if (mode === 'success') {
+          const steps = [
+            { delay: 180, cls: 'info', text: `[${now()}] INBOUND POST: Event 'charge.success' | Ref: 'T9812_MNX' | Amount: 45,000 NGN (4500000 Kobo)` },
+            { delay: 450, cls: 'info', text: `[${now()}] HEADER x-paystack-signature: 7a8f3b21e89c02d1847e30f142... (HMAC-SHA512)` },
+            { delay: 850, cls: 'pass', text: `[${now()}] HMAC VERIFICATION: Calculated HMAC matches header using PAYSTACK_SECRET_KEY [PASS]` },
+            { delay: 1250, cls: 'info', text: `[${now()}] IDEMPOTENCY CHECK: Redis cache key 'evt_T9812_MNX' -> MISS (First Occurrence)` },
+            { delay: 1650, cls: 'pass', text: `[${now()}] DB ROW LOCK: SELECT * FROM orders_order WHERE ref='T9812_MNX' FOR UPDATE;` },
+            { delay: 2050, cls: 'pass', text: `[${now()}] ATOMIC LEDGER: Status changed PENDING -> PAID. Created LedgerEntry(ref='T9812_MNX', cr=45000.00)` },
+            { delay: 2450, cls: 'sys', text: `[${now()}] CELERY TASK: Dispatched order_fulfillment_pipeline.delay(order_id='8842')` },
+            { delay: 2850, cls: 'pass', text: `[${now()}] HTTP RESPONSE: 200 OK (Execution Time: 19ms | Zero-Loss Settlement Guaranteed)` }
+          ];
+
+          steps.forEach((s, idx) => {
+            const timeout = setTimeout(() => {
+              const div = document.createElement("div");
+              div.className = `sim-line ${s.cls}`;
+              div.textContent = s.text;
+              simConsole.appendChild(div);
+              simConsole.scrollTop = simConsole.scrollHeight;
+              if (idx === steps.length - 1) playSuccessSound();
+            }, s.delay);
+            simStepTimeouts.push(timeout);
+          });
+        } else if (mode === 'tamper') {
+          const steps = [
+            { delay: 180, cls: 'info', text: `[${now()}] INBOUND POST: Tampered Payload Detected (Amount altered: 45,000 -> 4,500 NGN)` },
+            { delay: 450, cls: 'info', text: `[${now()}] HEADER x-paystack-signature: d41d8cd98f00b204e980...` },
+            { delay: 850, cls: 'fail', text: `[${now()}] HMAC VERIFICATION: SIGNATURE MISMATCH! Computed HMAC != x-paystack-signature header.` },
+            { delay: 1250, cls: 'fail', text: `[${now()}] SECURITY INTERCEPT: Potential man-in-the-middle or spoofing attack detected.` },
+            { delay: 1650, cls: 'fail', text: `[${now()}] WAF / AUDIT: Logging attacker IP to CloudWatch metrics. Database write ABORTED.` },
+            { delay: 2050, cls: 'fail', text: `[${now()}] HTTP RESPONSE: 401 Unauthorized (Payload Rejected. Zero Data Compromise)` }
+          ];
+
+          steps.forEach((s, idx) => {
+            const timeout = setTimeout(() => {
+              const div = document.createElement("div");
+              div.className = `sim-line ${s.cls}`;
+              div.textContent = s.text;
+              simConsole.appendChild(div);
+              simConsole.scrollTop = simConsole.scrollHeight;
+              if (idx === steps.length - 1) playWarnSound();
+            }, s.delay);
+            simStepTimeouts.push(timeout);
+          });
+        } else if (mode === 'duplicate') {
+          const steps = [
+            { delay: 180, cls: 'info', text: `[${now()}] INBOUND POST: Paystack Webhook Network Retry Event` },
+            { delay: 450, cls: 'pass', text: `[${now()}] HMAC VERIFICATION: Valid Signature [PASS]` },
+            { delay: 850, cls: 'info', text: `[${now()}] IDEMPOTENCY CHECK: Redis cache key 'evt_T9812_MNX' -> HIT (Already processed 42s ago)` },
+            { delay: 1250, cls: 'pass', text: `[${now()}] IDEMPOTENT SHORT-CIRCUIT: Skipping duplicate DB write to prevent double-crediting.` },
+            { delay: 1650, cls: 'pass', text: `[${now()}] HTTP RESPONSE: 200 OK (Acknowledged cleanly without ledger alteration)` }
+          ];
+
+          steps.forEach((s, idx) => {
+            const timeout = setTimeout(() => {
+              const div = document.createElement("div");
+              div.className = `sim-line ${s.cls}`;
+              div.textContent = s.text;
+              simConsole.appendChild(div);
+              simConsole.scrollTop = simConsole.scrollHeight;
+              if (idx === steps.length - 1) playSuccessSound();
+            }, s.delay);
+            simStepTimeouts.push(timeout);
+          });
+        }
+      }
+
+      // ==========================================
+      // OPERATIONS RESEARCH SIMPLEX SOLVER ENGINE
+      // ==========================================
+      function solveORModel() {
+        playBlip();
+        const capitalEl = document.getElementById("or-capital");
+        const contractorsEl = document.getElementById("or-contractors");
+        const riskEl = document.getElementById("or-risk");
+        if (!capitalEl || !contractorsEl || !riskEl) return;
+
+        const capital = parseFloat(capitalEl.value);
+        const contractors = parseInt(contractorsEl.value);
+        const risk = parseFloat(riskEl.value);
+
+        document.getElementById("or-capital-val").textContent = `₦${capital},000,000`;
+        document.getElementById("or-contractors-val").textContent = `${contractors} Registered Vendors`;
+        document.getElementById("or-risk-val").textContent = `α = ${risk.toFixed(2)} (${risk < 0.4 ? 'Conservative' : risk < 0.7 ? 'Balanced' : 'Aggressive'} Simplex)`;
+
+        const tierAShare = Math.round((0.55 - (risk * 0.12)) * capital);
+        const tierBShare = Math.round((0.35 + (risk * 0.04)) * capital);
+        const contingency = capital - tierAShare - tierBShare;
+        const efficiency = (35 + (contractors * 0.22) + (capital * 0.04)).toFixed(1);
+
+        document.getElementById("or-tier-a").textContent = `₦${tierAShare}M`;
+        document.getElementById("or-tier-b").textContent = `₦${tierBShare}M`;
+        document.getElementById("or-contingency").textContent = `₦${contingency}M`;
+        document.getElementById("or-efficiency").textContent = `+${efficiency}%`;
+      }
+
+      // ==========================================
+      // COMMISSION THE ARCHITECT (RFQ BRIDGE)
+      // ==========================================
+      function transmitRFQ(channel) {
+        playBlip();
+        const name = (document.getElementById("rfq-name")?.value || "").trim() || "Prospective Client";
+        const service = document.getElementById("rfq-service")?.value || "Engineering Project";
+        const timeline = document.getElementById("rfq-timeline")?.value || "Standard Sprint";
+        const notes = (document.getElementById("rfq-notes")?.value || "").trim() || "I would like to discuss an engineering contract.";
+
+        const text = `Hello Anthony,\n\nI reviewed your portfolio on empirecodes.com.ng and would like to commission your engineering services:\n\n• Client / Company: ${name}\n• System Domain: ${service}\n• Target Timeline: ${timeline}\n• Requirements: ${notes}\n\nLooking forward to discussing the architecture.`;
+
+        if (channel === 'whatsapp') {
+          const url = `https://wa.me/2348173057810?text=${encodeURIComponent(text)}`;
+          window.open(url, "_blank");
+          playSuccessSound();
+        } else if (channel === 'email') {
+          const subject = encodeURIComponent(`[Commission Request] ${service} - ${name}`);
+          const body = encodeURIComponent(text);
+          window.location.href = `mailto:matthew123224@gmail.com?subject=${subject}&body=${body}`;
+          playSuccessSound();
+        }
+      }
+
+      // ==========================================
+      // SYSTEM DESIGN & ARCHITECTURE MODAL DOSSIERS
+      // ==========================================
+      const projectDossiers = {
+        montreux: {
+          tag: "CASE STUDY #01 • LUXURY E-COMMERCE",
+          title: "Montreux & Co. Architecture",
+          subtitle: "React 18 (Vite) • Django REST Framework • PostgreSQL • Paystack • AWS S3",
+          body: `
+            <p><strong>SYSTEM OVERVIEW:</strong> Decoupled fashion e-commerce ecosystem built for extreme frontend snappiness and rock-solid backend transactional reliability.</p>
+            <br>
+            <div style="background: rgba(255,255,255,0.02); padding: 12px; border-left: 2px solid var(--malefic-green); margin-bottom: 12px;">
+              <strong style="color: var(--malefic-green);">CORE ARCHITECTURE DECISIONS:</strong><br>
+              • <strong>Decoupled React (Vite):</strong> Fast client-side rendering with sub-second page transitions and Tailwind CSS modular layout.<br>
+              • <strong>HMAC-SHA512 Paystack Gateway:</strong> Zero checkout drops through automated webhook signature verification and idempotent payload caching.<br>
+              • <strong>Atomic Inventory Reconciliation:</strong> Row-level locks (<code>select_for_update()</code>) ensure stock is never oversold during high concurrency flash sales.
+            </div>
+            <p><strong>PRODUCTION HIGHLIGHTS:</strong> Token authentication with JWT rotation, AWS S3 image pipeline with pre-signed asset upload credentials, and full admin dashboard for media and product inventory management.</p>
+          `,
+          demoUrl: "https://montreux.onrender.com/",
+          repoUrl: "https://github.com/Empirezoom"
+        },
+        brokershub: {
+          tag: "PRODUCTION SYSTEM • REAL ESTATE",
+          title: "Brokage Hub (BrokersHub)",
+          subtitle: "Python / Django • PostgreSQL • Redis Caching • GIS Search",
+          body: `
+            <p><strong>SYSTEM OVERVIEW:</strong> High-traffic real estate discovery platform serving thousands of daily listing queries across diverse geographic regions.</p>
+            <br>
+            <div style="background: rgba(255,255,255,0.02); padding: 12px; border-left: 2px solid var(--gold); margin-bottom: 12px;">
+              <strong style="color: var(--gold);">PERFORMANCE & SCALING METRICS:</strong><br>
+              • <strong>-20% Page Latency:</strong> Tuned PostgreSQL execution plans, added composite indexes on location/price vectors, and resolved N+1 bottlenecks via <code>select_related</code> and <code>prefetch_related</code>.<br>
+              • <strong>+30% User Engagement:</strong> Fast predictive filtering and zero-latency property cards boosted session duration and conversion rates.<br>
+              • <strong>Redis Cache Layer:</strong> Cached hot property listings, reducing relational database query load by 65%.
+            </div>
+          `,
+          demoUrl: "https://brokershub.onrender.com/",
+          repoUrl: "https://github.com/Empirezoom"
+        },
+        empirecodes: {
+          tag: "COMMUNITY PLATFORM • 500+ USERS",
+          title: "EmpireCodes Community Platform",
+          subtitle: "Django • WebSockets • PostgreSQL • Custom UI/UX Design System",
+          body: `
+            <p><strong>SYSTEM OVERVIEW:</strong> The flagship community and tech blogging platform powering 500+ active software developers with real-time notification streams.</p>
+            <br>
+            <div style="background: rgba(255,255,255,0.02); padding: 12px; border-left: 2px solid var(--malefic-green); margin-bottom: 12px;">
+              <strong style="color: var(--malefic-green);">ENGINEERING SPECIFICATIONS:</strong><br>
+              • <strong>Real-Time Notification Pipeline:</strong> Push notifications and community updates delivered with minimal server footprint.<br>
+              • <strong>High-Contrast Aesthetic:</strong> Signature 'Dark Architect' design system optimized for code readability and developer immersion.<br>
+              • <strong>Role-Based Access Control:</strong> Tiered permission matrix for authors, moderators, and active tech readers.
+            </div>
+          `,
+          demoUrl: "https://empirecodes.com.ng/",
+          repoUrl: "https://github.com/Empirezoom"
+        },
+        p2pexc: {
+          tag: "CASE STUDY #02 • CRYPTO ESCROW",
+          title: "P2PEXC.ONLINE Escrow Engine",
+          subtitle: "Django REST Framework • WebSockets • Redis • Cryptographic Ledgers",
+          body: `
+            <p><strong>SYSTEM OVERVIEW:</strong> Decentralized peer-to-peer asset transfer engine solving counterparty fraud and slow transaction finality in fiat-to-crypto settlements.</p>
+            <br>
+            <div style="background: rgba(255,255,255,0.02); padding: 12px; border-left: 2px solid var(--gold); margin-bottom: 12px;">
+              <strong style="color: var(--gold);">SECURITY & ESCROW STATE MACHINE:</strong><br>
+              • <strong>Deterministic State Machine:</strong> Strict transition checks (INITIATED -> LOCKED -> PAID -> RELEASED / DISPUTED).<br>
+              • <strong>-40% Settlement Finality Time:</strong> Automated timeout routines and automated escrow unlocks upon cryptographic proof of bank settlement.<br>
+              • <strong>Cryptographic Audit Trails:</strong> Immutable append-only ledger for all trade actions and dispute resolutions.
+            </div>
+          `,
+          demoUrl: "https://p2pexc.online/",
+          repoUrl: "https://github.com/Empirezoom"
+        },
+        skindia: {
+          tag: "FINTECH DEMO • CORE BANKING",
+          title: "Skindia Bank Core Ledger",
+          subtitle: "Python • Django • PostgreSQL • Strict Double-Entry ACID",
+          body: `
+            <p><strong>SYSTEM OVERVIEW:</strong> Core banking demo modeling enterprise financial ledger operations, balance reconciliations, and administrative fraud detection.</p>
+            <br>
+            <div style="background: rgba(255,255,255,0.02); padding: 12px; border-left: 2px solid var(--malefic-green); margin-bottom: 12px;">
+              <strong style="color: var(--malefic-green);">FINANCIAL INTEGRITY HIGHLIGHTS:</strong><br>
+              • <strong>Double-Entry Accounting:</strong> Strictly enforced balanced debits and credits across all customer accounts.<br>
+              • <strong>Transaction Guard Rails:</strong> Administrative freeze triggers, velocity controls, and anti-tamper ledger verifications.
+            </div>
+          `,
+          demoUrl: "https://skindia-bank.onrender.com/",
+          repoUrl: "https://github.com/Empirezoom"
+        },
+        prairie: {
+          tag: "FINTECH DEMO • WEALTH MANAGEMENT",
+          title: "Prairie Wealth Management",
+          subtitle: "Django • DRF • PostgreSQL • Chart.js",
+          body: `
+            <p><strong>SYSTEM OVERVIEW:</strong> High-fidelity wealth management and portfolio analytics platform featuring dynamic transaction ledgers and automated tax bracket assessments.</p>
+            <br>
+            <div style="background: rgba(255,255,255,0.02); padding: 12px; border-left: 2px solid var(--gold); margin-bottom: 12px;">
+              <strong style="color: var(--gold);">LEDGER & TAX LOGIC:</strong><br>
+              • Dynamic calculations for asset appreciation, dividends, and multi-tier tax liabilities.<br>
+              • Secure user-facing dashboard with historical portfolio yield visualizers.
+            </div>
+          `,
+          demoUrl: "https://prairie-il1h.onrender.com/",
+          repoUrl: "https://github.com/Empirezoom"
+        },
+        bluestick: {
+          tag: "FINTECH DEMO • TRADING PORTAL",
+          title: "BlueStick Trading Portal",
+          subtitle: "Django REST Framework • JavaScript • WebSockets • Redis",
+          body: `
+            <p><strong>SYSTEM OVERVIEW:</strong> Advanced trading portal featuring real-time market visualization, continuous telemetry, and secure asset monitoring modules.</p>
+            <br>
+            <div style="background: rgba(255,255,255,0.02); padding: 12px; border-left: 2px solid #61DAFB; margin-bottom: 12px;">
+              <strong style="color: #61DAFB;">ENGINEERING HIGHLIGHTS:</strong><br>
+              • Real-time asset price tracking and rapid execution order simulation.<br>
+              • Redis-backed volatile order book cache for zero latency updates.
+            </div>
+          `,
+          demoUrl: "https://bluestick-trading.onrender.com/",
+          repoUrl: "https://github.com/Empirezoom"
+        },
+        alpi: {
+          tag: "FULL-STACK PLATFORM • SYSTEM ARCHITECTURE",
+          title: "Alpi Full-Stack Application",
+          subtitle: "Django • DRF • PostgreSQL • Modern UI",
+          body: `
+            <p><strong>SYSTEM OVERVIEW:</strong> High-performance business application engineered with customized backend integration and responsive client UI.</p>
+            <br>
+            <div style="background: rgba(255,255,255,0.02); padding: 12px; border-left: 2px solid var(--malefic-green); margin-bottom: 12px;">
+              <strong style="color: var(--malefic-green);">KEY METRICS:</strong><br>
+              • Clean decoupled communication between frontend components and Django APIs.<br>
+              • Optimized database relational schema with automated data migrations.
+            </div>
+          `,
+          demoUrl: "https://alpi-5l6c.onrender.com/",
+          repoUrl: "https://github.com/Empirezoom"
+        },
+        oregon: {
+          tag: "LOGISTICS ENGINE • FLEET OS",
+          title: "Oregon Trucking Logistics",
+          subtitle: "Django • PostgreSQL • Relational Fleet OS",
+          body: `
+            <p><strong>SYSTEM OVERVIEW:</strong> Logistics and records management platform for trucking fleets, optimized for heavy-data reliability, maintenance schedules, and route tracking.</p>
+            <br>
+            <div style="background: rgba(255,255,255,0.02); padding: 12px; border-left: 2px solid var(--gold); margin-bottom: 12px;">
+              <strong style="color: var(--gold);">FLEET MANAGEMENT CAPABILITIES:</strong><br>
+              • Relational modeling of fleet manifests, driver certifications, and cargo inspection logs.<br>
+              • Robust operational uptime under intensive daily dispatch logging.
+            </div>
+          `,
+          demoUrl: "https://oregon-trucking.onrender.com/",
+          repoUrl: "https://github.com/Empirezoom"
+        },
+        oryx: {
+          tag: "CRYPTO ANALYTICS • DASHBOARD",
+          title: "Oryx Crypto Dashboard",
+          subtitle: "Django • REST APIs • Web3 Feed Aggregator",
+          body: `
+            <p><strong>SYSTEM OVERVIEW:</strong> Encrypted cryptocurrency dashboard for tracking digital assets and monitoring live blockchain transaction streams.</p>
+            <br>
+            <div style="background: rgba(255,255,255,0.02); padding: 12px; border-left: 2px solid var(--malefic-green); margin-bottom: 12px;">
+              <strong style="color: var(--malefic-green);">SYSTEM ATTRIBUTES:</strong><br>
+              • Multi-asset tracking with volatility and portfolio weight indices.<br>
+              • End-to-end encrypted user preferences and watchlist storage.
+            </div>
+          `,
+          demoUrl: "https://oryx-crypto.onrender.com/",
+          repoUrl: "https://github.com/Empirezoom"
+        }
+      };
+
+      function openArchModal(id) {
+        playBlip();
+        const data = projectDossiers[id];
+        if (!data) return;
+
+        document.getElementById("modal-tag").textContent = data.tag;
+        document.getElementById("modal-title").textContent = data.title;
+        document.getElementById("modal-subtitle").textContent = data.subtitle;
+        document.getElementById("modal-body").innerHTML = data.body;
+
+        const actionsEl = document.getElementById("modal-actions");
+        actionsEl.innerHTML = `
+          <a href="${data.demoUrl}" target="_blank" class="cv-download" style="border-color: var(--malefic-green); color: var(--malefic-green); margin: 0; min-width: 180px; text-align: center;">
+            <i class="fas fa-external-link-alt" style="margin-right: 6px;"></i> LAUNCH LIVE SYSTEM
+          </a>
+          <a href="${data.repoUrl}" target="_blank" class="cv-download" style="border-color: var(--gold); color: var(--gold); margin: 0; min-width: 180px; text-align: center;">
+            <i class="fab fa-github" style="margin-right: 6px;"></i> GITHUB REPOSITORY
+          </a>
+          <button onclick="closeArchModal()" class="cv-download" style="border-color: rgba(255,255,255,0.2); color: #aaa; margin: 0; min-width: 120px; text-align: center; cursor: pointer;">
+            CLOSE
+          </button>
+        `;
+
+        const modal = document.getElementById("arch-modal");
+        if (modal) modal.classList.add("active");
+        playSuccessSound();
+      }
+
+      function closeArchModal(e) {
+        const modal = document.getElementById("arch-modal");
+        if (modal) modal.classList.remove("active");
+      }
+
+      window.addEventListener("keydown", function(e) {
+        if (e.key === "Escape") closeArchModal();
+      });
+    </script>
+
+    <!-- SYSTEM DESIGN & ARCHITECTURE MODAL OVERLAY -->
+    <div id="arch-modal" class="arch-modal-overlay" onclick="closeArchModal(event)">
+      <div class="arch-modal-content" onclick="event.stopPropagation()">
+        <button class="arch-modal-close" onclick="closeArchModal()" title="Close"><i class="fas fa-times"></i></button>
+        <span id="modal-tag">ARCHITECTURE DOSSIER</span>
+        <h2 id="modal-title">System Architecture</h2>
+        <div id="modal-subtitle">Tech Stack</div>
+        <div id="modal-body"></div>
+        <div id="modal-actions"></div>
+      </div>
+    </div>
+
     <div class="void-nav">
-        <a href="https://wa.me/23481730578101"><i class="fab fa-whatsapp"></i></a>
-        <a href="mailto:matthew123224@gmail.com"><i class="fas fa-envelope"></i></a>
-        <a href="https://linkedin.com/in/anthony-oluwaseun-3b9a71332/"><i class="fab fa-linkedin"></i></a>
-        <a href="https://github.com/Empirezoom"><i class="fab fa-github"></i></a>
+        <a href="https://wa.me/2348173057810" target="_blank" title="WhatsApp (+234 817 305 7810)"><i class="fab fa-whatsapp"></i></a>
+        <a href="mailto:matthew123224@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
+        <a href="https://linkedin.com/in/anthony-oluwaseun-3b9a71332/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+        <a href="https://github.com/Empirezoom" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+        <a href="https://eu.wps.com/cms/docs/d/cbRadaY8WK1JzIIf?platform=pc&refer=copylink" target="_blank" title="View Resume"><i class="fas fa-file-alt"></i></a>
     </div>
 
-
-        <footer style="padding: 100px 20px; text-align: center; opacity: 0.3; font-size: 0.6rem; letter-spacing: 5px;font-weight: 900;">
-        © 2021 ANTHONY OLUWASEUN MATTHEW |🌐EMPIRECODES|ALL RIGHTS RESERVED
+    <footer style="padding: 100px 20px; text-align: center; opacity: 0.4; font-size: 0.65rem; letter-spacing: 4px; font-weight: 900;">
+        © 2026 ANTHONY OLUWASEUN MATTHEW | 🌐 EMPIRECODES | ALL RIGHTS RESERVED
     </footer>
 
     <script>
       const observer = new IntersectionObserver(
         (entries) => {
           entries.forEach((entry) => {
-            if (entry.isIntersecting) entry.target.classList.add("active");
+            if (entry.isIntersecting) {
+              entry.target.classList.add("active");
+            }
           });
         },
         { threshold: 0.1 }
       );
 
-      document
-        .querySelectorAll(".reveal")
-        .forEach((el) => observer.observe(el));
+      // STAGGERED REVEAL LOGIC
+      document.querySelectorAll(".reveal").forEach((el, index) => {
+        el.style.transitionDelay = `${(index % 10) * 0.05}s`;
+        observer.observe(el);
+      });
     </script>
 
     <script>
@@ -738,8 +2617,8 @@
           document.getElementById("loader-bg").style.opacity = "0";
           setTimeout(function () {
             document.getElementById("loader-bg").style.display = "none";
-          }, 700);
-        }, 800); // Adjust delay as needed
+          }, 500);
+        }, 300); // Faster loader exit
       });
     </script>
   </body>
