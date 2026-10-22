@@ -4515,6 +4515,22 @@
             <i class="fas fa-paper-plane" style="margin-right: 8px;"></i> TRANSMIT TO EMAIL
           </button>
         </div>
+
+        <!-- DIRECT PAYSTACK DISCOVERY & ARCHITECTURE BOOKING -->
+        <div style="margin-top: 25px; padding: 20px; background: rgba(212, 175, 55, 0.06); border: 1px solid rgba(212, 175, 55, 0.4); border-radius: 4px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px;">
+          <div style="max-width: 620px;">
+            <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 6px;">
+              <span style="background: var(--gold); color: #000; font-size: 0.65rem; font-weight: 900; padding: 2px 8px; border-radius: 2px; text-transform: uppercase; letter-spacing: 1px;">Fast-Track Consultation</span>
+              <strong style="color: #fff; font-size: 1rem;">Book a 1-on-1 Technical Discovery Session</strong>
+            </div>
+            <p style="font-size: 0.8rem; color: #bbb; margin: 0; line-height: 1.6;">
+              60-minute deep-dive into your system design, database architecture, Paystack flows, and accurate milestone roadmap. <strong style="color: var(--malefic-green);">The ₦10,000 fee is credited 100% towards your project development if hired.</strong>
+            </p>
+          </div>
+          <a href="https://paystack.shop/pay/empirecodes-consultation" target="_blank" rel="noopener noreferrer" class="cv-download" style="background: linear-gradient(135deg, rgba(212, 175, 55, 0.25), rgba(61, 255, 139, 0.15)); border: 1px solid var(--gold); color: var(--gold); font-weight: 700; margin: 0; padding: 12px 24px; text-align: center; text-decoration: none; border-radius: 3px; display: inline-flex; align-items: center; gap: 8px; box-shadow: 0 0 15px rgba(212, 175, 55, 0.2);">
+            <i class="fas fa-calendar-check" style="color: var(--malefic-green);"></i> BOOK SESSION (₦10,000) &rarr;
+          </a>
+        </div>
       </div>
 
       <!-- BOLD EMPIRE CLI TERMINAL -->
@@ -4860,6 +4876,11 @@
                       break;
                   case "quote":
                       response.innerHTML = `<span style="color: var(--gold);">"Simplicity is prerequisite for reliability."</span> — Edsger W. Dijkstra<br><span style="color: #aaa;">"We can only see a short distance ahead, but we can see plenty there that needs to be done."</span> — Alan Turing`;
+                      break;
+                  case "hire":
+                  case "consult":
+                  case "book":
+                      response.innerHTML = `<span style="color: var(--gold);">BOOK ARCHITECTURE DISCOVERY (₦10,000):</span> Lock in a 60-minute 1-on-1 technical roadmap session. Fee is 100% credited towards your build.<br><a href="https://paystack.shop/pay/empirecodes-consultation" target="_blank" class="copy-badge" style="margin-top: 8px; display: inline-block; color: var(--gold); border-color: var(--gold);"><i class="fas fa-calendar-check"></i> Launch Paystack Booking Portal (₦10,000) &rarr;</a>`;
                       break;
                   case "commission":
                   case "rfq":
