@@ -1,0 +1,23 @@
+{
+  "name": "EmpireCodes",
+  "short_name": "EmpireCodes",
+  "description": "Anthony Oluwaseun Matthew — Full-Stack Web & Mobile Developer",
+  "start_url": "index.html",
+  "display": "standalone",
+  "background_color": "#020202",
+  "theme_color": "#3dff8b",
+  "icons": [
+    {
+      "src": "favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "empirecodes_logo.jpg",
+      "sizes": "482x312",
+      "type": "image/jpeg",
+      "purpose": "any"
+    }
+  ]
+}

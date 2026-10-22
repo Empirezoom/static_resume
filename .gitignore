@@ -1,0 +1,5 @@
+# Ignore temporary and personal documents
+*.xlsx
+*.tmp
+.DS_Store
+Thumbs.db
