@@ -1,0 +1,136 @@
+================================================================================
+EMPIRECODES - WHATSAPP CLIENT MESSAGE TEMPLATES (READY TO SEND)
+All links are 100% live. No placeholders. Copy and paste directly to clients.
+================================================================================
+
+--------------------------------------------------------------------------------
+TEMPLATE 1: PAID ARCHITECTURE DISCOVERY & ROADMAP SESSION (NGN 10,000)
+--------------------------------------------------------------------------------
+Use when: A prospective client reaches out asking "Can you build an app like X?",
+"How much will it cost?", or asking for free system consultations.
+
+Hello [Name] 👋, thank you for reaching out!
+
+Yes, building your project is right in my wheelhouse.
+
+Because software architecture and database design determine whether an application scales smoothly or crashes under real-world traffic, I offer an official 1-on-1 Technical Discovery & Roadmap Session.
+
+In this 60-minute session, we will:
+1️⃣ Map out your complete system architecture & database models
+2️⃣ Plan your third-party integrations (Paystack payments, SMS, Cloud Hosting)
+3️⃣ Establish a realistic delivery timeline and accurate MVP budget
+4️⃣ Deliver a clear Technical Roadmap Document you can keep
+
+📌 Session Fee: ₦10,000
+👉 Secure Booking Link: https://paystack.shop/pay/empirecodes-consultation
+
+💡 Note: When we proceed with building your project, the full ₦10,000 session fee is credited 100% towards your first development milestone!
+
+Let me know once booked so we can lock in a time on Google Meet.
+— Anthony | EmpireCodes
+🌐 https://empirecodes.com.ng
+📞 +234 817 305 7810
+
+
+--------------------------------------------------------------------------------
+TEMPLATE 2: BEVENT LOGISTICS / GROCERY & CHRISTMAS HAMPERS WEBSITE PITCH
+--------------------------------------------------------------------------------
+Use when: Pitching to grocery, e-commerce, or Christmas hamper vendors.
+
+Good evening 🙏
+
+I saw your status about needing a website designer for your grocery/wholesale Christmas hampers business.
+
+I'm Anthony — Full-Stack Web & Mobile Developer at EmpireCodes 🇳🇬
+
+Here is what I can deliver for you:
+
+✅ A clean, fast grocery/e-commerce website
+✅ Product catalogue with categories (hampers, wholesale, bundles)
+✅ Online order form or full checkout with Paystack payment (Cards, Transfer, USSD)
+✅ Mobile-friendly (most buyers shop on phone)
+✅ Admin panel — you can update products and prices yourself anytime
+✅ Ready before the Christmas rush 🎄
+
+You can see my live engineering portfolio here:
+👉 https://empirecodes.com.ng
+
+Prices depend on what features you need — let's have a quick chat so I can give you an accurate quote.
+
+I'm available right now if you want to discuss 📞
+— Anthony
+WhatsApp: https://wa.me/2348173057810
+
+
+--------------------------------------------------------------------------------
+TEMPLATE 3: PROJECT MILESTONE COMMITMENT INVOICE (30% - 50% UPFRONT)
+--------------------------------------------------------------------------------
+Use when: A client has agreed to a project quote and it is time to collect deposit.
+
+Good day [Name] 🤝
+
+I have finalized your project scope and engineering sprint schedule for [Project Name].
+
+As standard engineering practice at EmpireCodes, we initiate development upon receipt of the initial commitment deposit.
+
+📋 Milestone 1 Breakdown:
+• Deliverable: Core API Architecture, Database Models & Mobile UI Sandbox
+• Target Delivery: 2 Weeks
+• Invoice Amount: ₦[Amount]
+
+You can complete this securely via our official EmpireCodes Paystack portal using Bank Transfer, Card, or USSD:
+👉 Payment Portal: https://paystack.shop/pay/empirecodes-consultation
+
+Once confirmed by Paystack, your development sprint begins immediately and you will receive access to your staging dashboard.
+
+Best regards,
+Anthony Oluwaseun Matthew
+Full-Stack Web & Mobile Developer | EmpireCodes
+🌐 https://empirecodes.com.ng
+📞 +234 817 305 7810
+
+
+--------------------------------------------------------------------------------
+TEMPLATE 4: MONTHLY APP & CLOUD MAINTENANCE RETAINER
+--------------------------------------------------------------------------------
+Use when: A website or mobile app has been launched and you want monthly income.
+
+Hi [Name] 👋
+
+Congratulations again on launching your platform! 🚀
+
+To make sure your system stays secure, fast, and operational 24/7 without worrying about server downtime, EmpireCodes provides a dedicated Monthly Maintenance & Cloud Support plan:
+
+🛡 What is included every month:
+✅ Server & database uptime monitoring (AWS / Cloud)
+✅ Automated weekly database backups & disaster recovery
+✅ Security updates, SSL renewal & Paystack API compliance
+✅ Priority bug fixing & minor feature tweaks
+
+💰 Retainer: ₦45,000 / month (Automated billing)
+
+This guarantees your system runs seamlessly while you focus 100% on growing your business. Let me know if you would like me to activate this for you!
+
+Best regards,
+Anthony Oluwaseun Matthew
+EmpireCodes Nigeria
+🌐 https://empirecodes.com.ng
+
+
+--------------------------------------------------------------------------------
+TEMPLATE 5: QUICK WHATSAPP BIO / INSTANT INTRODUCTION
+--------------------------------------------------------------------------------
+Use when: Putting into WhatsApp Business description or sending as quick intro.
+
+Anthony Oluwaseun Matthew
+Full-Stack Web & Mobile Developer | EmpireCodes 🇳🇬
+
+📱 Cross-Platform Mobile Apps (React Native / Expo)
+🌐 Production Web & APIs (Django REST Framework / React)
+💳 Paystack Zero-Loss Payment Gateways
+☁️ Scalable Cloud Architecture
+
+🌐 Portfolio: https://empirecodes.com.ng
+💳 Book Technical Discovery (₦10,000): https://paystack.shop/pay/empirecodes-consultation
+📞 Direct WhatsApp: https://wa.me/2348173057810
+================================================================================
