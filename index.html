@@ -192,6 +192,43 @@
             "reviewCount": "38",
             "bestRating": "5",
             "worstRating": "1"
+          },
+          "paymentAccepted": "Cash, Credit Card, Debit Card, Apple Pay, Google Pay, Bank Transfer, USSD",
+          "currenciesAccepted": "NGN, USD, GBP, EUR"
+        },
+        {
+          "@type": "SoftwareApplication",
+          "@id": "https://empirecodes.com.ng/#mobile-app",
+          "name": "EmpireCodes Tri-Tier Mobile Fleet",
+          "operatingSystem": "Android 8.0+, iOS 14+",
+          "applicationCategory": "BusinessApplication, DeveloperApplication",
+          "downloadUrl": "https://empirecodes.com.ng/downloads/empirecodes.apk",
+          "fileSize": "62.7MB",
+          "softwareVersion": "1.0.0",
+          "description": "Production cross-platform mobile application with offline-first local storage, zero-loss Paystack checkout, and audio-haptic feedback.",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+          },
+          "author": {
+            "@id": "https://empirecodes.com.ng/#about"
+          }
+        },
+        {
+          "@type": "Service",
+          "@id": "https://empirecodes.com.ng/#discovery-session",
+          "name": "1-on-1 Technical Discovery & Architecture Session",
+          "description": "Official 60-minute deep-dive into system design, database modeling, Paystack integrations, and MVP budgeting. Fee is credited 100% towards project development.",
+          "provider": {
+            "@id": "https://empirecodes.com.ng/#about"
+          },
+          "offers": {
+            "@type": "Offer",
+            "price": "10000",
+            "priceCurrency": "NGN",
+            "url": "https://paystack.shop/pay/empirecodes-consultation",
+            "priceValidUntil": "2027-12-31"
           }
         }
       ]
@@ -499,15 +536,19 @@
       /* --- FLOATING VOID CONTACT --- */
         .void-nav {
             position: fixed;
-            bottom: 30px;
+            bottom: 24px;
             left: 50%;
             transform: translateX(-50%);
             display: flex;
-            gap: 15px;
-            background: rgba(0,0,0,0.8);
-            padding: 15px 30px;
-            border-radius: 2px;
-            border-top: 2px solid var(--gold);
+            align-items: center;
+            gap: 16px;
+            background: rgba(10, 10, 14, 0.78);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            padding: 12px 24px;
+            border-radius: 40px;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7), 0 0 18px rgba(212, 175, 55, 0.12);
             z-index: 100;
         }
 
@@ -4535,13 +4576,21 @@
               60-minute deep-dive into your system design, database architecture, Paystack flows, and accurate milestone roadmap. <strong style="color: var(--malefic-green);">The ₦10,000 fee is credited 100% towards your project development if hired.</strong>
             </p>
           </div>
-          <a href="https://paystack.shop/pay/empirecodes-consultation" target="_blank" rel="noopener noreferrer" class="cv-download" style="background: linear-gradient(135deg, rgba(212, 175, 55, 0.25), rgba(61, 255, 139, 0.15)); border: 1px solid var(--gold); color: var(--gold); font-weight: 700; margin: 0; padding: 12px 24px; text-align: center; text-decoration: none; border-radius: 3px; display: inline-flex; align-items: center; gap: 8px; box-shadow: 0 0 15px rgba(212, 175, 55, 0.2);">
+          <a href="https://paystack.shop/pay/empirecodes-consultation" target="_blank" onclick="playSuccessSound()" rel="noopener noreferrer" class="cv-download" style="background: linear-gradient(135deg, rgba(212, 175, 55, 0.25), rgba(61, 255, 139, 0.15)); border: 1px solid var(--gold); color: var(--gold); font-weight: 700; margin: 0; padding: 12px 24px; text-align: center; text-decoration: none; border-radius: 3px; display: inline-flex; align-items: center; gap: 8px; box-shadow: 0 0 15px rgba(212, 175, 55, 0.2);">
             <i class="fas fa-calendar-check" style="color: var(--malefic-green);"></i> BOOK SESSION (₦10,000) &rarr;
           </a>
         </div>
+        <!-- SUPPORTED PAYMENT CHANNELS BADGE STRIP -->
+        <div style="display: flex; align-items: center; gap: 8px; margin-top: 10px; flex-wrap: wrap; font-size: 0.72rem; color: #888;">
+          <span style="color: #666; font-size: 0.65rem; text-transform: uppercase; letter-spacing: 1px;"><i class="fas fa-shield-alt" style="color: var(--gold); margin-right: 4px;"></i> Verified Channels:</span>
+          <span style="background: rgba(255,255,255,0.05); padding: 3px 8px; border-radius: 3px; border: 1px solid rgba(255,255,255,0.1); color: #fff; display: inline-flex; align-items: center; gap: 5px;"><i class="fab fa-apple-pay" style="font-size: 1.1rem;"></i> Apple Pay</span>
+          <span style="background: rgba(255,255,255,0.05); padding: 3px 8px; border-radius: 3px; border: 1px solid rgba(255,255,255,0.1); color: #fff; display: inline-flex; align-items: center; gap: 5px;"><i class="fab fa-google-pay" style="font-size: 1.1rem;"></i> Google Pay</span>
+          <span style="background: rgba(255,255,255,0.05); padding: 3px 8px; border-radius: 3px; border: 1px solid rgba(255,255,255,0.1); color: var(--malefic-green); display: inline-flex; align-items: center; gap: 5px;"><i class="fas fa-credit-card"></i> Bank Cards &amp; USSD</span>
+          <span style="background: rgba(212,175,55,0.08); padding: 3px 8px; border-radius: 3px; border: 1px solid rgba(212,175,55,0.25); color: var(--gold); display: inline-flex; align-items: center; gap: 5px;"><i class="fas fa-check-circle" style="color: var(--malefic-green);"></i> Paystack Verified Merchant</span>
+        </div>
         <div style="margin-top: 14px; padding: 12px 16px; background: rgba(168, 85, 247, 0.05); border: 1px dashed rgba(168, 85, 247, 0.35); border-radius: 4px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; font-size: 0.78rem;">
           <span style="color: #ccc;"><i class="fas fa-gem" style="color: #c084fc; margin-right: 6px;"></i> <strong style="color: #fff;">Community Patronage:</strong> Support independent open-source research, tooling & architecture frameworks</span>
-          <a href="https://paystack.shop/pay/support-empirecodes" target="_blank" rel="noopener noreferrer" style="color: #c084fc; text-decoration: none; font-weight: 700; border: 1px solid rgba(168, 85, 247, 0.45); padding: 6px 14px; border-radius: 2px; background: rgba(168, 85, 247, 0.12); display: inline-flex; align-items: center; gap: 6px;">
+          <a href="https://paystack.shop/pay/support-empirecodes" target="_blank" onclick="playSuccessSound()" rel="noopener noreferrer" style="color: #c084fc; text-decoration: none; font-weight: 700; border: 1px solid rgba(168, 85, 247, 0.45); padding: 6px 14px; border-radius: 2px; background: rgba(168, 85, 247, 0.12); display: inline-flex; align-items: center; gap: 6px;">
             <i class="fas fa-hand-holding-heart"></i> Sponsor The Architecture &rarr;
           </a>
         </div>
@@ -4895,12 +4944,12 @@
                   case "tip":
                   case "coffee":
                   case "sponsor":
-                      response.innerHTML = `<span style="color: #c084fc;"><i class="fas fa-gem"></i> SPONSOR EMPIRECODES ARCHITECTURE & RESEARCH:</span> Fund independent open-source computational systems, developer tools & architecture frameworks.<br><a href="https://paystack.shop/pay/support-empirecodes" target="_blank" class="copy-badge" style="margin-top: 8px; display: inline-block; color: #c084fc; border-color: #a855f7;"><i class="fas fa-hand-holding-heart"></i> Launch Sponsorship Portal &rarr;</a>`;
+                      response.innerHTML = `<span style="color: #c084fc;"><i class="fas fa-gem"></i> SPONSOR EMPIRECODES ARCHITECTURE & RESEARCH:</span> Fund independent open-source computational systems, developer tools & architecture frameworks.<br><a href="https://paystack.shop/pay/support-empirecodes" target="_blank" onclick="playSuccessSound()" class="copy-badge" style="margin-top: 8px; display: inline-block; color: #c084fc; border-color: #a855f7;"><i class="fas fa-hand-holding-heart"></i> Launch Sponsorship Portal &rarr;</a>`;
                       break;
                   case "hire":
                   case "consult":
                   case "book":
-                      response.innerHTML = `<span style="color: var(--gold);">BOOK ARCHITECTURE DISCOVERY (₦10,000):</span> Lock in a 60-minute 1-on-1 technical roadmap session. Fee is 100% credited towards your build.<br><a href="https://paystack.shop/pay/empirecodes-consultation" target="_blank" class="copy-badge" style="margin-top: 8px; display: inline-block; color: var(--gold); border-color: var(--gold);"><i class="fas fa-calendar-check"></i> Launch Paystack Booking Portal (₦10,000) &rarr;</a>`;
+                      response.innerHTML = `<span style="color: var(--gold);">BOOK ARCHITECTURE DISCOVERY (₦10,000):</span> Lock in a 60-minute 1-on-1 technical roadmap session. Fee is 100% credited towards your build.<br><a href="https://paystack.shop/pay/empirecodes-consultation" target="_blank" onclick="playSuccessSound()" class="copy-badge" style="margin-top: 8px; display: inline-block; color: var(--gold); border-color: var(--gold);"><i class="fas fa-calendar-check"></i> Launch Paystack Booking Portal (₦10,000) &rarr;</a>`;
                       break;
                   case "commission":
                   case "rfq":
@@ -6672,7 +6721,7 @@ export const audioSynth = new CyberneticAudioSynthesizer();`
         <a href="mailto:ceo@empirecodes.com.ng" title="Official Webmail (ceo@empirecodes.com.ng)"><i class="fas fa-envelope"></i></a>
         <a href="https://linkedin.com/in/anthony-oluwaseun-3b9a71332/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
         <a href="https://github.com/Empirezoom" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
-        <a href="https://paystack.shop/pay/support-empirecodes" target="_blank" title="Sponsor EmpireCodes Open-Source Architecture" style="color: #c084fc;"><i class="fas fa-gem"></i></a>
+        <a href="https://paystack.shop/pay/support-empirecodes" target="_blank" onclick="playSuccessSound()" title="Sponsor EmpireCodes Open-Source Architecture" style="color: #c084fc;"><i class="fas fa-gem"></i></a>
     </div>
 
     <footer id="footer" style="padding: 60px 20px 120px; text-align: center; font-size: 0.72rem; color: #777; line-height: 1.8;">
