@@ -45,6 +45,9 @@
     <link rel="me" href="https://linkedin.com/in/anthony-oluwaseun-3b9a71332/" />
     <!-- GitHub Profile -->
     <link rel="me" href="https://github.com/Empirezoom" />
+    <!-- Facebook & TikTok Official Profiles -->
+    <link rel="me" href="https://www.facebook.com/profile.php?id=61595900098151" />
+    <link rel="me" href="https://www.tiktok.com/@empirecodes.com.ng" />
     <meta name="keywords" content="empirecodes, mobile app developer lagos, react native developer nigeria, full stack software engineer nigeria, python django developer lagos, android app developer nigeria, ios developer nigeria, backend engineer nigeria, paystack integration developer lagos, django rest framework expert nigeria, anthony oluwaseun matthew, software engineer nigeria, fintech mobile developer lagos, lagos software engineer, mobile engineer nigeria" />
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
     <meta name="author" content="Anthony Oluwaseun Matthew" />
@@ -2499,6 +2502,175 @@
 
         /* ── Cell label ── */
         .cell-label { font-size: 0.55rem !important; letter-spacing: 1.5px !important; }
+      }
+
+      /* ═══════════════════════════════════════════════════════════════ */
+      /* FLOATING MOVABLE SOCIAL DOCK (FACEBOOK & TIKTOK)                */
+      /* ═══════════════════════════════════════════════════════════════ */
+      .movable-social-dock {
+        position: fixed;
+        top: 42%;
+        z-index: 9995;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        padding: 10px 8px;
+        background: rgba(10, 12, 18, 0.9);
+        backdrop-filter: blur(18px);
+        -webkit-backdrop-filter: blur(18px);
+        border: 1px solid rgba(255, 255, 255, 0.16);
+        border-radius: 32px;
+        box-shadow: 0 12px 35px rgba(0, 0, 0, 0.75), 0 0 16px rgba(24, 119, 242, 0.2);
+        user-select: none;
+        touch-action: none;
+        transition: left 0.35s cubic-bezier(0.2, 0.9, 0.3, 1.2), right 0.35s cubic-bezier(0.2, 0.9, 0.3, 1.2), box-shadow 0.3s ease;
+      }
+      .movable-social-dock.is-dragging {
+        transition: none !important;
+        box-shadow: 0 18px 45px rgba(0, 0, 0, 0.9), 0 0 25px rgba(0, 242, 254, 0.45);
+        cursor: grabbing !important;
+      }
+      .movable-social-dock.dock-right {
+        right: 14px;
+        left: auto;
+      }
+      .movable-social-dock.dock-left {
+        left: 14px;
+        right: auto;
+      }
+      .dock-drag-handle {
+        width: 28px;
+        height: 18px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: rgba(255, 255, 255, 0.4);
+        cursor: grab;
+        font-size: 0.85rem;
+        transition: color 0.2s, transform 0.2s;
+      }
+      .dock-drag-handle:hover {
+        color: var(--malefic-green);
+        transform: scale(1.15);
+      }
+      .dock-flip-btn {
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.06);
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        color: rgba(255, 255, 255, 0.75);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        font-size: 0.8rem;
+        transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+        outline: none;
+      }
+      .dock-flip-btn:hover {
+        background: rgba(212, 175, 55, 0.2);
+        border-color: var(--gold);
+        color: var(--gold);
+        transform: rotate(180deg) scale(1.1);
+      }
+      .dock-icons {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+      .dock-icon-link {
+        position: relative;
+        width: 42px;
+        height: 42px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+        font-size: 1.2rem;
+        transition: all 0.25s cubic-bezier(0.2, 0.9, 0.3, 1.2);
+      }
+      .dock-icon-link.fb-link {
+        background: rgba(24, 119, 242, 0.16);
+        border: 1px solid rgba(24, 119, 242, 0.45);
+        color: #1877F2;
+      }
+      .dock-icon-link.fb-link:hover {
+        background: #1877F2;
+        color: #ffffff;
+        box-shadow: 0 0 18px rgba(24, 119, 242, 0.85), 0 4px 12px rgba(0, 0, 0, 0.4);
+        transform: scale(1.16);
+      }
+      .dock-icon-link.tt-link {
+        background: rgba(255, 255, 255, 0.06);
+        border: 1px solid rgba(254, 44, 85, 0.45);
+        color: #ffffff;
+      }
+      .dock-icon-link.tt-link i {
+        filter: drop-shadow(-1.5px -1.5px 0px rgba(0, 242, 254, 0.85)) drop-shadow(1.5px 1.5px 0px rgba(254, 44, 85, 0.85));
+        transition: filter 0.25s ease;
+      }
+      .dock-icon-link.tt-link:hover {
+        background: #010101;
+        border-color: #00f2fe;
+        box-shadow: 0 0 18px rgba(254, 44, 85, 0.75), 0 0 12px rgba(0, 242, 254, 0.75);
+        transform: scale(1.16);
+      }
+      .dock-icon-link.tt-link:hover i {
+        filter: drop-shadow(-2px -2px 1px #00f2fe) drop-shadow(2px 2px 1px #fe2c55);
+      }
+      /* Tooltips */
+      .dock-tooltip {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        padding: 5px 11px;
+        background: rgba(5, 5, 8, 0.95);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        color: #fff;
+        font-size: 0.72rem;
+        font-family: 'Space Grotesk', sans-serif;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+        white-space: nowrap;
+        border-radius: 6px;
+        pointer-events: none;
+        opacity: 0;
+        transition: opacity 0.2s, transform 0.2s;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.6);
+      }
+      .dock-right .dock-tooltip {
+        right: calc(100% + 12px);
+        transform: translateY(-50%) translateX(6px);
+      }
+      .dock-left .dock-tooltip {
+        left: calc(100% + 12px);
+        transform: translateY(-50%) translateX(-6px);
+      }
+      .dock-icon-link:hover .dock-tooltip {
+        opacity: 1;
+        transform: translateY(-50%) translateX(0);
+      }
+      @media (max-width: 600px) {
+        .movable-social-dock {
+          padding: 8px 6px;
+          gap: 8px;
+        }
+        .dock-icon-link {
+          width: 38px;
+          height: 38px;
+          font-size: 1.05rem;
+        }
+        .dock-flip-btn {
+          width: 28px;
+          height: 28px;
+          font-size: 0.75rem;
+        }
+        .dock-tooltip {
+          display: none;
+        }
       }
       </style>
   
@@ -6712,6 +6884,38 @@ export const audioSynth = new CyberneticAudioSynthesizer();`
       </div>
     </div>
 
+    <!-- ═══════════════════════════════════════════════════════════════ -->
+    <!-- FLOATING MOVABLE SOCIAL DOCK (FACEBOOK & TIKTOK)                -->
+    <!-- ═══════════════════════════════════════════════════════════════ -->
+    <aside id="movable-social-dock" class="movable-social-dock dock-right" aria-label="Social Media Shortcuts">
+      <button type="button" id="dock-flip-btn" class="dock-flip-btn" title="Flip to opposite side (Left / Right)" aria-label="Flip social dock to opposite side">
+        <i class="fas fa-arrows-left-right"></i>
+      </button>
+      <div id="dock-drag-handle" class="dock-drag-handle" title="Hold & Drag to move up/down or across screen" aria-label="Drag handle">
+        <i class="fas fa-grip-vertical"></i>
+      </div>
+      <div class="dock-icons">
+        <a href="https://www.facebook.com/profile.php?id=61595900098151&mibextid=wwXIfr" 
+           target="_blank" 
+           rel="noopener noreferrer" 
+           class="dock-icon-link fb-link" 
+           title="Connect with Anthony & EmpireCodes on Facebook" 
+           aria-label="Facebook Profile">
+          <i class="fab fa-facebook-f"></i>
+          <span class="dock-tooltip">Facebook</span>
+        </a>
+        <a href="https://www.tiktok.com/@empirecodes.com.ng" 
+           target="_blank" 
+           rel="noopener noreferrer" 
+           class="dock-icon-link tt-link" 
+           title="Follow EmpireCodes on TikTok (@empirecodes.com.ng)" 
+           aria-label="TikTok Account">
+          <i class="fab fa-tiktok"></i>
+          <span class="dock-tooltip">TikTok</span>
+        </a>
+      </div>
+    </aside>
+
     <div class="void-nav">
         <a href="#download-app" title="EmpireCodes Mobile Fleet & Simulator" style="color: #61DAFB;"><i class="fas fa-mobile-alt"></i></a>
         <a href="javascript:void(0)" onclick="openWorkbenchModal()" title="Systems Architecture Workbench (Code Modal)" style="color: var(--gold);"><i class="fas fa-code"></i></a>
@@ -6727,6 +6931,12 @@ export const audioSynth = new CyberneticAudioSynthesizer();`
     <footer id="footer" style="padding: 60px 20px 120px; text-align: center; font-size: 0.72rem; color: #777; line-height: 1.8;">
         <div style="max-width: 760px; margin: 0 auto 16px; font-size: 0.68rem; color: #666; border-top: 1px solid #1e1e1e; padding-top: 24px;">
           <strong style="color: #999;">MERCHANT & BILLING DISCLOSURE:</strong> Professional software engineering services provided by Anthony Oluwaseun Matthew trading as <strong style="color: #aaa;">EmpireCodes</strong> (Lagos, Nigeria). Custom web platforms, React Native mobile applications, and Django REST APIs delivered per client project contracts. For commissions, billing inquiries, or invoice support, contact <a href="mailto:ceo@empirecodes.com.ng" style="color: var(--malefic-green); text-decoration: none;">ceo@empirecodes.com.ng</a> or <a href="mailto:matthew@empirecodes.com.ng" style="color: var(--malefic-green); text-decoration: none;">matthew@empirecodes.com.ng</a> | Phone/WhatsApp: <span style="color: #bbb;">+234 813 536 2561</span>.
+        </div>
+        <div style="margin-bottom: 12px; display: flex; justify-content: center; gap: 18px; font-size: 0.78rem; flex-wrap: wrap;">
+          <a href="https://www.facebook.com/profile.php?id=61595900098151&mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" style="color: #1877F2; text-decoration: none; display: inline-flex; align-items: center; gap: 6px;"><i class="fab fa-facebook-f"></i> Facebook</a>
+          <a href="https://www.tiktok.com/@empirecodes.com.ng" target="_blank" rel="noopener noreferrer" style="color: #fe2c55; text-decoration: none; display: inline-flex; align-items: center; gap: 6px;"><i class="fab fa-tiktok"></i> TikTok</a>
+          <a href="https://linkedin.com/in/anthony-oluwaseun-3b9a71332/" target="_blank" rel="noopener noreferrer" style="color: #0A66C2; text-decoration: none; display: inline-flex; align-items: center; gap: 6px;"><i class="fab fa-linkedin"></i> LinkedIn</a>
+          <a href="https://github.com/Empirezoom" target="_blank" rel="noopener noreferrer" style="color: #e6edf3; text-decoration: none; display: inline-flex; align-items: center; gap: 6px;"><i class="fab fa-github"></i> GitHub</a>
         </div>
         <div style="letter-spacing: 3px; font-weight: 900; opacity: 0.6; font-size: 0.65rem;">
           © 2026 ANTHONY OLUWASEUN MATTHEW | 🌐 EMPIRECODES | ALL RIGHTS RESERVED
@@ -6795,6 +7005,103 @@ export const audioSynth = new CyberneticAudioSynthesizer();`
             ogDesc.content = ogDesc.content.replace(/\d+\+ years of production experience/, window.empireYears + ' years of production experience');
           }
         });
+      })();
+    </script>
+
+    <!-- ═══════════════════════════════════════════════════════════════ -->
+    <!-- MOVABLE & FLIPPABLE SOCIAL DOCK LOGIC                           -->
+    <!-- ═══════════════════════════════════════════════════════════════ -->
+    <script>
+      (function () {
+        var dock = document.getElementById('movable-social-dock');
+        var flipBtn = document.getElementById('dock-flip-btn');
+        if (!dock || !flipBtn) return;
+
+        // Restore saved dock position & side
+        try {
+          var savedSide = localStorage.getItem('empire_social_dock_side') || 'dock-right';
+          var savedTop = localStorage.getItem('empire_social_dock_top');
+          dock.classList.remove('dock-left', 'dock-right');
+          dock.classList.add(savedSide);
+          if (savedTop) {
+            dock.style.top = savedTop;
+          }
+        } catch (e) {}
+
+        function toggleSide() {
+          if (dock.classList.contains('dock-right')) {
+            dock.classList.remove('dock-right');
+            dock.classList.add('dock-left');
+            try { localStorage.setItem('empire_social_dock_side', 'dock-left'); } catch (e) {}
+          } else {
+            dock.classList.remove('dock-left');
+            dock.classList.add('dock-right');
+            try { localStorage.setItem('empire_social_dock_side', 'dock-right'); } catch (e) {}
+          }
+        }
+
+        flipBtn.addEventListener('click', function (e) {
+          e.preventDefault();
+          e.stopPropagation();
+          toggleSide();
+        });
+
+        // Universal Pointer Dragging (mouse + touch)
+        var isDragging = false;
+        var startY = 0;
+        var startTop = 0;
+        var activePointerId = null;
+
+        dock.addEventListener('pointerdown', function (e) {
+          // Ignore clicks on links or the flip button so navigation is immediate
+          if (e.target.closest('a') || e.target.closest('#dock-flip-btn')) return;
+          isDragging = true;
+          activePointerId = e.pointerId;
+          startY = e.clientY;
+          startTop = dock.getBoundingClientRect().top;
+          dock.classList.add('is-dragging');
+          try { dock.setPointerCapture(e.pointerId); } catch (err) {}
+        });
+
+        window.addEventListener('pointermove', function (e) {
+          if (!isDragging) return;
+          var deltaY = e.clientY - startY;
+          var newTop = startTop + deltaY;
+          var minTop = 60;
+          var maxTop = window.innerHeight - (dock.offsetHeight || 160) - 80;
+          if (newTop < minTop) newTop = minTop;
+          if (newTop > maxTop) newTop = maxTop;
+          dock.style.top = newTop + 'px';
+
+          // Flip side if dragged past screen horizontal center
+          if (e.clientX < window.innerWidth / 2) {
+            if (dock.classList.contains('dock-right')) {
+              dock.classList.remove('dock-right');
+              dock.classList.add('dock-left');
+              try { localStorage.setItem('empire_social_dock_side', 'dock-left'); } catch (e) {}
+            }
+          } else {
+            if (dock.classList.contains('dock-left')) {
+              dock.classList.remove('dock-left');
+              dock.classList.add('dock-right');
+              try { localStorage.setItem('empire_social_dock_side', 'dock-right'); } catch (e) {}
+            }
+          }
+        });
+
+        function endDrag(e) {
+          if (!isDragging) return;
+          isDragging = false;
+          dock.classList.remove('is-dragging');
+          if (activePointerId !== null) {
+            try { dock.releasePointerCapture(activePointerId); } catch (err) {}
+            activePointerId = null;
+          }
+          try { localStorage.setItem('empire_social_dock_top', dock.style.top); } catch (err) {}
+        }
+
+        window.addEventListener('pointerup', endDrag);
+        window.addEventListener('pointercancel', endDrag);
       })();
     </script>
   </body>
