@@ -2505,172 +2505,348 @@
       }
 
       /* ═══════════════════════════════════════════════════════════════ */
-      /* FLOATING MOVABLE SOCIAL DOCK (FACEBOOK & TIKTOK)                */
+      /* MESSENGER-STYLE PORTABLE FLOATING SOCIAL BUBBLE                 */
       /* ═══════════════════════════════════════════════════════════════ */
-      .movable-social-dock {
+      .messenger-social-widget {
         position: fixed;
-        top: 42%;
+        top: 45%;
         z-index: 9995;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 10px;
-        padding: 10px 8px;
-        background: rgba(10, 12, 18, 0.9);
-        backdrop-filter: blur(18px);
-        -webkit-backdrop-filter: blur(18px);
-        border: 1px solid rgba(255, 255, 255, 0.16);
-        border-radius: 32px;
-        box-shadow: 0 12px 35px rgba(0, 0, 0, 0.75), 0 0 16px rgba(24, 119, 242, 0.2);
         user-select: none;
         touch-action: none;
-        transition: left 0.35s cubic-bezier(0.2, 0.9, 0.3, 1.2), right 0.35s cubic-bezier(0.2, 0.9, 0.3, 1.2), box-shadow 0.3s ease;
+        transition: left 0.35s cubic-bezier(0.2, 0.9, 0.3, 1.2), right 0.35s cubic-bezier(0.2, 0.9, 0.3, 1.2);
       }
-      .movable-social-dock.is-dragging {
-        transition: none !important;
-        box-shadow: 0 18px 45px rgba(0, 0, 0, 0.9), 0 0 25px rgba(0, 242, 254, 0.45);
-        cursor: grabbing !important;
-      }
-      .movable-social-dock.dock-right {
-        right: 14px;
+      .messenger-social-widget.dock-right {
+        right: 16px;
         left: auto;
       }
-      .movable-social-dock.dock-left {
-        left: 14px;
+      .messenger-social-widget.dock-left {
+        left: 16px;
         right: auto;
       }
-      .dock-drag-handle {
-        width: 28px;
-        height: 18px;
+      .messenger-social-widget.is-dragging {
+        transition: none !important;
+      }
+
+      /* The Circular Bubble (Chat Head) */
+      .messenger-bubble {
+        position: relative;
+        width: 52px;
+        height: 52px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, rgba(16, 20, 32, 0.95), rgba(10, 10, 15, 0.98));
+        border: 1.5px solid rgba(255, 255, 255, 0.18);
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.7), 0 0 16px rgba(0, 132, 255, 0.35);
+        cursor: grab;
         display: flex;
         align-items: center;
         justify-content: center;
-        color: rgba(255, 255, 255, 0.4);
-        cursor: grab;
-        font-size: 0.85rem;
-        transition: color 0.2s, transform 0.2s;
+        padding: 0;
+        outline: none;
+        backdrop-filter: blur(14px);
+        -webkit-backdrop-filter: blur(14px);
+        transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.25s ease, border-color 0.25s ease;
       }
-      .dock-drag-handle:hover {
-        color: var(--malefic-green);
-        transform: scale(1.15);
+      .messenger-bubble:hover {
+        transform: scale(1.08);
+        border-color: rgba(0, 242, 254, 0.6);
+        box-shadow: 0 10px 28px rgba(0, 0, 0, 0.8), 0 0 20px rgba(0, 242, 254, 0.4), 0 0 12px rgba(254, 44, 85, 0.3);
       }
-      .dock-flip-btn {
-        width: 32px;
-        height: 32px;
+      .messenger-social-widget.is-dragging .messenger-bubble {
+        cursor: grabbing !important;
+        transform: scale(1.15) !important;
+        box-shadow: 0 14px 35px rgba(0, 0, 0, 0.9), 0 0 25px rgba(0, 242, 254, 0.6) !important;
+      }
+
+      /* Bubble Icons & Toggle Animation */
+      .bubble-icon-container {
+        position: relative;
+        width: 26px;
+        height: 26px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .bubble-icon {
+        position: absolute;
+        font-size: 1.4rem;
+        transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.25s ease;
+      }
+      .bubble-icon.main-icon {
+        color: #0084FF;
+        filter: drop-shadow(0 0 6px rgba(0, 132, 255, 0.6));
+        opacity: 1;
+        transform: scale(1) rotate(0deg);
+      }
+      .bubble-icon.close-icon {
+        color: #ffffff;
+        opacity: 0;
+        transform: scale(0.5) rotate(-90deg);
+        font-size: 1.2rem;
+      }
+      .messenger-social-widget.is-open .bubble-icon.main-icon {
+        opacity: 0;
+        transform: scale(0.5) rotate(90deg);
+      }
+      .messenger-social-widget.is-open .bubble-icon.close-icon {
+        opacity: 1;
+        transform: scale(1) rotate(0deg);
+      }
+      .messenger-social-widget.is-open .messenger-bubble {
+        background: linear-gradient(135deg, rgba(20, 24, 36, 0.98), rgba(10, 12, 18, 0.98));
+        border-color: var(--gold);
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.8), 0 0 18px rgba(212, 175, 55, 0.35);
+      }
+
+      /* Unread Badge */
+      .bubble-badge {
+        position: absolute;
+        top: -3px;
+        right: -3px;
+        background: linear-gradient(135deg, #fe2c55, #ff0050);
+        color: #fff;
+        font-size: 0.62rem;
+        font-weight: 800;
+        font-family: 'Space Grotesk', sans-serif;
+        width: 18px;
+        height: 18px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 2px solid #0a0a0f;
+        box-shadow: 0 2px 6px rgba(254, 44, 85, 0.6);
+        pointer-events: none;
+        transition: opacity 0.2s, transform 0.2s;
+      }
+      .messenger-social-widget.is-open .bubble-badge {
+        opacity: 0;
+        transform: scale(0);
+      }
+
+      /* Radar Pulse */
+      .bubble-pulse {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        border: 1.5px solid rgba(0, 132, 255, 0.7);
+        animation: bubbleRadar 3.2s infinite ease-out;
+        pointer-events: none;
+      }
+      @keyframes bubbleRadar {
+        0% { transform: scale(0.95); opacity: 0.8; }
+        60% { transform: scale(1.45); opacity: 0; }
+        100% { transform: scale(1.45); opacity: 0; }
+      }
+      .messenger-social-widget.is-open .bubble-pulse {
+        display: none;
+      }
+
+      /* The Popup Tray / Dialog */
+      .messenger-popup {
+        position: absolute;
+        top: 50%;
+        width: 270px;
+        background: rgba(12, 14, 22, 0.96);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        border-radius: 18px;
+        box-shadow: 0 16px 45px rgba(0, 0, 0, 0.8), 0 0 25px rgba(24, 119, 242, 0.18);
+        padding: 14px;
+        opacity: 0;
+        pointer-events: none;
+        visibility: hidden;
+        transition: all 0.28s cubic-bezier(0.34, 1.56, 0.64, 1);
+      }
+      .dock-right .messenger-popup {
+        right: 64px;
+        left: auto;
+        transform: translateY(-50%) scale(0.85);
+        transform-origin: right center;
+      }
+      .dock-left .messenger-popup {
+        left: 64px;
+        right: auto;
+        transform: translateY(-50%) scale(0.85);
+        transform-origin: left center;
+      }
+      .messenger-social-widget.is-open .messenger-popup {
+        opacity: 1;
+        pointer-events: auto;
+        visibility: visible;
+      }
+      .dock-right.is-open .messenger-popup {
+        transform: translateY(-50%) scale(1);
+      }
+      .dock-left.is-open .messenger-popup {
+        transform: translateY(-50%) scale(1);
+      }
+
+      /* Popup Header */
+      .messenger-popup-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-bottom: 10px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        margin-bottom: 10px;
+      }
+      .popup-header-title {
+        display: flex;
+        align-items: center;
+        gap: 7px;
+        font-family: 'Space Grotesk', sans-serif;
+        font-size: 0.78rem;
+        color: #eee;
+        letter-spacing: 0.3px;
+      }
+      .online-indicator {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: var(--malefic-green);
+        box-shadow: 0 0 8px var(--malefic-green);
+        animation: pulseOnline 2s infinite ease-in-out;
+      }
+      @keyframes pulseOnline {
+        0%, 100% { opacity: 1; transform: scale(1); }
+        50% { opacity: 0.6; transform: scale(1.2); }
+      }
+      .popup-header-actions {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+      }
+      .popup-action-btn {
+        width: 24px;
+        height: 24px;
         border-radius: 50%;
         background: rgba(255, 255, 255, 0.06);
-        border: 1px solid rgba(255, 255, 255, 0.15);
-        color: rgba(255, 255, 255, 0.75);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        color: #aaa;
         display: flex;
         align-items: center;
         justify-content: center;
         cursor: pointer;
-        font-size: 0.8rem;
-        transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+        font-size: 0.7rem;
+        transition: all 0.2s;
         outline: none;
       }
-      .dock-flip-btn:hover {
-        background: rgba(212, 175, 55, 0.2);
-        border-color: var(--gold);
-        color: var(--gold);
-        transform: rotate(180deg) scale(1.1);
+      .popup-action-btn:hover {
+        background: rgba(255, 255, 255, 0.15);
+        color: #fff;
+        transform: scale(1.1);
       }
-      .dock-icons {
+
+      /* Popup Channels */
+      .messenger-popup-body {
         display: flex;
         flex-direction: column;
-        gap: 10px;
+        gap: 8px;
       }
-      .dock-icon-link {
-        position: relative;
-        width: 42px;
-        height: 42px;
-        border-radius: 50%;
+      .messenger-channel-item {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 9px 12px;
+        border-radius: 12px;
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid rgba(255, 255, 255, 0.06);
+        text-decoration: none;
+        transition: all 0.22s ease;
+      }
+      .messenger-channel-item:hover {
+        background: rgba(255, 255, 255, 0.08);
+        transform: translateX(-2px);
+      }
+      .dock-left .messenger-channel-item:hover {
+        transform: translateX(2px);
+      }
+      .channel-icon-wrap {
+        width: 36px;
+        height: 36px;
+        border-radius: 10px;
         display: flex;
         align-items: center;
         justify-content: center;
-        text-decoration: none;
-        font-size: 1.2rem;
-        transition: all 0.25s cubic-bezier(0.2, 0.9, 0.3, 1.2);
+        font-size: 1.15rem;
+        flex-shrink: 0;
+        transition: transform 0.2s;
       }
-      .dock-icon-link.fb-link {
-        background: rgba(24, 119, 242, 0.16);
+      .messenger-channel-item:hover .channel-icon-wrap {
+        transform: scale(1.1);
+      }
+      .channel-icon-wrap.fb-wrap {
+        background: rgba(24, 119, 242, 0.18);
         border: 1px solid rgba(24, 119, 242, 0.45);
         color: #1877F2;
       }
-      .dock-icon-link.fb-link:hover {
-        background: #1877F2;
-        color: #ffffff;
-        box-shadow: 0 0 18px rgba(24, 119, 242, 0.85), 0 4px 12px rgba(0, 0, 0, 0.4);
-        transform: scale(1.16);
+      .messenger-channel-item.fb-channel:hover {
+        border-color: rgba(24, 119, 242, 0.45);
+        box-shadow: 0 4px 15px rgba(24, 119, 242, 0.2);
       }
-      .dock-icon-link.tt-link {
-        background: rgba(255, 255, 255, 0.06);
-        border: 1px solid rgba(254, 44, 85, 0.45);
+      .channel-icon-wrap.tt-wrap {
+        background: rgba(254, 44, 85, 0.15);
+        border: 1px solid rgba(254, 44, 85, 0.4);
         color: #ffffff;
       }
-      .dock-icon-link.tt-link i {
-        filter: drop-shadow(-1.5px -1.5px 0px rgba(0, 242, 254, 0.85)) drop-shadow(1.5px 1.5px 0px rgba(254, 44, 85, 0.85));
-        transition: filter 0.25s ease;
+      .channel-icon-wrap.tt-wrap i {
+        filter: drop-shadow(-1.5px -1.5px 0px rgba(0, 242, 254, 0.8)) drop-shadow(1.5px 1.5px 0px rgba(254, 44, 85, 0.8));
       }
-      .dock-icon-link.tt-link:hover {
-        background: #010101;
-        border-color: #00f2fe;
-        box-shadow: 0 0 18px rgba(254, 44, 85, 0.75), 0 0 12px rgba(0, 242, 254, 0.75);
-        transform: scale(1.16);
+      .messenger-channel-item.tt-channel:hover {
+        border-color: rgba(254, 44, 85, 0.45);
+        box-shadow: 0 4px 15px rgba(254, 44, 85, 0.2);
       }
-      .dock-icon-link.tt-link:hover i {
-        filter: drop-shadow(-2px -2px 1px #00f2fe) drop-shadow(2px 2px 1px #fe2c55);
+      .channel-info {
+        flex: 1;
+        min-width: 0;
       }
-      /* Tooltips */
-      .dock-tooltip {
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        padding: 5px 11px;
-        background: rgba(5, 5, 8, 0.95);
-        border: 1px solid rgba(255, 255, 255, 0.2);
-        color: #fff;
-        font-size: 0.72rem;
+      .channel-name {
         font-family: 'Space Grotesk', sans-serif;
-        font-weight: 600;
-        letter-spacing: 0.5px;
+        font-size: 0.76rem;
+        font-weight: 700;
+        color: #fff;
+        line-height: 1.2;
+      }
+      .channel-handle {
+        font-size: 0.65rem;
+        color: #888;
         white-space: nowrap;
-        border-radius: 6px;
-        pointer-events: none;
-        opacity: 0;
-        transition: opacity 0.2s, transform 0.2s;
-        box-shadow: 0 4px 15px rgba(0,0,0,0.6);
+        overflow: hidden;
+        text-overflow: ellipsis;
+        margin-top: 2px;
       }
-      .dock-right .dock-tooltip {
-        right: calc(100% + 12px);
-        transform: translateY(-50%) translateX(6px);
+      .channel-arrow {
+        color: #666;
+        font-size: 0.72rem;
+        transition: transform 0.2s, color 0.2s;
       }
-      .dock-left .dock-tooltip {
-        left: calc(100% + 12px);
-        transform: translateY(-50%) translateX(-6px);
+      .messenger-channel-item:hover .channel-arrow {
+        color: var(--malefic-green);
+        transform: translateX(3px);
       }
-      .dock-icon-link:hover .dock-tooltip {
-        opacity: 1;
-        transform: translateY(-50%) translateX(0);
+      .dock-left .messenger-channel-item:hover .channel-arrow {
+        transform: translateX(3px);
       }
+
+      /* Mobile Sizing */
       @media (max-width: 600px) {
-        .movable-social-dock {
-          padding: 8px 6px;
-          gap: 8px;
+        .messenger-social-widget.dock-right { right: 10px; }
+        .messenger-social-widget.dock-left { left: 10px; }
+        .messenger-bubble {
+          width: 46px;
+          height: 46px;
         }
-        .dock-icon-link {
-          width: 38px;
-          height: 38px;
-          font-size: 1.05rem;
+        .bubble-icon { font-size: 1.25rem; }
+        .messenger-popup {
+          width: 245px;
+          padding: 12px;
         }
-        .dock-flip-btn {
-          width: 28px;
-          height: 28px;
-          font-size: 0.75rem;
-        }
-        .dock-tooltip {
-          display: none;
-        }
+        .dock-right .messenger-popup { right: 54px; }
+        .dock-left .messenger-popup { left: 54px; }
       }
       </style>
   
@@ -6885,36 +7061,71 @@ export const audioSynth = new CyberneticAudioSynthesizer();`
     </div>
 
     <!-- ═══════════════════════════════════════════════════════════════ -->
-    <!-- FLOATING MOVABLE SOCIAL DOCK (FACEBOOK & TIKTOK)                -->
+    <!-- MESSENGER-STYLE PORTABLE FLOATING SOCIAL BUBBLE                 -->
     <!-- ═══════════════════════════════════════════════════════════════ -->
-    <aside id="movable-social-dock" class="movable-social-dock dock-right" aria-label="Social Media Shortcuts">
-      <button type="button" id="dock-flip-btn" class="dock-flip-btn" title="Flip to opposite side (Left / Right)" aria-label="Flip social dock to opposite side">
-        <i class="fas fa-arrows-left-right"></i>
+    <div id="messenger-social-widget" class="messenger-social-widget dock-right" aria-label="Social Quick Access">
+      <!-- The Floating Circular Bubble (Chat Head) -->
+      <button type="button" id="messenger-social-bubble" class="messenger-bubble" aria-label="Open Facebook & TikTok channels" title="Connect on Facebook & TikTok (Tap to open · Drag to reposition)">
+        <div class="bubble-icon-container">
+          <i class="fab fa-facebook-messenger bubble-icon main-icon"></i>
+          <i class="fas fa-times bubble-icon close-icon"></i>
+        </div>
+        <span class="bubble-badge" title="2 Channels Available">2</span>
+        <span class="bubble-pulse"></span>
       </button>
-      <div id="dock-drag-handle" class="dock-drag-handle" title="Hold & Drag to move up/down or across screen" aria-label="Drag handle">
-        <i class="fas fa-grip-vertical"></i>
+
+      <!-- The Messenger Popup Tray / Card -->
+      <div id="messenger-social-popup" class="messenger-popup" role="dialog" aria-hidden="true">
+        <div class="messenger-popup-header">
+          <div class="popup-header-title">
+            <span class="online-indicator"></span>
+            <strong>EmpireCodes Socials</strong>
+          </div>
+          <div class="popup-header-actions">
+            <button type="button" id="messenger-flip-btn" class="popup-action-btn" title="Flip to other side (Left / Right)" aria-label="Flip to other side">
+              <i class="fas fa-arrows-left-right"></i>
+            </button>
+            <button type="button" id="messenger-close-btn" class="popup-action-btn" title="Close" aria-label="Close menu">
+              <i class="fas fa-times"></i>
+            </button>
+          </div>
+        </div>
+
+        <div class="messenger-popup-body">
+          <!-- Facebook Channel Item -->
+          <a href="https://www.facebook.com/profile.php?id=61595900098151&mibextid=wwXIfr" 
+             target="_blank" 
+             rel="noopener noreferrer" 
+             class="messenger-channel-item fb-channel" 
+             title="Connect with Anthony Matthew on Facebook">
+            <div class="channel-icon-wrap fb-wrap">
+              <i class="fab fa-facebook-f"></i>
+            </div>
+            <div class="channel-info">
+              <div class="channel-name">Facebook Profile</div>
+              <div class="channel-handle">Anthony Matthew · EmpireCodes</div>
+            </div>
+            <span class="channel-arrow"><i class="fas fa-chevron-right"></i></span>
+          </a>
+
+          <!-- TikTok Channel Item -->
+          <a href="https://www.tiktok.com/@empirecodes.com.ng" 
+             target="_blank" 
+             rel="noopener noreferrer" 
+             class="messenger-channel-item tt-channel" 
+             title="Follow EmpireCodes on TikTok (@empirecodes.com.ng)">
+            <div class="channel-icon-wrap tt-wrap">
+              <i class="fab fa-tiktok"></i>
+            </div>
+            <div class="channel-info">
+              <div class="channel-name">TikTok Official</div>
+              <div class="channel-handle">@empirecodes.com.ng</div>
+            </div>
+            <span class="channel-arrow"><i class="fas fa-chevron-right"></i></span>
+          </a>
+        </div>
       </div>
-      <div class="dock-icons">
-        <a href="https://www.facebook.com/profile.php?id=61595900098151&mibextid=wwXIfr" 
-           target="_blank" 
-           rel="noopener noreferrer" 
-           class="dock-icon-link fb-link" 
-           title="Connect with Anthony & EmpireCodes on Facebook" 
-           aria-label="Facebook Profile">
-          <i class="fab fa-facebook-f"></i>
-          <span class="dock-tooltip">Facebook</span>
-        </a>
-        <a href="https://www.tiktok.com/@empirecodes.com.ng" 
-           target="_blank" 
-           rel="noopener noreferrer" 
-           class="dock-icon-link tt-link" 
-           title="Follow EmpireCodes on TikTok (@empirecodes.com.ng)" 
-           aria-label="TikTok Account">
-          <i class="fab fa-tiktok"></i>
-          <span class="dock-tooltip">TikTok</span>
-        </a>
-      </div>
-    </aside>
+    </div>
 
     <div class="void-nav">
         <a href="#download-app" title="EmpireCodes Mobile Fleet & Simulator" style="color: #61DAFB;"><i class="fas fa-mobile-alt"></i></a>
@@ -7009,99 +7220,147 @@ export const audioSynth = new CyberneticAudioSynthesizer();`
     </script>
 
     <!-- ═══════════════════════════════════════════════════════════════ -->
-    <!-- MOVABLE & FLIPPABLE SOCIAL DOCK LOGIC                           -->
+    <!-- MESSENGER-STYLE PORTABLE FLOATING SOCIAL BUBBLE LOGIC           -->
     <!-- ═══════════════════════════════════════════════════════════════ -->
     <script>
       (function () {
-        var dock = document.getElementById('movable-social-dock');
-        var flipBtn = document.getElementById('dock-flip-btn');
-        if (!dock || !flipBtn) return;
+        var widget = document.getElementById('messenger-social-widget');
+        var bubble = document.getElementById('messenger-social-bubble');
+        var flipBtn = document.getElementById('messenger-flip-btn');
+        var closeBtn = document.getElementById('messenger-close-btn');
+        var popup = document.getElementById('messenger-social-popup');
+        if (!widget || !bubble) return;
 
-        // Restore saved dock position & side
+        // Restore saved position & side
         try {
-          var savedSide = localStorage.getItem('empire_social_dock_side') || 'dock-right';
-          var savedTop = localStorage.getItem('empire_social_dock_top');
-          dock.classList.remove('dock-left', 'dock-right');
-          dock.classList.add(savedSide);
+          var savedSide = localStorage.getItem('empire_social_bubble_side') || 'dock-right';
+          var savedTop = localStorage.getItem('empire_social_bubble_top');
+          widget.classList.remove('dock-left', 'dock-right');
+          widget.classList.add(savedSide);
           if (savedTop) {
-            dock.style.top = savedTop;
+            widget.style.top = savedTop;
           }
         } catch (e) {}
 
         function toggleSide() {
-          if (dock.classList.contains('dock-right')) {
-            dock.classList.remove('dock-right');
-            dock.classList.add('dock-left');
-            try { localStorage.setItem('empire_social_dock_side', 'dock-left'); } catch (e) {}
+          if (widget.classList.contains('dock-right')) {
+            widget.classList.remove('dock-right');
+            widget.classList.add('dock-left');
+            try { localStorage.setItem('empire_social_bubble_side', 'dock-left'); } catch (e) {}
           } else {
-            dock.classList.remove('dock-left');
-            dock.classList.add('dock-right');
-            try { localStorage.setItem('empire_social_dock_side', 'dock-right'); } catch (e) {}
+            widget.classList.remove('dock-left');
+            widget.classList.add('dock-right');
+            try { localStorage.setItem('empire_social_bubble_side', 'dock-right'); } catch (e) {}
           }
         }
 
-        flipBtn.addEventListener('click', function (e) {
-          e.preventDefault();
-          e.stopPropagation();
-          toggleSide();
+        function togglePopup() {
+          widget.classList.toggle('is-open');
+          var isOpen = widget.classList.contains('is-open');
+          if (popup) popup.setAttribute('aria-hidden', !isOpen);
+        }
+
+        function closePopup() {
+          widget.classList.remove('is-open');
+          if (popup) popup.setAttribute('aria-hidden', 'true');
+        }
+
+        if (flipBtn) {
+          flipBtn.addEventListener('click', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+            toggleSide();
+          });
+        }
+
+        if (closeBtn) {
+          closeBtn.addEventListener('click', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+            closePopup();
+          });
+        }
+
+        // Close when clicking outside
+        document.addEventListener('pointerdown', function (e) {
+          if (!widget.contains(e.target)) {
+            closePopup();
+          }
         });
 
-        // Universal Pointer Dragging (mouse + touch)
+        // Close on Escape key
+        document.addEventListener('keydown', function (e) {
+          if (e.key === 'Escape') closePopup();
+        });
+
+        // Pointer Dragging (Messenger Chat Head magnetic snap)
         var isDragging = false;
         var startY = 0;
         var startTop = 0;
+        var totalDelta = 0;
         var activePointerId = null;
 
-        dock.addEventListener('pointerdown', function (e) {
-          // Ignore clicks on links or the flip button so navigation is immediate
-          if (e.target.closest('a') || e.target.closest('#dock-flip-btn')) return;
+        bubble.addEventListener('pointerdown', function (e) {
           isDragging = true;
+          totalDelta = 0;
           activePointerId = e.pointerId;
           startY = e.clientY;
-          startTop = dock.getBoundingClientRect().top;
-          dock.classList.add('is-dragging');
-          try { dock.setPointerCapture(e.pointerId); } catch (err) {}
+          startTop = widget.getBoundingClientRect().top;
+          try { bubble.setPointerCapture(e.pointerId); } catch (err) {}
         });
 
         window.addEventListener('pointermove', function (e) {
           if (!isDragging) return;
           var deltaY = e.clientY - startY;
+          totalDelta = Math.abs(deltaY);
+
+          // Only consider it a drag if moved > 5px (prevents accidental tap suppression)
+          if (totalDelta > 5) {
+            widget.classList.add('is-dragging');
+            closePopup();
+          }
+
           var newTop = startTop + deltaY;
           var minTop = 60;
-          var maxTop = window.innerHeight - (dock.offsetHeight || 160) - 80;
+          var maxTop = window.innerHeight - 80;
           if (newTop < minTop) newTop = minTop;
           if (newTop > maxTop) newTop = maxTop;
-          dock.style.top = newTop + 'px';
+          widget.style.top = newTop + 'px';
 
-          // Flip side if dragged past screen horizontal center
+          // Snap horizontally if dragged past screen midpoint
           if (e.clientX < window.innerWidth / 2) {
-            if (dock.classList.contains('dock-right')) {
-              dock.classList.remove('dock-right');
-              dock.classList.add('dock-left');
-              try { localStorage.setItem('empire_social_dock_side', 'dock-left'); } catch (e) {}
+            if (widget.classList.contains('dock-right')) {
+              widget.classList.remove('dock-right');
+              widget.classList.add('dock-left');
+              try { localStorage.setItem('empire_social_bubble_side', 'dock-left'); } catch (e) {}
             }
           } else {
-            if (dock.classList.contains('dock-left')) {
-              dock.classList.remove('dock-left');
-              dock.classList.add('dock-right');
-              try { localStorage.setItem('empire_social_dock_side', 'dock-right'); } catch (e) {}
+            if (widget.classList.contains('dock-left')) {
+              widget.classList.remove('dock-left');
+              widget.classList.add('dock-right');
+              try { localStorage.setItem('empire_social_bubble_side', 'dock-right'); } catch (e) {}
             }
           }
         });
 
-        function endDrag(e) {
+        function onPointerEnd(e) {
           if (!isDragging) return;
           isDragging = false;
-          dock.classList.remove('is-dragging');
+          widget.classList.remove('is-dragging');
           if (activePointerId !== null) {
-            try { dock.releasePointerCapture(activePointerId); } catch (err) {}
+            try { bubble.releasePointerCapture(activePointerId); } catch (err) {}
             activePointerId = null;
           }
-          try { localStorage.setItem('empire_social_dock_top', dock.style.top); } catch (err) {}
+          try { localStorage.setItem('empire_social_bubble_top', widget.style.top); } catch (e) {}
+
+          // If the user tapped without dragging, toggle popup!
+          if (totalDelta <= 5) {
+            togglePopup();
+          }
         }
 
-        window.addEventListener('pointerup', endDrag);
-        window.addEventListener('pointercancel', endDrag);
+        bubble.addEventListener('pointerup', onPointerEnd);
+        bubble.addEventListener('pointercancel', onPointerEnd);
       })();
     </script>
   </body>
