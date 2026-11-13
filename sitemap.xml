@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+        xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
+  <url>
+    <loc>https://empirecodes.com.ng/</loc>
+    <lastmod>2026-11-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+
+    <image:image>
+      <image:loc>https://empirecodes.com.ng/vendor/art/founder-portrait.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://empirecodes.com.ng/vendor/art/founder-wide.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://empirecodes.com.ng/vendor/art/empirecodes-og-logo.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://empirecodes.com.ng/vendor/art/empireswitch-core.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://empirecodes.com.ng/vendor/art/hero-architecture.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://empirecodes.com.ng/vendor/art/studio-bento.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://empirecodes.com.ng/empirecodes_logo.jpg</image:loc>
+    </image:image>
+
+    <video:video>
+      <video:thumbnail_loc>https://empirecodes.com.ng/vendor/art/founder-portrait.jpg</video:thumbnail_loc>
+      <video:title>Anthony Oluwaseun Matthew — Full-Stack, Mobile &amp; FinTech Engineering Introduction</video:title>
+      <video:description>Engineering introduction by Anthony Oluwaseun Matthew covering React Native mobile apps, Python (Django, DRF, FastAPI) backends, Paystack &amp; EmpireSwitch payment routing, and Operations Research.</video:description>
+      <video:content_loc>https://empirecodes.com.ng/FILE/empirecodes_speech.mp4</video:content_loc>
+      <video:duration>107</video:duration>
+      <video:publication_date>2026-10-14T00:00:00+01:00</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+      <video:uploader info="https://empirecodes.com.ng/">Anthony Oluwaseun Matthew</video:uploader>
+    </video:video>
+
+    <video:video>
+      <video:thumbnail_loc>https://empirecodes.com.ng/vendor/art/empireswitch-core.jpg</video:thumbnail_loc>
+      <video:title>EMPIRECODES &amp; EmpireSwitch Android App Production Walkthrough</video:title>
+      <video:description>Production React Native and FinTech Android application walkthrough built by Anthony Oluwaseun Matthew at EMPIRECODES Studio.</video:description>
+      <video:content_loc>https://empirecodes.com.ng/Andriod_app_video.mp4</video:content_loc>
+      <video:duration>25</video:duration>
+      <video:publication_date>2026-10-22T00:00:00+01:00</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+      <video:uploader info="https://empirecodes.com.ng/">Anthony Oluwaseun Matthew</video:uploader>
+    </video:video>
+  </url>
+
+  <url>
+    <loc>https://empirecodes.com.ng/FILE/Anthony_Matthew_CV_v6.pdf</loc>
+    <lastmod>2026-11-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+</urlset>

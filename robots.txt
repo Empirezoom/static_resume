@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Allow: /FILE/Anthony_Matthew_CV_v6.pdf
+
+Sitemap: https://empirecodes.com.ng/sitemap.xml

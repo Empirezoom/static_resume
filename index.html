@@ -22,6 +22,7 @@
     <link rel="apple-touch-icon" sizes="180x180" href="empirecodes_logo.jpg" />
     <link rel="image_src" href="https://empirecodes.com.ng/vendor/art/empirecodes-og-logo.jpg" />
     <link rel="manifest" href="site.webmanifest" />
+    <link rel="sitemap" type="application/xml" title="Sitemap" href="sitemap.xml" />
     <link rel="preload" as="image" href="empirecodes_logo.jpg" />
     <link rel="preload" as="image" href="vendor/art/founder-portrait.jpg" />
     <meta name="google-site-verification" content="nGSCGnrwiYSl4pWSG9AexPJ2FXU_uvd36peW" />
@@ -115,6 +116,9 @@
                         },
                         {
                               "@id": "https://empirecodes.com.ng/#founder-speech"
+                        },
+                        {
+                              "@id": "https://empirecodes.com.ng/#android-app-video"
                         }
                   ]
             },
@@ -393,6 +397,20 @@
                   "duration": "PT1M47S",
                   "encodingFormat": "video/mp4",
                   "uploadDate": "2026-10-14T00:00:00+01:00",
+                  "author": {
+                        "@id": "https://empirecodes.com.ng/#about"
+                  }
+            },
+            {
+                  "@type": "VideoObject",
+                  "@id": "https://empirecodes.com.ng/#android-app-video",
+                  "name": "EMPIRECODES & EmpireSwitch Android App Production Walkthrough",
+                  "description": "Production React Native and FinTech Android application walkthrough built by Anthony Oluwaseun Matthew at EMPIRECODES Studio.",
+                  "contentUrl": "https://empirecodes.com.ng/Andriod_app_video.mp4",
+                  "thumbnailUrl": "https://empirecodes.com.ng/vendor/art/empireswitch-core.jpg",
+                  "duration": "PT25S",
+                  "encodingFormat": "video/mp4",
+                  "uploadDate": "2026-10-22T00:00:00+01:00",
                   "author": {
                         "@id": "https://empirecodes.com.ng/#about"
                   }
@@ -8673,7 +8691,7 @@
           <div class="video-theater-grid">
             <div>
               <div class="video-stage-wrap">
-                <video id="onpage-local-video" src="Andriod_app_video.mp4" controls playsinline preload="metadata">
+                <video id="onpage-local-video" src="Andriod_app_video.mp4" poster="vendor/art/empireswitch-core.jpg" controls playsinline preload="metadata">
                   <source src="Andriod_app_video.mp4" type="video/mp4" />
                 </video>
                 <iframe
@@ -9921,7 +9939,7 @@
                   <span class="speech-chip"><i class="fas fa-wave-square" style="color:#34d399;"></i> INTRO SPEECH</span>
                   <span class="speech-chip">01:46</span>
                 </div>
-                <video id="founder-speech-video" src="FILE/empirecodes_speech.mp4" controls playsinline preload="metadata">
+                <video id="founder-speech-video" src="FILE/empirecodes_speech.mp4" poster="vendor/art/founder-portrait.jpg" controls playsinline preload="metadata">
                   <source src="FILE/empirecodes_speech.mp4" type="video/mp4" />
                 </video>
               </div>
